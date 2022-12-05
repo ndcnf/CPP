@@ -9,15 +9,17 @@ OBJ =		${SRC:.cpp=.o}
 all:		${NAME}
 
 ${NAME}:	${OBJ}
-			${CC} ${CFLAGS} ${OBJ} -o ${NAME}
+			@${CC} ${CFLAGS} ${OBJ} -o ${NAME}
+			@echo "compiling	OK"
 
 norm:		all
 			norminette ${SRC}
 clean:
-			rm -rf ${OBJ}
+			@rm -rf ${OBJ}
+			@echo "cleaning	OK"
 
 fclean:		clean
-			rm -rf ${NAME}
+			@rm -rf ${NAME}
 
 re:			fclean all
 
