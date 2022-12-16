@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:00:52 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/16 15:42:16 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/16 17:56:39 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,28 @@ int	main(void)
 		for (int i = 0; i < (int)prompt.length(); i++)
 			prompt[i] = (char)toupper(prompt[i]);
 		std::cout << "You entered: [" << prompt << "]" << std::endl;
+
 		if (prompt == "EXIT")
 			break;
+
 		if (prompt != "ADD" && prompt != "SEARCH")
 		{
 			std::cout << "[" << prompt << "] is an invalid command. Please try again." << std::endl;
 			continue;
 		}
-		std::cout << "It is valid." << std::endl;
+
+		// Everything is valid down here --------------------------------------
+		if (prompt == "ADD")
+		{
+
+		}
+
+		if (prompt == "SEARCH")
+		{
+
+		}
+		std::cout << phonebook.getNbContact() << std::endl;
+
 	}
 	return (0);
 }
