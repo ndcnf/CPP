@@ -6,22 +6,29 @@
 #    By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 09:33:59 by nchennaf          #+#    #+#              #
-#    Updated: 2022/12/16 09:36:06 by nchennaf         ###   ########.fr        #
+#    Updated: 2022/12/16 14:01:14 by nchennaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC =		c++
-CFLAGS =	-Wall -Wextra -Werror -g -fsanitize=address -std=c++98 -pedantic
-NAME =		megaphone
+CPPFLAGS =	-Wall -Wextra -Werror -g -fsanitize=address -std=c++98 -pedantic
+NAME =		phonebook
 AR =		ar rcs
-SRC =		megaphone.cpp
+SRC =		main.cpp \
+			Phonebook.cpp \
+			Contact.cpp
+HEADER =	./Class.Contact.hpp \
+			./Class.Phonebook.hpp
 
 OBJ =		${SRC:.cpp=.o}
 
 all:		${NAME}
 
+${OBJ}: %.o : %.cpp ${HEADER} ./Makefile
+	@${CC} ${CPPFLAGS} -o $@ -c $<
+
 ${NAME}:	${OBJ}
-			@${CC} ${CFLAGS} ${OBJ} -o ${NAME}
+			@${CC} ${CPPFLAGS} ${OBJ} -o ${NAME}
 			@echo "compiling	OK"
 
 clean:
