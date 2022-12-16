@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:00:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/16 09:29:46 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:28:26 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		main(int argc, char **argv)
 		while (i < argc)
 		{
 			std::string	str(argv[i]);
-			for (int j = 0; j < str.length(); j++)
+			for (int j = 0; j < (int)str.length(); j++)
 				std::cout << (char)toupper(str[j]);
 			i++;
 		}
