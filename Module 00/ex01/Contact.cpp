@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:01:44 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/16 10:12:04 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:14:10 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 Contact::Contact(void)
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Constructor Contact called" << std::endl;
 	return;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor Contact called" << std::endl;
 	return;
 }
