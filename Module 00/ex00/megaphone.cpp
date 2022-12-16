@@ -6,14 +6,27 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 14:00:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/05 14:01:49 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/16 09:29:46 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <iostream>
 
-int	main(void)
+int		main(int argc, char **argv)
 {
-	printf("chien?\n");
+	if (argc < 2)
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+	else
+	{
+		int	i = 1;
+		while (i < argc)
+		{
+			std::string	str(argv[i]);
+			for (int j = 0; j < str.length(); j++)
+				std::cout << (char)toupper(str[j]);
+			i++;
+		}
+		std::cout << std::endl;
+	}
 	return 0;
 }
