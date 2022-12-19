@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:00:52 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/19 13:08:23 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:44:29 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,21 @@ int	main(void)
 
 		if (prompt == "SEARCH")
 		{
-
+			phonebook.searchContact();
 		}
 		std::cout << phonebook.getNbContact() << " contacts in the phonebook" << std::endl;
-
+		phonebook.searchContact();
 
 	}
 	return (0);
 }
+
+/* TO-DO
+	[]	Le meme index est appele dans le tableau SEARCH
+	[]	Verifier que l'entree d'avant n'est pas ecrasee
+	[]	Comprendre 'resize' car ne fonctionne pas actuellement OU ne semble pas le faire
+	[]	"Contact number x has been added" a corriger avec un -1 OU ne pas l'afficher en prod
+	[]	unisgned pour le resize ?
+	[]	ne passe pas dans le else pour le resize
+	[]	regler le -27 pour delta
+*/
