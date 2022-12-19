@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:45:30 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/19 11:54:29 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/19 13:07:34 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ class Phonebook
 	// void fonction();
 	void	addContact(void);
 	int		getNbContact(void);
+
+	int		index;
 
 	private:
 	Contact	contact[MAX_CONTACT];
