@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:01:44 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/19 11:27:21 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/19 12:00:46 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ std::string	Contact::getFirstName(void) const
 	return this->_firstName;
 }
 
-std::string	Contact::getLasttName(void) const
+std::string	Contact::getLastName(void) const
 {
 	return this->_lastName;
 }
@@ -59,7 +59,7 @@ void	Contact::setFirstName(std::string s)
 	}
 }
 
-void	Contact::setLasttName(std::string s)
+void	Contact::setLastName(std::string s)
 {
 	if (!s.empty())
 	{

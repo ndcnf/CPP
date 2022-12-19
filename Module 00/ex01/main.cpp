@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:00:52 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/19 11:26:25 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/19 12:02:47 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	main(void)
 
 		}
 		std::cout << phonebook.getNbContact() << " contacts in the phonebook" << std::endl;
+
 
 	}
 	return (0);

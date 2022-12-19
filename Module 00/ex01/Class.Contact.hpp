@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:45:30 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/16 17:33:36 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/19 12:00:12 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ class Contact
 	~Contact(void);
 
 	std::string	getFirstName(void) const;
-	std::string	getLasttName(void) const;
+	std::string	getLastName(void) const;
 	std::string	getNickname(void) const;
 	std::string	getTelephoneNum(void) const;
 	std::string	getDarkestSecret(void) const;
 
 	void	setFirstName(std::string s);
-	void	setLasttName(std::string s);
+	void	setLastName(std::string s);
 	void	setNickname(std::string s);
 	void	setTelephoneNum(std::string s);
 	void	setDarkestSecret(std::string s);
