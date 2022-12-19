@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:38:48 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/19 16:57:20 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:59:54 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,8 +120,16 @@ void	Phonebook::searchContact(void)
 		std::cout << "|         ";
 		std::cout << this->getIndex() << WORD_SEPA;
 
+		////////////////////////////////////////////////////////////
+		// TO-DO HERE
+
 		std::cout << this->wordToPrint(this->contact[this->_index].getFirstName()) << std::endl;
 		std::cout << "[" << this->contact[this->_index].getFirstName().size() << "]" << std::endl;
+
+		///////////////////////////////////////////////////////////
+
+
+
 
 		// std::cout << this->contact[this->_index].getFirstName() << WORD_SEPA;
 		std::cout << this->contact[this->_index].getLastName() <<  WORD_SEPA;
@@ -134,12 +142,12 @@ void	Phonebook::searchContact(void)
 std::string	Phonebook::wordToPrint(std::string word)
 {
 	int	delta;
-	std::string	result;
+	// std::string	result;
 
 	delta = word.length() - MAX_LEN;
 	// std::cout << "DELTA : " << delta << std::endl;
 	if (delta == 0)
-		result = word;
+		return (word);
 	else if (delta < 0)
 	{
 		std::cout << "DELTA : " << delta << std::endl;
@@ -152,10 +160,9 @@ std::string	Phonebook::wordToPrint(std::string word)
 	}
 	else
 	{
-		std::cout << "HELLLLLLLLLLLLLLOOOOOOOOOOOOOOOO" << std::endl;
 		word.resize((unsigned)(MAX_LEN-1));
 		word.append(".");
-		std::cout << word << std::endl;
+		// std::cout << word << std::endl;
 	}
 	return (word);
 }
