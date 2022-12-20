@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:38:48 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/20 15:06:12 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/20 15:51:07 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 Phonebook::Phonebook(void)
 {
-	std::cout << "Constructor Phonebook called" << std::endl;
+	std::cout	<< "Constructor Phonebook called"
+				<< std::endl;
 	this->_nbContact = 0;
 	this->_index = 0;
 	this->_entries = 0;
@@ -25,7 +26,8 @@ Phonebook::Phonebook(void)
 
 Phonebook::~Phonebook(void)
 {
-	std::cout << "Destructor Phonebook called" << std::endl;
+	std::cout	<< "Destructor Phonebook called"
+				<< std::endl;
 	return;
 }
 
@@ -55,38 +57,38 @@ void	Phonebook::addContact(void)
 		this->_nbContact++;
 	this->_entries++;
 	this->setIndex();
-	std::cout << Phonebook::getIndex() << std::endl;
+	std::cout	<< Phonebook::getIndex()
+				<< std::endl;
 
-	std::cout << "New contact to add:" << std::endl;
+	std::cout	<< "New contact to add:"
+				<< std::endl;
 
-	std::cout << "First name: ";
-	std::cin >> prompt;
+	std::cout	<< "First name: ";
+	std::cin	>> prompt;
 	this->contact[this->_index].setFirstName(prompt);
 	// this->contact[this->getNbContact() % MAX_CONTACT].setFirstName(prompt);
 
-	std::cout << "Last name: ";
-	std::cin >> prompt;
+	std::cout	<< "Last name: ";
+	std::cin	>> prompt;
 	this->contact[this->_index].setLastName(prompt);
 	// this->contact[this->getNbContact() % MAX_CONTACT].setLastName(prompt);
 
-	std::cout << "Nickname: ";
-	std::cin >> prompt;
+	std::cout	<< "Nickname: ";
+	std::cin	>> prompt;
 	this->contact[this->_index].setNickname(prompt);
 	// this->contact[this->getNbContact() % MAX_CONTACT].setNickname(prompt);
 
 
-	std::cout << "Telephone number: ";
-	std::cin >> prompt;
+	std::cout	<< "Telephone number: ";
+	std::cin	>> prompt;
 	this->contact[this->_index].setTelephoneNum(prompt);
 	// this->contact[this->getNbContact() % MAX_CONTACT].setTelephoneNum(prompt);
 
 
-	std::cout << "Your darkest and utmost secret: ";
-	std::cin >> prompt;
+	std::cout	<< "Your darkest and utmost secret: ";
+	std::cin	>> prompt;
 	this->contact[this->_index].setDarkestSecret(prompt);
 	// this->contact[this->getNbContact() % MAX_CONTACT].setDarkestSecret(prompt);
-
-	std::cout << "Contact number " << this->getNbContact() << " has been added" << std::endl;
 
 	// std::cout << this->contact[this->getNbContact() % MAX_CONTACT].getFirstName() << std::endl;
 	// std::cout << this->contact[this->getNbContact() % MAX_CONTACT].getLastName() << std::endl;
@@ -112,45 +114,31 @@ void	Phonebook::addContact(void)
 
 void	Phonebook::searchContact(void)
 {
-	std::cout << ROW_SEPA << std::endl;
-	std::cout << ROW_TITLE << std::endl;
-	std::cout << ROW_SEPA << std::endl;
+	std::cout	<< ROW_SEPA
+				<< std::endl;
+	std::cout	<< ROW_TITLE
+				<< std::endl;
+	std::cout	<< ROW_SEPA
+				<< std::endl;
 
 	for (int i = 0; i < this->getNbContact(); i++)
 	{
 		std::cout	<< WORD_SEPA
 					<< std::setw(MAX_LEN)
-					<< this->getIndex()
+					<< (i % MAX_CONTACT)
 					<< WORD_SEPA;
 		std::cout	<< std::setw(MAX_LEN)
-					<< this->wordToPrint(this->contact[this->_index].getFirstName())
+					<< this->wordToPrint(this->contact[i % MAX_CONTACT].getFirstName())
 					<< WORD_SEPA;
 		std::cout	<< std::setw(MAX_LEN)
-					<< this->wordToPrint(this->contact[this->_index].getLastName())
+					<< this->wordToPrint(this->contact[i % MAX_CONTACT].getLastName())
 					<< WORD_SEPA;
 		std::cout	<< std::setw(MAX_LEN)
-					<< this->wordToPrint(this->contact[this->_index].getNickname())
+					<< this->wordToPrint(this->contact[i % MAX_CONTACT].getNickname())
 					<< WORD_SEPA
 					<< std::endl;
 		std::cout	<< ROW_SEPA
 					<< std::endl;
-		////////////////////////////////////////////////////////////
-		// TO-DO HERE
-
-		// std::cout << this->wordToPrint(this->contact[this->_index].getFirstName()) << std::endl;
-		// std::cout << "[" << this->contact[this->_index].getFirstName().size() << "]" << std::endl;
-
-		///////////////////////////////////////////////////////////
-
-
-
-
-		// std::cout << this->contact[this->_index].getFirstName() << WORD_SEPA;
-		// std::cout << this->contact[this->_index].getLastName() <<  WORD_SEPA;
-		// std::cout << this->contact[this->_index].getNickname() <<  WORD_SEPA << std::endl;
-
-		// std::cout << this->contact[this->_index].getTelephoneNum() << std::endl;
-		// std::cout << this->contact[this->_index].getDarkestSecret() << std::endl;
 	}
 }
 
