@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:45:30 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/19 15:09:18 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/20 16:22:13 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ class Phonebook
 	void			addContact(void);
 	void			searchContact(void);
 	std::string		wordToPrint(std::string word);
+	int				retrieveContact(int i);
+	void			printAllContacts(void);
 
 	private:
 	Contact	contact[MAX_CONTACT];

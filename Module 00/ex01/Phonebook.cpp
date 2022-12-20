@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:38:48 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/20 15:51:07 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/20 17:04:37 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	Phonebook::setIndex(void)
 		this->_index = this->getNbContact() - 1;
 	else
 		this->_index = this->_entries % MAX_CONTACT;
+	std::cout << "Index [" << this->_index << "]" << std::endl;
 }
 
 void	Phonebook::addContact(void)
@@ -55,64 +56,44 @@ void	Phonebook::addContact(void)
 
 	if (this->getNbContact() < MAX_CONTACT)
 		this->_nbContact++;
-	this->_entries++;
-	this->setIndex();
-	std::cout	<< Phonebook::getIndex()
-				<< std::endl;
 
 	std::cout	<< "New contact to add:"
 				<< std::endl;
 
 	std::cout	<< "First name: ";
 	std::cin	>> prompt;
-	this->contact[this->_index].setFirstName(prompt);
-	// this->contact[this->getNbContact() % MAX_CONTACT].setFirstName(prompt);
+	this->contact[this->_entries % MAX_CONTACT].setFirstName(prompt);
 
 	std::cout	<< "Last name: ";
 	std::cin	>> prompt;
-	this->contact[this->_index].setLastName(prompt);
-	// this->contact[this->getNbContact() % MAX_CONTACT].setLastName(prompt);
+	this->contact[this->_entries % MAX_CONTACT].setLastName(prompt);
 
 	std::cout	<< "Nickname: ";
 	std::cin	>> prompt;
-	this->contact[this->_index].setNickname(prompt);
-	// this->contact[this->getNbContact() % MAX_CONTACT].setNickname(prompt);
-
+	this->contact[this->_entries % MAX_CONTACT].setNickname(prompt);
 
 	std::cout	<< "Telephone number: ";
 	std::cin	>> prompt;
-	this->contact[this->_index].setTelephoneNum(prompt);
-	// this->contact[this->getNbContact() % MAX_CONTACT].setTelephoneNum(prompt);
-
+	this->contact[this->_entries % MAX_CONTACT].setTelephoneNum(prompt);
 
 	std::cout	<< "Your darkest and utmost secret: ";
 	std::cin	>> prompt;
-	this->contact[this->_index].setDarkestSecret(prompt);
-	// this->contact[this->getNbContact() % MAX_CONTACT].setDarkestSecret(prompt);
+	this->contact[this->_entries % MAX_CONTACT].setDarkestSecret(prompt);
 
-	// std::cout << this->contact[this->getNbContact() % MAX_CONTACT].getFirstName() << std::endl;
-	// std::cout << this->contact[this->getNbContact() % MAX_CONTACT].getLastName() << std::endl;
-	// std::cout << this->contact[this->getNbContact() % MAX_CONTACT].getNickname() << std::endl;
-	// std::cout << this->contact[this->getNbContact() % MAX_CONTACT].getTelephoneNum() << std::endl;
-	// std::cout << this->contact[this->getNbContact() % MAX_CONTACT].getDarkestSecret() << std::endl;
-
-// }
-// else
-// {
-// 	if (this->i < MAX_CONTACT)
-// 	{
-
-// 		std::cout << "[" << this->getNbContact() << "]" << std::endl; // UNIQUEMENT POUR TESTS
-// 	}
-// 	else
-// 	{
-// 		this->i = 0;
-
-// 	}
-// }
+	this->setIndex();
+	this->_entries++;
 }
 
 void	Phonebook::searchContact(void)
+{
+	// int		result;
+
+	this->printAllContacts();
+
+
+}
+
+void	Phonebook::printAllContacts(void)
 {
 	std::cout	<< ROW_SEPA
 				<< std::endl;
