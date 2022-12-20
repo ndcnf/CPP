@@ -6,11 +6,12 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:38:48 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/19 16:59:54 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/20 14:58:23 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<iostream>
+#include	<iomanip>
 #include	"Class.Phonebook.hpp"
 
 Phonebook::Phonebook(void)
@@ -117,14 +118,27 @@ void	Phonebook::searchContact(void)
 
 	for (int i = 0; i < this->getNbContact(); i++)
 	{
-		std::cout << "|         ";
-		std::cout << this->getIndex() << WORD_SEPA;
-
+		std::cout	<< WORD_SEPA
+					<< std::setw(MAX_LEN)
+					<< this->getIndex()
+					<< WORD_SEPA;
+		std::cout	<< std::setw(MAX_LEN)
+					<< this->contact[this->_index].getFirstName()
+					<< WORD_SEPA;
+		std::cout	<< std::setw(MAX_LEN)
+					<< this->contact[this->_index].getLastName()
+					<< WORD_SEPA;
+		std::cout	<< std::setw(MAX_LEN)
+					<< this->contact[this->_index].getNickname()
+					<< WORD_SEPA
+					<< std::endl;
+		std::cout	<< ROW_SEPA
+					<< std::endl;
 		////////////////////////////////////////////////////////////
 		// TO-DO HERE
 
-		std::cout << this->wordToPrint(this->contact[this->_index].getFirstName()) << std::endl;
-		std::cout << "[" << this->contact[this->_index].getFirstName().size() << "]" << std::endl;
+		// std::cout << this->wordToPrint(this->contact[this->_index].getFirstName()) << std::endl;
+		// std::cout << "[" << this->contact[this->_index].getFirstName().size() << "]" << std::endl;
 
 		///////////////////////////////////////////////////////////
 
@@ -132,8 +146,9 @@ void	Phonebook::searchContact(void)
 
 
 		// std::cout << this->contact[this->_index].getFirstName() << WORD_SEPA;
-		std::cout << this->contact[this->_index].getLastName() <<  WORD_SEPA;
-		std::cout << this->contact[this->_index].getNickname() <<  WORD_SEPA << std::endl;
+		// std::cout << this->contact[this->_index].getLastName() <<  WORD_SEPA;
+		// std::cout << this->contact[this->_index].getNickname() <<  WORD_SEPA << std::endl;
+
 		// std::cout << this->contact[this->_index].getTelephoneNum() << std::endl;
 		// std::cout << this->contact[this->_index].getDarkestSecret() << std::endl;
 	}
@@ -150,7 +165,8 @@ std::string	Phonebook::wordToPrint(std::string word)
 		return (word);
 	else if (delta < 0)
 	{
-		std::cout << "DELTA : " << delta << std::endl;
+		std::setw(MAX_LEN);
+		std::cout << "D" << delta << WORD_SEPA << std::endl;
 
 		// while (delta > 0)
 		// {
