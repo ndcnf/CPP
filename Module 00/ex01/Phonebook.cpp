@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:38:48 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/21 10:33:20 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/21 13:05:36 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,54 +61,75 @@ void	Phonebook::addContact(void)
 				<< std::endl;
 
 	std::cout	<< "First name: ";
-	std::cin	>> prompt;
+	while (prompt.empty())
+	{
+		std::getline(std::cin, prompt);
+		if (prompt.empty())
+		{
+			std::cout	<< "Please give me your first name."
+						<< std::endl;
+		}
+	}
 	this->contact[this->_entries % MAX_CONTACT].setFirstName(prompt);
+	prompt.clear();
 
 	std::cout	<< "Last name: ";
-	std::cin	>> prompt;
+	while (prompt.empty())
+	{
+		std::getline(std::cin, prompt);
+		if (prompt.empty())
+		{
+			std::cout	<< "Please give me your last name."
+					<< std::endl;
+		}
+	}
 	this->contact[this->_entries % MAX_CONTACT].setLastName(prompt);
+	prompt.clear();
 
 	std::cout	<< "Nickname: ";
-	std::cin	>> prompt;
+	while (prompt.empty())
+	{
+		std::getline(std::cin, prompt);
+		if (prompt.empty())
+		{
+			std::cout	<< "Please give me your nickname."
+					<< std::endl;
+		}
+	}
 	this->contact[this->_entries % MAX_CONTACT].setNickname(prompt);
+	prompt.clear();
 
 	std::cout	<< "Telephone number: ";
-	std::cin	>> prompt;
+	while (prompt.empty())
+	{
+		std::getline(std::cin, prompt);
+		if (prompt.empty())
+		{
+			std::cout	<< "Please give me your number."
+					<< std::endl;
+		}
+	}
 	this->contact[this->_entries % MAX_CONTACT].setTelephoneNum(prompt);
+	prompt.clear();
 
 	std::cout	<< "Your darkest and utmost secret: ";
-	std::cin	>> prompt;
+	while (prompt.empty())
+	{
+		std::getline(std::cin, prompt);
+		if (prompt.empty())
+		{
+			std::cout	<< "You can tell me. Go on. I won't tell anyone"
+					<< std::endl;
+		}
+	}
 	this->contact[this->_entries % MAX_CONTACT].setDarkestSecret(prompt);
+	prompt.clear();
 
 	this->setIndex();
 	this->_entries++;
 }
 
-// bool	Phonebook::searchContact(void)
-// {
-// 	if (this->getNbContact() == 0)
-// 	{
-// 		std::cout << "There is nobody in the phonebook." << std::endl;
-// 		return (false);
-// 	}
-
-// 	this->printAllContacts();
-
-// 	int prompt;
-// 	std::cout << "Want to know more about whom? Enter their index number." << std::endl;
-// 	std::cin >> prompt;
-
-// 	if (prompt >= 0 && prompt < this->getNbContact()) {
-// 		std::cout << "OUI" << std::endl;
-// 		// this->retrieveContact(prompt);
-// 		return (true);
-// 	}
-// 	std::cout	<< "Sorry, I don't know anyone by this index number. Please try again."
-// 				<< std::endl;
-// 	return (false);
-// }
-
-int	Phonebook::retrieveContact(int i)
+void	Phonebook::retrieveContact(int i)
 {
 	std::cout	<< "Here is everything we know about them:"
 				<< std::endl
@@ -124,10 +145,6 @@ int	Phonebook::retrieveContact(int i)
 				<< this->contact[i].getLastName()
 				<< std::endl
 				<< std::endl;
-	// std::cout	<< this->contact[i].getFirstName()
-	// 			<< std::endl;
-	// std::cout	<< this->contact[i].getNickname()
-	// 			<< std::endl;
 	std::cout	<< "TELEPHONE NUMBER"
 				<< std::endl
 				<< TITLE
@@ -142,8 +159,6 @@ int	Phonebook::retrieveContact(int i)
 				<< this->contact[i].getDarkestSecret()
 				<< std::endl
 				<< std::endl;
-	return (0);
-
 }
 
 bool Phonebook::searchContact(void)
@@ -174,65 +189,16 @@ bool Phonebook::searchContact(void)
 	if (prompt >= 0 && prompt < this->getNbContact())
 	{
 		this->retrieveContact(prompt);
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		return (true);
 	}
-	std::cout << "Sorry, I don't know anyone by this index number. Please try again." << std::endl;
+	std::cout	<< "Sorry, I don't know anyone by this index number. Please try again."
+				<< std::endl;
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	return (false);
 }
-
-
-// void	Phonebook::searchContact(void)
-// {
-// 	std::string		prompt;
-
-// 	if (this->getNbContact() == 0)
-// 	{
-// 		std::cout	<< "There is nobody in the phonebook."
-// 					<< std::endl;
-// 		return;
-// 	}
-// 	this->printAllContacts();
-// 	while (1)
-// 	{
-// 		std::cout	<< "Want to know more about whom? Enter their index number."
-// 					<< std::endl;
-// 		std::getline(std::cin, prompt);
-// 		// std::cin	>> prompt;
-
-// 		std::cout	<< "[" << prompt << "]"
-// 					<< std::endl;
-
-
-// 		if (stoi(prompt) > (this->getNbContact() - 1) || stoi(prompt) < 0)
-// 		// if (std::cin.fail())
-// 		{
-// 			std::cout	<< "Sorry, I don't know anyone by this index number. Please try again."
-// 						<< std::endl;
-// 			// std::cin.clear();
-// 			// std::cin.ignore();
-// 			// prompt = std::n_pos;
-// 			// std::cout	<< "Want to know more about whom? Enter their index number."
-// 			// 			<< std::endl;
-// 			continue;
-// 		}
-
-// 		// if (std::isdigit(prompt))
-// 		// {
-// 		// 	std::cout	<< "Not valid. Try again."
-// 		// 				<< std::endl;
-// 		// 	continue;
-// 		// }
-
-// 		if (stoi(prompt) >= 0 && stoi(prompt) < (this->getNbContact() - 1))
-// 		{
-// 			std::cout	<< "YEP"
-// 						<< std::endl;
-// 			break;
-// 		}
-// 		// std::cout	<< "Sorry, I don't know anyone by this index number. Please try again."
-// 		// 			<< std::endl;
-// 	}
-// }
 
 void	Phonebook::printAllContacts(void)
 {

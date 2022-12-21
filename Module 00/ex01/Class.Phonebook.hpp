@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:45:30 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/20 21:29:10 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/21 11:52:58 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 # define ROW_SEPA		"*----------*----------*----------*----------*"
 # define ROW_TITLE		"|     INDEX|      NAME|   SURNAME|  NICKNAME|"
-# define EMPTY			"|          |          |          |          |"
 # define TITLE			"*-------------------------------------------*"
 # define WORD_SEPA		"|"
 
@@ -37,7 +36,7 @@ class Phonebook
 	void			addContact(void);
 	bool			searchContact(void);
 	std::string		wordToPrint(std::string word);
-	int				retrieveContact(int i);
+	void			retrieveContact(int i);
 	void			printAllContacts(void);
 
 	private:
