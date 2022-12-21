@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:45:30 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/19 12:00:12 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/21 13:12:30 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ class Contact
 	void	setNickname(std::string s);
 	void	setTelephoneNum(std::string s);
 	void	setDarkestSecret(std::string s);
-
-	// void fonctions();
 
 	private:
 	std::string	_firstName;
