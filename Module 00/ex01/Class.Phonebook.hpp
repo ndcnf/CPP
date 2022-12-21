@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:45:30 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/20 16:22:13 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/20 21:29:10 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Phonebook
 	int				getIndex(void) const;
 	void			setIndex(void);
 	void			addContact(void);
-	void			searchContact(void);
+	bool			searchContact(void);
 	std::string		wordToPrint(std::string word);
 	int				retrieveContact(int i);
 	void			printAllContacts(void);

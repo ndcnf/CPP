@@ -6,12 +6,13 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:38:48 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/20 17:04:37 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/21 10:33:20 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<iostream>
 #include	<iomanip>
+#include	<string>
 #include	"Class.Phonebook.hpp"
 
 Phonebook::Phonebook(void)
@@ -47,7 +48,6 @@ void	Phonebook::setIndex(void)
 		this->_index = this->getNbContact() - 1;
 	else
 		this->_index = this->_entries % MAX_CONTACT;
-	std::cout << "Index [" << this->_index << "]" << std::endl;
 }
 
 void	Phonebook::addContact(void)
@@ -84,17 +84,161 @@ void	Phonebook::addContact(void)
 	this->_entries++;
 }
 
-void	Phonebook::searchContact(void)
+// bool	Phonebook::searchContact(void)
+// {
+// 	if (this->getNbContact() == 0)
+// 	{
+// 		std::cout << "There is nobody in the phonebook." << std::endl;
+// 		return (false);
+// 	}
+
+// 	this->printAllContacts();
+
+// 	int prompt;
+// 	std::cout << "Want to know more about whom? Enter their index number." << std::endl;
+// 	std::cin >> prompt;
+
+// 	if (prompt >= 0 && prompt < this->getNbContact()) {
+// 		std::cout << "OUI" << std::endl;
+// 		// this->retrieveContact(prompt);
+// 		return (true);
+// 	}
+// 	std::cout	<< "Sorry, I don't know anyone by this index number. Please try again."
+// 				<< std::endl;
+// 	return (false);
+// }
+
+int	Phonebook::retrieveContact(int i)
 {
-	// int		result;
-
-	this->printAllContacts();
-
+	std::cout	<< "Here is everything we know about them:"
+				<< std::endl
+				<< std::endl;
+	std::cout	<< "FULL NAME"
+				<< std::endl
+				<< TITLE
+				<< std::endl
+				<< this->contact[i].getFirstName()
+				<< " \""
+				<< this->contact[i].getNickname()
+				<< "\" "
+				<< this->contact[i].getLastName()
+				<< std::endl
+				<< std::endl;
+	// std::cout	<< this->contact[i].getFirstName()
+	// 			<< std::endl;
+	// std::cout	<< this->contact[i].getNickname()
+	// 			<< std::endl;
+	std::cout	<< "TELEPHONE NUMBER"
+				<< std::endl
+				<< TITLE
+				<< std::endl
+				<< this->contact[i].getTelephoneNum()
+				<< std::endl
+				<< std::endl;
+	std::cout	<< "DARKEST SECRET"
+				<< std::endl
+				<< TITLE
+				<< std::endl
+				<< this->contact[i].getDarkestSecret()
+				<< std::endl
+				<< std::endl;
+	return (0);
 
 }
 
+bool Phonebook::searchContact(void)
+{
+	if (this->getNbContact() == 0)
+	{
+		std::cout	<< "There is nobody in the phonebook."
+					<< std::endl;
+		return (false);
+	}
+
+	this->printAllContacts();
+
+    int prompt;
+    std::cout	<< "Want to know more about whom? Enter their index number."
+				<< std::endl;
+
+	if (!(std::cin >> prompt))
+	{
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+		std::cout	<< "Sorry, you must enter a valid number. Please try again."
+					<< std::endl;
+		return (false);
+	}
+
+	if (prompt >= 0 && prompt < this->getNbContact())
+	{
+		this->retrieveContact(prompt);
+		return (true);
+	}
+	std::cout << "Sorry, I don't know anyone by this index number. Please try again." << std::endl;
+	return (false);
+}
+
+
+// void	Phonebook::searchContact(void)
+// {
+// 	std::string		prompt;
+
+// 	if (this->getNbContact() == 0)
+// 	{
+// 		std::cout	<< "There is nobody in the phonebook."
+// 					<< std::endl;
+// 		return;
+// 	}
+// 	this->printAllContacts();
+// 	while (1)
+// 	{
+// 		std::cout	<< "Want to know more about whom? Enter their index number."
+// 					<< std::endl;
+// 		std::getline(std::cin, prompt);
+// 		// std::cin	>> prompt;
+
+// 		std::cout	<< "[" << prompt << "]"
+// 					<< std::endl;
+
+
+// 		if (stoi(prompt) > (this->getNbContact() - 1) || stoi(prompt) < 0)
+// 		// if (std::cin.fail())
+// 		{
+// 			std::cout	<< "Sorry, I don't know anyone by this index number. Please try again."
+// 						<< std::endl;
+// 			// std::cin.clear();
+// 			// std::cin.ignore();
+// 			// prompt = std::n_pos;
+// 			// std::cout	<< "Want to know more about whom? Enter their index number."
+// 			// 			<< std::endl;
+// 			continue;
+// 		}
+
+// 		// if (std::isdigit(prompt))
+// 		// {
+// 		// 	std::cout	<< "Not valid. Try again."
+// 		// 				<< std::endl;
+// 		// 	continue;
+// 		// }
+
+// 		if (stoi(prompt) >= 0 && stoi(prompt) < (this->getNbContact() - 1))
+// 		{
+// 			std::cout	<< "YEP"
+// 						<< std::endl;
+// 			break;
+// 		}
+// 		// std::cout	<< "Sorry, I don't know anyone by this index number. Please try again."
+// 		// 			<< std::endl;
+// 	}
+// }
+
 void	Phonebook::printAllContacts(void)
 {
+	std::cout	<< this->getNbContact()
+				<< " contact(s) in the phonebook"
+				<< std::endl;
 	std::cout	<< ROW_SEPA
 				<< std::endl;
 	std::cout	<< ROW_TITLE

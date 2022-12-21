@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 10:00:52 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/20 15:34:45 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/21 09:59:44 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,10 @@ int	main(void)
 		}
 
 		if (prompt == "SEARCH")
-		{
 			phonebook.searchContact();
-		}
-		std::cout	<< phonebook.getNbContact()
-					<< " contact(s) in the phonebook"
-					<< std::endl;
+
+		prompt.clear();
+		std::cout << prompt << std::endl;
 	}
 	return (0);
 }
@@ -71,4 +69,8 @@ int	main(void)
 	[x]	unisgned pour le resize ?
 	[x]	ne passe pas dans le else pour le resize
 	[x ]	regler le -27 pour delta
+
+	[x]	tester si aucun contact avant d'afficher ---- x.empty()
+	[]	tester la validite des champs contact
+	[]	trouver pourquoi la boucle quand char
 */
