@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:38:48 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/21 13:05:36 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/21 13:11:06 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ Phonebook::Phonebook(void)
 	std::cout	<< "Constructor Phonebook called"
 				<< std::endl;
 	this->_nbContact = 0;
-	this->_index = 0;
 	this->_entries = 0;
 	return;
 }
@@ -35,19 +34,6 @@ Phonebook::~Phonebook(void)
 int	Phonebook::getNbContact(void) const
 {
 	return (this->_nbContact);
-}
-
-int	Phonebook::getIndex(void) const
-{
-	return (this->_index);
-}
-
-void	Phonebook::setIndex(void)
-{
-	if (this->getNbContact() < MAX_CONTACT)
-		this->_index = this->getNbContact() - 1;
-	else
-		this->_index = this->_entries % MAX_CONTACT;
 }
 
 void	Phonebook::addContact(void)
@@ -125,7 +111,6 @@ void	Phonebook::addContact(void)
 	this->contact[this->_entries % MAX_CONTACT].setDarkestSecret(prompt);
 	prompt.clear();
 
-	this->setIndex();
 	this->_entries++;
 }
 

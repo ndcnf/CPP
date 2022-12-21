@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:45:30 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/21 11:52:58 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/21 13:10:57 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ class Phonebook
 	Phonebook(void);
 	~Phonebook(void);
 
-	// void fonction();
 	int				getNbContact(void) const;
-	int				getIndex(void) const;
-	void			setIndex(void);
 	void			addContact(void);
 	bool			searchContact(void);
 	std::string		wordToPrint(std::string word);
@@ -43,7 +40,6 @@ class Phonebook
 	Contact	contact[MAX_CONTACT];
 	int		_nbContact;
 	int		_entries;
-	int		_index;
 };
 
 #endif
