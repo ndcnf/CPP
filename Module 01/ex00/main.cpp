@@ -6,29 +6,28 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:23:17 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/22 10:57:20 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:13:55 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<iostream>
+// #include	<iostream>
 #include	"Zombie.hpp"
 
-
-//TODO - Verifier que cette fonction doit etre ici et pas ailleurs
-//NOTE - Cette fonction doit rester telle quelle
-// Zombie*	newZombie(std::string name)
-// {
-// 	return ();
-// }
-
-//TODO - Verifier que cette fonction doit etre ici et pas ailleurs
-//NOTE - Cette fonction doit rester telle quelle
-void	randomChump(std::string name)
-{
-
-}
+void	randomChump(std::string name);
+Zombie*	newZombie(std::string name);
 
 int		main(void)
 {
+	Zombie	Barbara;
+	Barbara.setName("Barbara");
+
+	Zombie	*George = newZombie("George A.");
+	George->announce();
+	delete George;
+
+	Barbara.announce();
+
+	randomChump("Shaun");
+
 	return (0);
 }
