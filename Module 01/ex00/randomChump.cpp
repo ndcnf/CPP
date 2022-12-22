@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 15:52:23 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/22 15:56:21 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:51:13 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 //TODO - Verifier que cette fonction doit etre ici et pas ailleurs
 //NOTE - Cette fonction doit rester telle quelle
-void	Zombie::randomChump(std::string name)
+void	randomChump(std::string name)
 {
-	Zombie::setName(name);
-	std::cout	<< name
-				<< ": BraiiiiiiinnnzzzZ..."
-				<< std::endl;
+	Zombie	*Shaun = new Zombie();
+	Shaun->setName(name);
+	Shaun->announce();
+	delete Shaun;
 }

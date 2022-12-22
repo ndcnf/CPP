@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:23:17 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/22 17:13:55 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:50:59 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@ int		main(void)
 {
 	Zombie	Barbara;
 	Barbara.setName("Barbara");
+	Barbara.announce();
 
 	Zombie	*George = newZombie("George A.");
 	George->announce();
 	delete George;
-
-	Barbara.announce();
 
 	randomChump("Shaun");
 
