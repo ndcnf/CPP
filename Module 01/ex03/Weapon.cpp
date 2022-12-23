@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:18:10 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/23 16:25:03 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:03:19 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 Weapon::Weapon(std::string type): _type(type)
 {
-	this->_type = type;
-	std::cout	<< "Weapon constructor called"
-				<< std::endl;
+	// std::cout	<< this->_type
+	// 			<< " constructor called"
+	// 			<< std::endl;
 }
 
 Weapon::~Weapon()
 {
-	std::cout	<< "Weapon destructor called"
-				<< std::endl;
+	// std::cout	<< this->_type
+	// 			<< " destructor called"
+	// 			<< std::endl;
 }
 
 std::string	Weapon::getType() const

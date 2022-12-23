@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:31:56 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/23 16:19:35 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:00:02 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,22 @@
 
 HumanA::HumanA(std::string name, Weapon& type): _name(name), weapon(type)
 {
-	std::cout	<< "HumanA constructor called"
-				<< std::endl;
+	// std::cout	<< this->_name
+	// 			<< " constructor called"
+	// 			<< std::endl;
 }
 
 HumanA::~HumanA()
 {
-	std::cout	<< "HumanA destructor called"
-				<< std::endl;
+	// std::cout	<< this->_name
+	// 			<< " destructor called"
+	// 			<< std::endl;
 }
 
 void	HumanA::attack()
 {
 	std::cout	<< this->_name
-				<< "attacks with their "
+				<< " attacks with their "
 				<< this->weapon.getType()
 				<< std::endl;
 }

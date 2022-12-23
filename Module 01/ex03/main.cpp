@@ -6,11 +6,11 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:09:14 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/23 13:15:53 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/23 16:49:35 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+// #include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
