@@ -6,12 +6,12 @@
 #    By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/23 12:56:27 by nchennaf          #+#    #+#              #
-#    Updated: 2022/12/23 13:29:40 by nchennaf         ###   ########.fr        #
+#    Updated: 2022/12/23 17:06:55 by nchennaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC =		c++
-CFLAGS =	-Wall -Wextra -Werror -g -fsanitize=address -std=c++98 -pedantic
+CFLAGS =	-Wall -Wextra -Werror -g -std=c++98 -pedantic -fsanitize=address
 NAME =		duel
 AR =		ar rcs
 SRC =		Weapon.cpp \
