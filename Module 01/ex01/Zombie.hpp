@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 15:52:23 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/23 11:04:31 by nchennaf         ###   ########.fr       */
+/*   Created: 2022/12/23 10:31:56 by nchennaf          #+#    #+#             */
+/*   Updated: 2022/12/23 12:04:11 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+# include	<iostream>
+# include	<string>
 
-void	randomChump(std::string name)
+# define INFECTED_N 3
+# define SLOW_N 11
+
+class Zombie
 {
-	Zombie	*Shaun = new Zombie();
-	Shaun->setName(name);
-	Shaun->announce();
-	delete Shaun;
-}
+	public:
+		Zombie();
+		~Zombie();
+
+		void		announce();
+		std::string	getName() const;
+		void		setName(std::string name);
+	private:
+		std::string	_name;
+};
+
+Zombie* zombieHorde( int N, std::string name );
+
+#endif
