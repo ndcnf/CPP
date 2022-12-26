@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:18:10 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/23 17:08:07 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/26 10:59:42 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Weapon::~Weapon()
 	// 			<< std::endl;
 }
 
-std::string	Weapon::getType() const
+std::string	const & Weapon::getType()
 {
 	return (this->_type);
 }

@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 12:58:30 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/23 16:57:39 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/26 10:59:41 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Weapon
 		Weapon(std::string type);
 		~Weapon();
 
-		std::string		getType() const;
+		std::string		const & getType();
 		void			setType(std::string type);
 
 	private:

@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:09:14 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/26 10:39:17 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/26 11:06:10 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main()
 		Weapon	guns = Weapon("Devil Sparda sword");
 
 		HumanB	alice("Alice");
-		// alice.setWeapon(guns);
+		alice.setWeapon(guns);
 		alice.attack();
 		guns.setType("Ebony & Ivory guns");
 		alice.attack();
