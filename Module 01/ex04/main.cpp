@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:14:18 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/23 18:22:15 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/26 14:46:51 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,43 @@ int	main(int argc, char *argv[])
 
 
 	std::ifstream	ifs(argv[1]);
-	std::string		before;
+	std::string		word;
 	std::string		after;
 
-	ifs >> before; //TODO faire une boucle, car cela ne prend qu'un seul mot a la fois
+	if (ifs.is_open())
+	{
+	// 	//NOTE lecture char par char. Exemple pris de cpluscplus.com, a modifier
+	// 	char c = ifs.get();
+		while (ifs.good())
+		{
+			ifs >> word;
+			if (argv[2] == word)
+				word = argv[3];
+			std::cout	<< word << " ";
+		}
+	// 	while (ifs.good())
+	// 	{
+	// 		std::cout << c;
+	// 		c = ifs.get();
+	// 	}
+	}
+	else
+	{
+		std::cout	<< "Error opening file"
+					<< std::endl;
+	}
+	//NOTE Fin de l'exemple
 
-	std::cout	<< before
-				<< std::endl;
+	// while (ifs.good())
+	// {
+	// 	ifs >> before;
+	// 	std::cout	<< before << " ";
+	// }
+	//TODO faire une boucle, car cela ne prend qu'un seul mot a la fois
+	//NOTE peut-etre https://cplusplus.com/reference/istream/istream/read/
+
+	// std::cout	<< before
+	// 			<< std::endl;
 
 	ifs.close();
 
