@@ -6,13 +6,13 @@
 #    By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/23 17:13:06 by nchennaf          #+#    #+#              #
-#    Updated: 2022/12/23 17:14:05 by nchennaf         ###   ########.fr        #
+#    Updated: 2022/12/23 17:25:25 by nchennaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC =		c++
 CFLAGS =	-Wall -Wextra -Werror -g -std=c++98 -pedantic -fsanitize=address
-NAME =		sed
+NAME =		the_substitute
 AR =		ar rcs
 SRC =		main.cpp \
 

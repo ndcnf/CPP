@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:09:14 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/23 16:49:35 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/26 10:35:27 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@
 int	main()
 {
 	{
-		Weapon	club = Weapon("crude spiked club");
+		Weapon	sword = Weapon("Devil Sparda sword");
 
-		HumanA	bob("Bob", club);
+		HumanA	bob("Bob", sword);
 		bob.attack();
-		club.setType("some other type of club");
+		sword.setType("Ebony & Ivory guns");
 		bob.attack();
 	}
 
 	{
-		Weapon	club = Weapon("crude spiked club");
+		Weapon	guns = Weapon("Devil Sparda sword");
 
 		HumanB	alice("Alice");
-		alice.setWeapon(club);
+		alice.setWeapon(guns);
 		alice.attack();
-		club.setType("some other type of club");
+		guns.setType("Ebony & Ivory guns");
 		alice.attack();
 	}
 	return (0);
