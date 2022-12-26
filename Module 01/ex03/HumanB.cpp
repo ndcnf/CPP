@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 13:06:41 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/26 10:31:17 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/26 10:41:24 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,18 @@ void	HumanB::setWeapon(Weapon& type)
 
 void	HumanB::attack()
 {
-	std::cout	<< this->_name
-				<< " attacks with her "
-				<< this->weapon->getType()
-				<< std::endl;
+	if (!this->weapon->getType().empty())
+	{
+		std::cout	<< this->_name
+					<< " attacks with her "
+					<< this->weapon->getType()
+					<< std::endl;
+	}
+	else
+	{
+		std::cout	<< this->_name
+			<< " is a pacifist and draw nothing."
+			<< std::endl;
+	}
 }
 
