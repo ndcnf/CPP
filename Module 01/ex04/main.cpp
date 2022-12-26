@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:14:18 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/26 14:46:51 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/26 14:52:08 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 
 	std::ifstream	ifs(argv[1]);
 	std::string		word;
-	std::string		after;
+	// std::string		after;
 
 	if (ifs.is_open())
 	{
@@ -38,7 +38,8 @@ int	main(int argc, char *argv[])
 			ifs >> word;
 			if (argv[2] == word)
 				word = argv[3];
-			std::cout	<< word << " ";
+			if (!ifs.eof())
+				std::cout	<< word << " ";
 		}
 	// 	while (ifs.good())
 	// 	{
