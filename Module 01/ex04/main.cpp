@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:14:18 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/27 15:59:35 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/27 16:46:23 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ int	main(int argc, char *argv[])
 					<< std::endl;
 		return (1);
 	}
-	//TODO verifications avant
-	//TODO verifier que le fichier existe
 	//TODO verifier si le fichier est lisible (droits de lecture)
-	//TODO Remplacer les OCCURENCES, pas les mots entiers. Voir https://cplusplus.com/reference/string/string/?kw=string (erase, substr, ...)
 
 	std::string		fileContent;
 
@@ -71,41 +68,18 @@ int	main(int argc, char *argv[])
 
 	std::cout << "APRES: " << fileContent; //NOTE Uniquement pour tester
 
-			// if (argv[2] == word)
-			// 	word = argv[3];
-			// else
-			// {
-			// 	int	j = 0;
-			// 	for (int i = 0; i < word.length(); i++)
-			// 	{
-			// 		if (word[i] == argv[2][j])
-			// 			// std::cout << word[i] << "-";
-			// 		j++;
-			// 	}
-
-			// }
-
-			// if (!ifs.eof())
-			// 	content += " ";
-			// 	// std::cout	<< word << " ";
-			// content += word;
-			// pos = word.find(argv[2]);
-			// std::cout << pos << std::endl;
-		// }
-
-
-
-
 	//////////////////////////////////////////////////
-	// //SECTION - File name OK
-	// std::string	file;
+	//SECTION - File name OK
+	std::string	file;
 
-	// file = argv[1];
-	// file += ".replace";
-	// std::cout << file << std::endl;
+	file = argv[1];
+	file += ".replace";
+	std::cout << file << std::endl;
 	//////////////////////////////////////////////////
 
 	// std::ofstrean	ofs(file);
+	// ofs << fileContent << std::endl;
+	// ofs.close();
 
 	return (0);
 }
