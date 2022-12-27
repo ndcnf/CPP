@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:14:18 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/27 16:46:23 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/27 16:56:15 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,10 @@ int	main(int argc, char *argv[])
 	std::string		fileContent;
 
 	fileContent = getFileContent(argv[1]);
-	std::cout << fileContent; //NOTE Uniquement pour tester
 
 	std::string		before = argv[2];
 	std::string		after = argv[3];
 	std::size_t		pos = fileContent.find(before);
-
-	std::cout << "length: " << fileContent.length() << std::endl;
-	std::cout << "pos-find: " << pos << std::endl;
 
 	while (pos!= std::string::npos)
 	{
@@ -66,20 +62,14 @@ int	main(int argc, char *argv[])
 		pos = fileContent.find(before, pos+1);
 	}
 
-	std::cout << "APRES: " << fileContent; //NOTE Uniquement pour tester
-
-	//////////////////////////////////////////////////
-	//SECTION - File name OK
 	std::string	file;
 
 	file = argv[1];
 	file += ".replace";
-	std::cout << file << std::endl;
-	//////////////////////////////////////////////////
 
-	// std::ofstrean	ofs(file);
-	// ofs << fileContent << std::endl;
-	// ofs.close();
+	std::ofstream	ofs(file);
+	ofs << fileContent;
+	ofs.close();
 
 	return (0);
 }
