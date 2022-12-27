@@ -1,40 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   substitute.hpp                                     :+:      :+:    :+:   */
+/*   substitute.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 17:20:30 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/27 11:15:00 by nchennaf         ###   ########.fr       */
+/*   Created: 2022/12/27 11:07:52 by nchennaf          #+#    #+#             */
+/*   Updated: 2022/12/27 11:14:49 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SUBSTITUTE_HPP
-# define SUBSTITUTE_HPP
-# include <iostream>
-# include <fstream>
+#include "substitute.hpp"
 
-class substitute
+std::string	getWord() const
 {
-	public:
-		substitute(/* args */);
-		~substitute();
-
-		std::string	getWord() const;
-		void		setWord(std::string word);
-
-	private:
-		std::string	_word;
-		std::string	_content;
-};
-
-substitute::substitute(/* args */)
-{
+	return (this->_word);
 }
 
-substitute::~substitute()
+void		setWord(std::string word)
 {
+	this->_word = word;
 }
-
-#endif
