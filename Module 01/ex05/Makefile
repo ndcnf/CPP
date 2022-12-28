@@ -5,20 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/16 09:33:59 by nchennaf          #+#    #+#              #
-#    Updated: 2022/12/28 12:37:45 by nchennaf         ###   ########.fr        #
+#    Created: 2022/12/28 10:37:28 by nchennaf          #+#    #+#              #
+#    Updated: 2022/12/28 12:39:32 by nchennaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC =		c++
-CPPFLAGS =	-Wall -Wextra -Werror -g -fsanitize=address -std=c++98 -pedantic
-NAME =		phonebook
+#CC =		g++
+#CFLAGS =	g++-11 -Werror -Wextra -Wall -std=c++98 -pedantic
+CFLAGS =	-Wall -Wextra -Werror -g -std=c++98 -pedantic -fsanitize=address
+NAME =		karen
 AR =		ar rcs
 SRC =		main.cpp \
-			Phonebook.cpp \
-			Contact.cpp
-HEADER =	./Class.Contact.hpp \
-			./Class.Phonebook.hpp
+			Harl.cpp
+HEADER =	Harl.hpp
 
 OBJ =		${SRC:.cpp=.o}
 
@@ -28,7 +28,7 @@ ${OBJ}: %.o : %.cpp ${HEADER}
 	@${CC} ${CPPFLAGS} -o $@ -c $<
 
 ${NAME}:	${OBJ}
-			@${CC} ${CPPFLAGS} ${OBJ} -o ${NAME}
+			@${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 			@echo "compiling	OK"
 
 clean:
