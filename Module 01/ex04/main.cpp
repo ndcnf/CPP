@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:14:18 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/27 16:56:15 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/28 10:33:22 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,31 +45,41 @@ int	main(int argc, char *argv[])
 					<< std::endl;
 		return (1);
 	}
-	//TODO verifier si le fichier est lisible (droits de lecture)
 
 	std::string		fileContent;
+	std::string		file = argv[1];
+	std::string		s1 = argv[2];
+	std::string		s2 = argv[3];
 
 	fileContent = getFileContent(argv[1]);
 
-	std::string		before = argv[2];
-	std::string		after = argv[3];
-	std::size_t		pos = fileContent.find(before);
+	std::size_t		pos = fileContent.find(s1);
+	bool			occurrenceFound = true;
 
-	while (pos!= std::string::npos)
+	if (pos == std::string::npos)
 	{
-		fileContent.erase(pos, before.length());
-		fileContent.insert(pos, after);
-		pos = fileContent.find(before, pos+1);
+		std::cout	<< "Error: Nothing to replace. No file created."
+					<< std::endl;
+		occurrenceFound = false;
 	}
 
-	std::string	file;
+	while (pos != std::string::npos)
+	{
+		fileContent.erase(pos, s1.length());
+		fileContent.insert(pos, s2);
+		pos = fileContent.find(s1, pos+1);
+	}
 
-	file = argv[1];
-	file += ".replace";
+	if (occurrenceFound)
+	{
+		file += ".replace";
 
-	std::ofstream	ofs(file);
-	ofs << fileContent;
-	ofs.close();
+		std::ofstream	ofs(file);
+		ofs << fileContent;
+		std::cout	<< "File: " << file << "created"
+					<< std::endl;
+		ofs.close();
+	}
 
 	return (0);
 }
