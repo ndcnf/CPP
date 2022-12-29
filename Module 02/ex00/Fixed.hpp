@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 10:47:07 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/12/29 13:20:23 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:11:43 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Fixed
 {
 	public:
 		Fixed();													//NOTE - Default constructor. If not needed, put it in private
+		// Fixed(int value);										//NOTE - Constructor by int
 		Fixed(Fixed const & src);									//NOTE - Copy constructor
 		~Fixed();													//NOTE - Destructor
 
@@ -35,6 +36,8 @@ class Fixed
 		static int	const _bitsNb = 8;
 };
 
-// std::ostream &		operator<<(std::ostream & o, Fixed const & i);	//NOTE - Operator overload '<<' (not canonical, but good practice)
+/*NOTE - Operator overload '<<' (not canonical, but good practice)
+std::ostream &		operator<<(std::ostream & o, Fixed const & i);
+*/
 
 #endif
