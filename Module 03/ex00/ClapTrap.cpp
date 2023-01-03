@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:15:26 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/03 16:25:13 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/03 18:13:18 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,98 @@
 
 ClapTrap::ClapTrap(std::string s): _name(s)
 {
-	std::cout	<< "Constructor for "
+	this->_hitPoints = HP;
+	this->_energyPoints = EP;
+	this->_attackDamage = AD;
+	std::cout	<< "****** "
 				<< this->_name
-				<< " called"
+				<< " has entered the game!"
+				<< " ******"
 				<< std::endl;
+	std::cout	<< "HP: "
+				<< this->_hitPoints
+				<< std::endl
+				<< "EP: "
+				<< this->_energyPoints
+				<< std::endl;
+
+	std::cout	<< std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & src)
 {
-
+	//TODO copy constructor
 }
+
+// ClapTrap ClapTrap::&operator=(ClapTrap const & rhs)
+// {
+// 	//TODO assignation operator
+// }
+
 
 ClapTrap::~ClapTrap()
 {
-	std::cout	<< "Destructor for "
+	std::cout	<< "###### "
 				<< this->_name
-				<< " called"
+				<< " has left the game!"
+				<< " ######"
 				<< std::endl;
+	std::cout	<< "HP: "
+				<< this->_hitPoints
+				<< std::endl
+				<< "EP: "
+				<< this->_energyPoints
+				<< std::endl;
+
+	std::cout	<< std::endl;
 }
 
 void	ClapTrap::attack(const std::string &target)
 {
-	if (this->_energyPoints > 0)
+	std::cout	<< "energy: " << this->_energyPoints
+				<< " | hit points:" << this->_hitPoints
+				<< std::endl;
+
+	if (this->_energyPoints > 0 && this->_hitPoints > 0)
 	{
 		std::cout 	<< "ClapTrap "
 					<< this->_name
 					<< " attacks "
-					<< "Someone"												//TODO name of the target TBD
+					<< target
 					<< ", causing "
 					<< this->_attackDamage
 					<< " points of damage!"
 					<< std::endl;
+
+		this->_energyPoints -= 1;
 	}
+	else if (this->_energyPoints)
+	{
+		std::cout	<< this->_name
+					<< " hasn't enough hit points left."
+					<< std::endl;
+	}
+	else
+	{
+		std::cout	<< this->_name
+					<< " hasn't enough energy left."
+					<< std::endl;
+	}
+}
+
+void	ClapTrap::takeDamage(unsigned int amount)
+{
+	this->_hitPoints -= amount;
+	std::cout	<< this->_name
+				<< std::endl
+				<< "HP -"
+				<< amount
+				<< std::endl;
+
+	std::cout	<< std::endl;
+}
+
+void	ClapTrap::beRepaired(unsigned int amount)
+{
 
 }

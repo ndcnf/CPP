@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 15:59:42 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/03 16:22:19 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/03 18:13:38 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # include <iostream>
 # include <string>
+
+# define HP 0
+// # define HP 10
+# define EP 10
+# define AD 0
 
 class ClapTrap
 {
@@ -31,9 +36,9 @@ class ClapTrap
 
 	private:
 		std::string		_name;
-		unsigned int	_hitPoints;
-		unsigned int	_energyPoints;
-		unsigned int	_attackDamage;
+		int	_hitPoints;
+		int	_energyPoints;
+		int	_attackDamage;
 };
 
 
