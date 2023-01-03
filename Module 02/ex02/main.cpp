@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:28:27 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/03 14:10:54 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/03 14:19:45 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int main( void )
 
 	std::cout << std::endl;
 
-	// std::cout << "min(" << c << "," << d << ") : " << Fixed::min( Fixed(c), Fixed(d) ) << std::endl;
-	// std::cout << "max(" << c << "," << d << ") : " << Fixed::max( Fixed(c), Fixed(d) ) << std::endl;
+	std::cout << "min(" << c << "," << d << ") : " << Fixed::min( c, d ) << std::endl;
+	std::cout << "max(" << c << "," << d << ") : " << Fixed::max( c, d ) << std::endl;
 
 	std::cout << std::endl;
 
@@ -67,8 +67,7 @@ int main( void )
 	std::cout << "a   : " << a << std::endl;
 
 	std::cout << "min(" << c << "," << d << ") : " << Fixed::min( c, d ) << std::endl;
-	// std::cout << "min(" << c << "," << a << ") : " << Fixed::min( c, a ) << std::endl;
-	// std::cout << "max(" << c << "," << a << ") : " << Fixed::max( c, a ) << std::endl;
+	std::cout << "max(" << c << "," << d << ") : " << Fixed::max( c, d ) << std::endl;
 
 	return 0;
 }

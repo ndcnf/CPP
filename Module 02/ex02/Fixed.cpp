@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:40:34 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/03 14:03:52 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/03 14:17:24 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,14 @@ const Fixed &	Fixed::max(const Fixed & n1, const Fixed & n2)
 	return (n1);
 }
 
-Fixed &		min(Fixed & n1, Fixed & n2)
+Fixed &		Fixed::min(Fixed & n1, Fixed & n2)
 {
 	if (n1 >= n2)
 		return (n2);
 	return (n1);
 }
 
-Fixed &		max(Fixed & n1, Fixed & n2)
+Fixed &		Fixed::max(Fixed & n1, Fixed & n2)
 {
 	if (n1 < n2)
 		return (n2);
