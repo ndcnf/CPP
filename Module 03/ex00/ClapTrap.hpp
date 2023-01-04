@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 15:59:42 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/03 18:13:38 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/04 11:40:08 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 # include <iostream>
 # include <string>
 
-# define HP 0
-// # define HP 10
+# define HP 10
 # define EP 10
 # define AD 0
 
@@ -40,6 +39,5 @@ class ClapTrap
 		int	_energyPoints;
 		int	_attackDamage;
 };
-
 
 #endif
