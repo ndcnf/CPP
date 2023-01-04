@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 15:59:42 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/04 11:40:08 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/04 14:47:54 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,31 @@
 class ClapTrap
 {
 	public:
-		ClapTrap(std::string s);
+		ClapTrap();
+		ClapTrap(std::string name);
 		ClapTrap(ClapTrap const & src);
 		~ClapTrap();
 
-		ClapTrap &operator=(ClapTrap const & rhs);
+		ClapTrap 	&operator=(ClapTrap const & rhs);
 
-		void	attack(const std::string &target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void		attack(const std::string &target);
+		void		takeDamage(unsigned int amount);
+		void		beRepaired(unsigned int amount);
 
+		// std::string	getName() const;
+		// int			getHitPoints() const;
+		// int			getEnergyPoints() const;
+		// int			getAttackDamage() const;
+
+		// void		setName(std::string name);
+		// void		setHitPoints(int amount);
+		// void		setEnergyPoints(int amount);
+		// void		setAttackDamage(int amount);
 	private:
-		std::string		_name;
-		int	_hitPoints;
-		int	_energyPoints;
-		int	_attackDamage;
+		std::string	_name;
+		int			_hitPoints;
+		int			_energyPoints;
+		int			_attackDamage;
 };
 
 #endif
