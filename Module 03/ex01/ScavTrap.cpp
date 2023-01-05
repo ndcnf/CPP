@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 13:43:41 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/05 15:56:16 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/05 16:18:39 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,16 @@ void	ScavTrap::guardGate()
 	if (_guardStatus)
 	{
 		_guardStatus = false;
-		std::cout	<< this->_name << " pushed the switch: " << std::endl;
+		std::cout	<< "> " << this->_name << " pushed the button: " << std::endl;
 		std::cout	<< "Gate Keeper mode OFF." << std::endl;
+		std::cout	<< std::endl;
 	}
 	else
 	{
 		_guardStatus = true;
-		std::cout	<< this->_name << " pushed the switch: " << std::endl;
+		std::cout	<< "> " << this->_name << " pushed the button: " << std::endl;
 		std::cout	<< "Gate Keeper mode ON." << std::endl;
+		std::cout	<< std::endl;
 	}
 }
 
@@ -76,8 +78,9 @@ void	ScavTrap::attack(const std::string &target)
 		return;
 	}
 	this->_energyPoints -= 1;
+	this->_hitPoints -= this->_attackDamage;
 
-	std::cout	<< "> Bot " << this->_name << " attacks "
+	std::cout	<< "> ScavTrap " << this->_name << " attacks "
 				<< target << ", causing "
 				<< this->_attackDamage << " points of damage!"
 				<< std::endl;

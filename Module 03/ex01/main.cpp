@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:25:33 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/05 15:56:59 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/05 16:17:53 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,13 @@ int	main()
 	something.beRepaired(25);
 
 	t800.guardGate();
+	t800.guardGate();
 	something.guardGate();
+
+	something.attack("T-800");
+	t800.takeDamage(300);
+
+	t800.attack("Guy");
 
 	return (0);
 }

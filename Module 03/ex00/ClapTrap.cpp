@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:15:26 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/04 15:13:33 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/05 16:14:46 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	ClapTrap::attack(const std::string &target)
 		return;
 	}
 	this->_energyPoints -= 1;
+	this->_hitPoints -= this->_attackDamage;
 
 	std::cout	<< "> ClapTrap " << this->_name << " attacks "
 				<< target << ", causing "
