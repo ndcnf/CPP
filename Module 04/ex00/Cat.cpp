@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:19:43 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/06 16:25:44 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:11:17 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ Cat::Cat():
 	Animal()
 {
 	_type = "cat";
-	std::cout	<< "the " << _type << "is waking up."
+	std::cout	<< "the " << _type << " is waking up."
 				<< std::endl;
 }
 
 Cat::~Cat()
 {
-	std::cout	<< "the " << _type << "is sleeping."
+	std::cout	<< "the " << _type << " is sleeping."
 				<< std::endl;
 }

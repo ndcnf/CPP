@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:12:38 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/06 16:42:33 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:10:20 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void		Animal::makeSound()
 				<< std::endl;
 }
 
-std::string	Animal::getType()
+std::string	Animal::getType() const
 {
 	return (this->_type);
 }

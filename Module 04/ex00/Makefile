@@ -6,7 +6,7 @@
 #    By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 12:47:01 by nchennaf          #+#    #+#              #
-#    Updated: 2023/01/06 16:06:25 by nchennaf         ###   ########.fr        #
+#    Updated: 2023/01/06 17:11:40 by nchennaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC =		c++
 #CC =		g++
 #CFLAGS =	g++-11 -Werror -Wextra -Wall -std=c++98 -pedantic
 CFLAGS =	-Wall -Wextra -Werror -g -std=c++98 -pedantic -fsanitize=address
-NAME =		claptrap
+NAME =		animal
 AR =		ar rcs
 SRC =		main.cpp \
 			Animal.cpp \
