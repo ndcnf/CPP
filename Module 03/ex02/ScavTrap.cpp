@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 13:43:41 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/06 13:45:10 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/06 13:18:55 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,3 +85,4 @@ void	ScavTrap::guardGate()
 					<< "Gate Keeper mode ON." << std::endl;
 	}
 }
+
