@@ -1,45 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 16:19:43 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/09 13:52:40 by nchennaf         ###   ########.fr       */
+/*   Created: 2023/01/06 16:12:38 by nchennaf          #+#    #+#             */
+/*   Updated: 2023/01/09 13:57:37 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongAnimal.hpp"
 
-Cat::Cat():
-	Animal()
+WrongAnimal::WrongAnimal()
 {
-	_type = "cat";
-	std::cout	<< "the " << _type << " is waking up."
+	std::cout	<< "An unexpected wrong animal opens an eye."
 				<< std::endl;
 }
 
-Cat::~Cat()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout	<< "the " << _type << " is ready to bed."
+	std::cout	<< "A random wrong animal is sleeping."
 				<< std::endl;
 }
 
-Cat::Cat(Cat const & src)
+WrongAnimal::WrongAnimal(WrongAnimal const & src)
 {
 	*this = src;
 }
 
-Cat		&Cat::operator=(Cat const & rhs)
+WrongAnimal		&WrongAnimal::operator=(WrongAnimal const & rhs)
 {
 	if (this != &rhs)
-		this->Animal::operator=(rhs);
+		this->_type = rhs._type;
 	return (*this);
 }
 
-void	Cat::makeSound() const
+void		WrongAnimal::makeSound() const
 {
-	std::cout	<< "maow"
+	std::cout	<< "* generic sound for an unexpected animal *"
 				<< std::endl;
+}
+
+std::string	WrongAnimal::getType() const
+{
+	return (this->_type);
 }

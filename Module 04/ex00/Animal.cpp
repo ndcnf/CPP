@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:12:38 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/06 17:10:20 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:52:48 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Animal::Animal()
 
 Animal::~Animal()
 {
-	std::cout	<< "An animal is ready to bed."
+	std::cout	<< "An animal is sleeping."
 				<< std::endl;
 }
 
@@ -37,7 +37,7 @@ Animal		&Animal::operator=(Animal const & rhs)
 	return (*this);
 }
 
-void		Animal::makeSound()
+void		Animal::makeSound() const
 {
 	std::cout	<< "* generic sound for an animal *"
 				<< std::endl;

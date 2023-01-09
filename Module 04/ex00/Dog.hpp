@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:28:38 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/06 16:29:00 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:14:33 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ class Dog: public Animal
 		Dog(Dog const & src);
 		~Dog();
 
-		Dog	&operator=(Dog & rhs);
+		Dog				&operator=(Dog const & rhs);
+
+		virtual void	makeSound() const;
 
 	private:
 

@@ -6,23 +6,27 @@
 #    By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 12:47:01 by nchennaf          #+#    #+#              #
-#    Updated: 2023/01/06 17:11:40 by nchennaf         ###   ########.fr        #
+#    Updated: 2023/01/09 13:46:25 by nchennaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC =		c++
 #CC =		g++
 #CFLAGS =	g++-11 -Werror -Wextra -Wall -std=c++98 -pedantic
-CFLAGS =	-Wall -Wextra -Werror -g -std=c++98 -pedantic -fsanitize=address
+CFLAGS =	-Wall -Wextra -Werror -g -std=c++98 -pedantic #-fsanitize=address
 NAME =		animal
 AR =		ar rcs
 SRC =		main.cpp \
 			Animal.cpp \
 			Cat.cpp \
-			Dog.cpp
+			Dog.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp
 HEADER =	Animal.hpp \
 			Cat.hpp \
-			Dog.hpp
+			Dog.hpp \
+			WrongAnimal.hpp \
+			WrongCat.hpp
 
 OBJ =		${SRC:.cpp=.o}
 

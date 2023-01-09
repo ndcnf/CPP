@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:28:06 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/06 17:11:12 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:53:02 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,19 @@ Dog::Dog():
 
 Dog::~Dog()
 {
-	std::cout	<< "the " << _type << " is sleeping."
+	std::cout	<< "the " << _type << " is ready to bed."
+				<< std::endl;
+}
+
+Dog		&Dog::operator=(Dog const & rhs)
+{
+	if (this != &rhs)
+		this->Animal::operator=(rhs);
+	return (*this);
+}
+
+void	Dog::makeSound() const
+{
+	std::cout	<< "woof"
 				<< std::endl;
 }

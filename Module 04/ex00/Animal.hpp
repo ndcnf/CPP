@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:09:11 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/06 17:07:27 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:14:50 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ class Animal
 		Animal(Animal const & src);
 		~Animal();
 
-		Animal		&operator=(Animal const & rhs);
+		Animal			&operator=(Animal const & rhs);
 
-		void		makeSound();
-		std::string	getType() const;
+		virtual void	makeSound() const;
+		std::string		getType() const;
 
 	protected:
-		std::string	_type;
+		std::string		_type;
 };
 
 #endif
