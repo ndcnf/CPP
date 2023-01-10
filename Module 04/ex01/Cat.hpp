@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:18:09 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/09 14:53:45 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/10 12:31:46 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Cat: public Animal
 		Cat				&operator=(Cat const & rhs);
 
 		virtual void	makeSound() const;
+		virtual void	ideaSeeker(int i) const;
 
 	private:
 		Brain*			_brain;

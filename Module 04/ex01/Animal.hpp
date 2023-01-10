@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:09:11 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/09 13:14:50 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/10 11:20:31 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Animal
 	public:
 		Animal();
 		Animal(Animal const & src);
-		~Animal();
+		virtual ~Animal();
 
 		Animal			&operator=(Animal const & rhs);
 

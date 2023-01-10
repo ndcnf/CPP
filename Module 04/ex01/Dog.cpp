@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:28:06 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/09 15:52:21 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/10 12:39:12 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,9 @@ void	Dog::makeSound() const
 {
 	std::cout	<< "The " << _type << " says \"woof\""
 				<< std::endl;
+}
+
+void	Dog::ideaSeeker(int i) const
+{
+	std::cout << this->_brain->getIdeas(i) << std::endl;
 }

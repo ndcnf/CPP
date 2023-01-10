@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:16:01 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/09 14:41:58 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/10 12:36:30 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class Brain
 		~Brain();
 
 		Brain		&operator=(Brain const & rhs);
+
+		std::string	getIdeas(int i) const;
 
 	protected:
 		std::string	_ideas[100];

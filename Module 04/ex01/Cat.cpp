@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:19:43 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/09 15:53:02 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/10 12:35:47 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,9 @@ void	Cat::makeSound() const
 {
 	std::cout	<< "The " << _type << " says \"maow\""
 				<< std::endl;
+}
+
+void	Cat::ideaSeeker(int i) const
+{
+	std::cout << this->_brain->getIdeas(i) << std::endl;
 }
