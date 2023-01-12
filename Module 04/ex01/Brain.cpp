@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:16:09 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/10 12:36:33 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/12 12:08:36 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@ Brain::Brain()
 {
 	for (int i = 0; i < 100; i++)
 		_ideas[i] = "I should buy a boat.";
+	std::cout	<< "brain is booting"
+				<< std::endl;
 }
 
 Brain::Brain(Brain const & src)
 {
 	*this = src;
+	std::cout	<< "deep brain called"
+				<< std::endl;
 }
 
 Brain::~Brain()

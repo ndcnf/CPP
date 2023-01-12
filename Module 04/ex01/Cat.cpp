@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:19:43 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/10 12:35:47 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/12 12:11:25 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ Cat::Cat():
 {
 	_type = "cat";
 	_brain = new Brain();
-	std::cout	<< "The " << _type << " is waking up."
+	std::cout	<< "the " << _type << " is waking up and purring."
 				<< std::endl;
 }
 
 Cat::~Cat()
 {
-	std::cout	<< "The " << _type << " is ready to bed."
+	std::cout	<< "the " << _type << " is yawning and ready to bed."
 				<< std::endl;
 	delete _brain;
 }
@@ -31,6 +31,8 @@ Cat::~Cat()
 Cat::Cat(Cat const & src)
 {
 	*this = src;
+	std::cout	<< "a cat has been cloned"
+				<< std::endl;
 }
 
 Cat		&Cat::operator=(Cat const & rhs)

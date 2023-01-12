@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:28:38 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/10 12:39:37 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/12 11:57:27 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Dog: public Animal
 	public:
 		Dog();
 		Dog(Dog const & src);
-		~Dog();
+		virtual ~Dog();
 
 		Dog				&operator=(Dog const & rhs);
 

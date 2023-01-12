@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:28:06 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/10 12:39:12 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/12 12:11:07 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,22 @@ Dog::Dog():
 {
 	_type = "dog";
 	_brain = new Brain();
-	std::cout	<< "The " << _type << " is waking up."
+	std::cout	<< "the " << _type << " is waking up and gently wiggling its tail."
 				<< std::endl;
 }
 
 Dog::~Dog()
 {
-	std::cout	<< "The " << _type << " is ready to bed."
+	std::cout	<< "the " << _type << " drops its favorite ball and is ready to bed."
 				<< std::endl;
 	delete _brain;
+}
+
+Dog::Dog(Dog const & src)
+{
+	*this = src;
+	std::cout	<< "a dog has been cloned"
+				<< std::endl;
 }
 
 Dog		&Dog::operator=(Dog const & rhs)

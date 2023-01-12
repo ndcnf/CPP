@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:06:43 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/10 12:45:56 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/12 12:11:56 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ int		main()
 				animal[i] = new Dog();
 		}
 
+		std::cout << std::endl;
+
+		std::cout	<< "** the cats and dogs are playing together **"
+					<< std::endl;
+
+		std::cout << std::endl;
+
 		for (int j = 0; j < nbAnimals; j++)
 			delete animal[j];
 	}
@@ -59,6 +66,14 @@ int		main()
 		std::cout << "the dog thinks: ";
 		i.ideaSeeker(0);
 	}
+
+	// {
+	// 	//NOTE To test this, comment everything above.
+	// 	Dog basic;
+	// 	{
+	// 		Dog tmp = basic;
+	// 	}
+	// }
 
 	return 0;
 }
