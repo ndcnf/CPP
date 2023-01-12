@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:18:09 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/10 13:01:04 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/12 13:30:01 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Cat: public AAnimal
 	public:
 		Cat();
 		Cat(Cat const & src);
-		~Cat();
+		virtual ~Cat();
 
 		Cat				&operator=(Cat const & rhs);
 

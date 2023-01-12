@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:16:09 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/10 12:36:33 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/12 13:41:02 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ Brain::Brain()
 Brain::Brain(Brain const & src)
 {
 	*this = src;
+	std::cout	<< "deep brain called"
+				<< std::endl;
 }
 
 Brain::~Brain()

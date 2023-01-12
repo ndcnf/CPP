@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:09:11 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/09 13:12:31 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/12 13:38:56 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class WrongAnimal
 
 		WrongAnimal		&operator=(WrongAnimal const & rhs);
 
-		virtual void	makeSound() const;
+		void			makeSound() const;
 		std::string		getType() const;
 
 	protected:
