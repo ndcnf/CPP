@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:57:31 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/11 13:32:02 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/12 10:32:07 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ Character	&Character::operator=(Character const & rhs)
 	if (this != &rhs)
 	{
 		this->_name = rhs._name;
+		for (int i = 0; i < SLOTS; i++)
+			this->_inventory[i] = rhs._inventory[i];
 	}
 	return (*this);
 }

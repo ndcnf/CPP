@@ -6,9 +6,11 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:35:38 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/11 11:31:08 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/12 10:39:58 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+class ICharacter;
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP

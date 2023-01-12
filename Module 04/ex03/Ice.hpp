@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:28:25 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/11 15:32:59 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/12 09:48:56 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Ice: AMateria
 		Ice	&operator=(Ice const & rhs);
 
 		AMateria*	clone() const;
+		void		use(ICharacter& target);
 
 	private:
 

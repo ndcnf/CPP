@@ -6,13 +6,13 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:12:38 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/09 13:57:37 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/12 11:45:34 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal()
+WrongAnimal::WrongAnimal(): _type("This animal is so wrong")
 {
 	std::cout	<< "An unexpected wrong animal opens an eye."
 				<< std::endl;

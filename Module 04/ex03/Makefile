@@ -6,7 +6,7 @@
 #    By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 13:10:49 by nchennaf          #+#    #+#              #
-#    Updated: 2023/01/11 14:49:14 by nchennaf         ###   ########.fr        #
+#    Updated: 2023/01/12 10:01:14 by nchennaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,16 @@ NAME =		hell
 AR =		ar rcs
 SRC =		main.cpp \
 			AMateria.cpp \
+			Character.cpp \
+			Cure.cpp \
+			Ice.cpp \
+			MateriaSource.cpp
 HEADER =	AMateria.hpp \
+			Character.hpp \
+			Cure.hpp \
+			Ice.hpp \
+			MateriaSource.hpp \
 			ICharacter.hpp \
-			IMateria.hpp \
 			IMateriaSource.hpp
 
 OBJ =		${SRC:.cpp=.o}

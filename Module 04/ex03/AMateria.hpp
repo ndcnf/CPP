@@ -6,15 +6,16 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:14:41 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/11 16:25:53 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/12 10:39:36 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+class AMateria;
 
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
 # include <iostream>
-# include "AMateria.hpp"
 # include "ICharacter.hpp"
 
 class AMateria
