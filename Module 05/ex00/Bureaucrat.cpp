@@ -6,11 +6,13 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:15:25 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/13 10:25:01 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/13 13:15:14 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+//////////////////////////////////////////////////////////////////////
 
 Bureaucrat::Bureaucrat():
 	_name("a random Vogon"),
@@ -25,14 +27,24 @@ Bureaucrat::Bureaucrat(std::string name, int grade):
 	_name(name),
 	_grade(grade)
 {
-	std::cout	<< _name << " [" << _grade << "]"
-				<< " glares into the void of their life."
-				<< std::endl;
+	if (grade < 1)
+		throw (GradeTooHighException());
+	else if (grade > 150)
+		throw (GradeTooLowException());
+	else
+	{
+		std::cout	<< _name << " [" << _grade << "]"
+					<< " glares into the void of their life."
+					<< std::endl;
+	}
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const & src)
 {
 	*this = src;
+	std::cout	<< "an other identical mindless bureaucrat has been cloned from "
+				<< this->_name
+				<< std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -52,3 +64,63 @@ Bureaucrat & Bureaucrat::operator=(Bureaucrat const & rhs)
 	return (*this);
 }
 
+//////////////////////////////////////////////////////////////////////
+
+std::string		Bureaucrat::getName() const
+{
+	return (_name);
+}
+
+int				Bureaucrat::getGrade() const
+{
+	return (_grade);
+}
+
+//////////////////////////////////////////////////////////////////////
+
+void	Bureaucrat::promoteBureaucrat()
+{
+	if ((this->_grade - 1) < 1)
+		throw (GradeTooHighException());
+	else
+	{
+		this->_grade--;
+		std::cout	<< "Congrats! " << _name << " Your grade is now: "
+					<< _grade << std::endl;
+	}
+}
+
+void	Bureaucrat::demoteBureaucrat()
+{
+	if ((this->_grade + 1) > 150)
+		throw (GradeTooLowException());
+	else
+	{
+		this->_grade++;
+		std::cout	<< "What have you done " << _name << "?? Your grade is now: "
+					<< _grade << std::endl;
+	}
+}
+
+
+//////////////////////////////////////////////////////////////////////
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Your grade is too high.");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Your grade is too low.");
+}
+
+//////////////////////////////////////////////////////////////////////
+
+std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs)
+{
+	o	<< "Hello, my name is "	<< rhs.getName()
+		<< " grade, "			<< rhs.getGrade()
+		<< ". Have you taken a ticket?";
+	return (o);
+}
