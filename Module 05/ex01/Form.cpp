@@ -6,11 +6,14 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:47:17 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/13 15:14:14 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:59:49 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+
+//////////////////////////////////////////////////////////////////////
+//TODO La construction ne semble pas se faire correctement. L'exeception de FORM est appellee dans le main sous "-------- This form is eligible, finally --------" avec too low
 
 Form::Form():
 	_signed(false),
@@ -18,7 +21,7 @@ Form::Form():
 	_signGrade(3),
 	_execGrade(5)
 {
-
+	std::cout	<< _name << " needs to be filed" << std::endl;
 }
 
 Form::Form(std::string name, int signGrade, int execGrade):
@@ -27,7 +30,12 @@ Form::Form(std::string name, int signGrade, int execGrade):
 	_signGrade(signGrade),
 	_execGrade(execGrade)
 {
+	if ((_signGrade < 1) || (_execGrade < 1))
+		throw (Bureaucrat::GradeTooHighException());
+	else if ((_signGrade > 150) || (_execGrade > 15))
+		throw (Bureaucrat::GradeTooLowException());
 
+	std::cout	<< _name << " needs to be filed" << std::endl;
 }
 
 Form::Form(Form const & src):
@@ -36,19 +44,57 @@ Form::Form(Form const & src):
 	_signGrade(src._signGrade),
 	_execGrade(src._execGrade)
 {
-
+	std::cout	<< "a clone has been summoned." << std::endl;
 }
 
 Form::~Form()
 {
-
+	std::cout	<< _name << " has been filed... in the shredder" << std::endl;
 }
 
 Form &Form::operator=(Form const & rhs)
 {
-
+	if (this != &rhs)
+	{
+		_signed = rhs._signed;
+	}
+	return (*this);
 }
 
+//////////////////////////////////////////////////////////////////////
+
+void	Form::beSigned(Bureaucrat &b)
+{
+	if (b.getGrade() > this->getSignGrade())
+		throw (Bureaucrat::GradeTooLowException());
+	else
+		this->_signed = true;
+}
+
+//////////////////////////////////////////////////////////////////////
+
+std::string		Form::getName() const
+{
+	return (_name);
+}
+
+int				Form::getFormSigned() const
+{
+	return (_signed);
+}
+
+int				Form::getSignGrade() const
+{
+	return (_signGrade);
+}
+
+int				Form::getExecGrade() const
+{
+	return (_execGrade);
+}
+
+//////////////////////////////////////////////////////////////////////
+//TODO Ici non plus, cela n'est pas appele dans le main.
 
 std::ostream	&operator<<(std::ostream & o, Form const & rhs)
 {
@@ -67,7 +113,3 @@ std::ostream	&operator<<(std::ostream & o, Form const & rhs)
 	return (o);
 }
 
-void	Form::beSigned(Bureaucrat &b)
-{
-
-}

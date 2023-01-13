@@ -6,7 +6,7 @@
 #    By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:01:54 by nchennaf          #+#    #+#              #
-#    Updated: 2023/01/13 10:05:12 by nchennaf         ###   ########.fr        #
+#    Updated: 2023/01/13 16:13:54 by nchennaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,10 @@ CFLAGS =	-Wall -Wextra -Werror -g -std=c++98 -pedantic #-fsanitize=address
 NAME =		hell
 AR =		ar rcs
 SRC =		main.cpp \
-			Bureaucrat.cpp
-HEADER =	Bureaucrat.hpp
+			Bureaucrat.cpp \
+			Form.cpp
+HEADER =	Bureaucrat.hpp \
+			Form.hpp
 
 OBJ =		${SRC:.cpp=.o}
 

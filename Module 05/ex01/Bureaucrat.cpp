@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:15:25 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/13 13:36:53 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:47:33 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,17 +103,37 @@ void	Bureaucrat::demoteBureaucrat()
 	}
 }
 
+void	Bureaucrat::signForm(Form &f)
+{
+	if (this->_grade <= f.getSignGrade())
+	{
+		f.beSigned(*this);
+		std::cout	<< this->getName()
+					<< " signed "
+					<< f.getName()
+					<< std::endl;
+	}
+	else
+	{
+		std::cout	<< this->getName()
+					<< " could\'nt sign "
+					<< f.getName()
+					<< " because their grade is too low."
+					<< std::endl;
+	}
+}
+
 
 //////////////////////////////////////////////////////////////////////
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Your grade is too high.");
+	return ("Grade is too high.");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Your grade is too low.");
+	return ("Grade is too low.");
 }
 
 //////////////////////////////////////////////////////////////////////

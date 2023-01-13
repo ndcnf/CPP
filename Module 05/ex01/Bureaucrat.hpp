@@ -6,9 +6,11 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:07:49 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/13 15:21:49 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:45:29 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+class Bureaucrat;
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
@@ -16,6 +18,7 @@
 # include <iostream>
 # include <stdexcept>
 # include <string>
+# include "Form.hpp"
 
 class Bureaucrat
 {
@@ -35,6 +38,7 @@ class Bureaucrat
 
 		void	promoteBureaucrat();
 		void	demoteBureaucrat();
+		void	signForm(Form &f);
 
 		//////////////////////////////////////////////
 
@@ -55,8 +59,8 @@ class Bureaucrat
 		//////////////////////////////////////////////
 
 	private:
-		std::string	const _name;
-		int			_grade;
+		std::string	const	_name;
+		int					_grade;
 };
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs);

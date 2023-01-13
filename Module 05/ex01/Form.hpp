@@ -6,9 +6,11 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:45:11 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/13 15:20:00 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:48:06 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+class Form;
 
 #ifndef FORM_HPP
 # define FORM_HPP
@@ -27,11 +29,18 @@ class Form
 		~Form();
 		Form	&operator=(Form const & rhs);
 
+		//////////////////////////////////////////////
+
 		void	beSigned(Bureaucrat &b);
 
-		int	getFormSigned() const;
-		int	getSignGrade() const;
-		int	getExecGrade() const;
+		//////////////////////////////////////////////
+
+		std::string		getName() const;
+		int				getFormSigned() const;
+		int				getSignGrade() const;
+		int				getExecGrade() const;
+
+		//////////////////////////////////////////////
 
 	private:
 		std::string const	_name;
