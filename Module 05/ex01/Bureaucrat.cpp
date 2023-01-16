@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:15:25 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/13 16:47:33 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/16 10:30:26 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ void	Bureaucrat::signForm(Form &f)
 		std::cout	<< this->getName()
 					<< " signed "
 					<< f.getName()
+					<< "."
 					<< std::endl;
 	}
 	else

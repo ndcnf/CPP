@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:47:17 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/13 16:59:49 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/16 10:29:14 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Form::Form():
 	_signGrade(3),
 	_execGrade(5)
 {
-	std::cout	<< _name << " needs to be filed" << std::endl;
+	std::cout	<< _name << " needs to be filed." << std::endl;
 }
 
 Form::Form(std::string name, int signGrade, int execGrade):
@@ -32,10 +32,10 @@ Form::Form(std::string name, int signGrade, int execGrade):
 {
 	if ((_signGrade < 1) || (_execGrade < 1))
 		throw (Bureaucrat::GradeTooHighException());
-	else if ((_signGrade > 150) || (_execGrade > 15))
+	else if ((_signGrade > 150) || (_execGrade > 150))
 		throw (Bureaucrat::GradeTooLowException());
 
-	std::cout	<< _name << " needs to be filed" << std::endl;
+	std::cout	<< _name << " needs to be filed." << std::endl;
 }
 
 Form::Form(Form const & src):
@@ -49,7 +49,7 @@ Form::Form(Form const & src):
 
 Form::~Form()
 {
-	std::cout	<< _name << " has been filed... in the shredder" << std::endl;
+	std::cout	<< _name << " has been filed... in the shredder." << std::endl;
 }
 
 Form &Form::operator=(Form const & rhs)
@@ -103,12 +103,12 @@ std::ostream	&operator<<(std::ostream & o, Form const & rhs)
 	if (rhs.getFormSigned())
 		printSignature = "signed";
 	else
-		printSignature = "not signed";
+		printSignature = "not yet signed";
 
 	o	<< "This form needs the following: " << std::endl
-		<< "Execution grade: " << rhs.getExecGrade() << std::endl
-		<< "Signature grade: " << rhs.getSignGrade() << std::endl
-		<< "The form is " << printSignature;
+		<< "- Execution grade: " << rhs.getExecGrade() << std::endl
+		<< "- Signature grade: " << rhs.getSignGrade() << std::endl
+		<< "- The form is " << printSignature;
 
 	return (o);
 }

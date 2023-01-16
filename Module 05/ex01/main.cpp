@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:29:08 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/13 16:53:01 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/16 10:34:00 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ int	main()
 	std::cout << std::endl;
 
 	{
-		std::cout	<< "-------- This form is pretty exclusive to sign --------" << std::endl;
+		std::cout	<< "-------- This form is too exclusive to sign --------" << std::endl;
 
 		try
 		{
-			Form	form("Pierre-Herve", 0, 7);
+			Form	form("Universe Peace Treaty", 0, 7);
 		}
 		catch (Bureaucrat::GradeTooHighException &e)
 		{
@@ -73,11 +73,11 @@ int	main()
 	std::cout << std::endl;
 
 	{
-		std::cout	<< "-------- This form is pretty exclusive to execute --------" << std::endl;
+		std::cout	<< "-------- This form is too exclusive to execute --------" << std::endl;
 
 		try
 		{
-			Form	form("Pierre-Herve", 12, 0);
+			Form	form("Universe Peace Treaty", 12, 0);
 		}
 		catch (Bureaucrat::GradeTooHighException &e)
 		{
@@ -92,11 +92,11 @@ int	main()
 	std::cout << std::endl;
 
 	{
-		std::cout	<< "-------- This form can be signed by anyone therefore shouldn\'nt --------" << std::endl;
+		std::cout	<< "-------- This form can be signed by anyone in the world therefore shouldn\'nt --------" << std::endl;
 
 		try
 		{
-			Form	form("Pierre-Herve", 300, 1);
+			Form	form("A LIDL receipt", 300, 1);
 		}
 		catch (Bureaucrat::GradeTooHighException &e)
 		{
@@ -111,11 +111,11 @@ int	main()
 	std::cout << std::endl;
 
 	{
-		std::cout	<< "-------- This form can be executed by anyone therefore shouldn\'nt --------" << std::endl;
+		std::cout	<< "-------- This form can be executed by anyone in the world therefore shouldn\'nt --------" << std::endl;
 
 		try
 		{
-			Form	form("Pierre-Herve", 1, 300);
+			Form	form("A LIDL receipt", 1, 300);
 		}
 		catch (Bureaucrat::GradeTooHighException &e)
 		{
@@ -130,16 +130,66 @@ int	main()
 	std::cout << std::endl;
 
 	{
-		std::cout	<< "-------- This form is eligible, finally --------" << std::endl;
+		std::cout	<< "-------- This form is eligible --------" << std::endl;
 
 		try
 		{
 			Bureaucrat	jeltz("Prostetnic Vogon Jeltz", 10);
 			Bureaucrat	zarny("Zarniwoop", 20);
-			Form		form("Pierre-Herve", 10, 20);
+			Form		form("House Peace Treaty", 10, 20);
 
 			std::cout	<< form << std::endl;
-			// jeltz.signForm(form);
+			jeltz.signForm(form);
+		}
+		catch (Bureaucrat::GradeTooHighException &e)
+		{
+			std::cout	<< e.what() << std::endl;
+		}
+		catch (Bureaucrat::GradeTooLowException &e)
+		{
+			std::cout	<< e.what() << std::endl;
+		}
+	}
+
+	std::cout << std::endl;
+
+
+	{
+		std::cout	<< "-------- This form is eligible, but too exlusive for you --------" << std::endl;
+
+		try
+		{
+			Bureaucrat	jeltz("Prostetnic Vogon Jeltz", 11);
+			Bureaucrat	zarny("Zarniwoop", 20);
+			Form		form("World Peace Treaty", 10, 20);
+
+			std::cout	<< form << std::endl;
+			jeltz.signForm(form);
+		}
+		catch (Bureaucrat::GradeTooHighException &e)
+		{
+			std::cout	<< e.what() << std::endl;
+		}
+		catch (Bureaucrat::GradeTooLowException &e)
+		{
+			std::cout	<< e.what() << std::endl;
+		}
+	}
+
+	std::cout << std::endl;
+
+
+	{
+		std::cout	<< "-------- This form is eligible and even an intern could sign. You're more qualified than an intern. --------" << std::endl;
+
+		try
+		{
+			Bureaucrat	jeltz("Prostetnic Vogon Jeltz", 11);
+			Bureaucrat	zarny("Zarniwoop", 20);
+			Form		form("Inner Peace Treaty", 150, 150);
+
+			std::cout	<< form << std::endl;
+			jeltz.signForm(form);
 		}
 		catch (Bureaucrat::GradeTooHighException &e)
 		{
@@ -154,188 +204,189 @@ int	main()
 	std::cout << std::endl;
 
 	//////////////////////////////////////////////////////////////////////
+	// EARLIER TESTS
+	//////////////////////////////////////////////////////////////////////
 
+	// {
+	// 	std::cout	<< "-------- Three random vogons, grade 150, networking --------" << std::endl;
 
-	{
-		std::cout	<< "-------- Three random vogons, grade 150, networking --------" << std::endl;
+	// 	try
+	// 	{
+	// 		Bureaucrat	jeltz("Prostetnic Vogon Jeltz", 150);
+	// 		Bureaucrat	vogon;
+	// 		Bureaucrat	nobody = jeltz;
 
-		try
-		{
-			Bureaucrat	jeltz("Prostetnic Vogon Jeltz", 150);
-			Bureaucrat	vogon;
-			Bureaucrat	nobody = jeltz;
+	// 		std::cout	<< jeltz << std::endl;
+	// 		std::cout	<< vogon << std::endl;
+	// 		std::cout	<< nobody << std::endl;
+	// 	}
+	// 	catch (Bureaucrat::GradeTooHighException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// 	catch (Bureaucrat::GradeTooLowException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// }
 
-			std::cout	<< jeltz << std::endl;
-			std::cout	<< vogon << std::endl;
-			std::cout	<< nobody << std::endl;
-		}
-		catch (Bureaucrat::GradeTooHighException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-		catch (Bureaucrat::GradeTooLowException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-	}
+	// std::cout << std::endl;
 
-	std::cout << std::endl;
+	// {
+	// 	std::cout	<< "-------- Two random vogons, grade 1, networking --------" << std::endl;
 
-	{
-		std::cout	<< "-------- Two random vogons, grade 1, networking --------" << std::endl;
+	// 	try
+	// 	{
+	// 		Bureaucrat	mown("Constant Mown", 1);
+	// 		Bureaucrat	zarny("Zarniwoop", 1);
 
-		try
-		{
-			Bureaucrat	mown("Constant Mown", 1);
-			Bureaucrat	zarny("Zarniwoop", 1);
+	// 		std::cout	<< mown << std::endl;
+	// 		std::cout	<< zarny << std::endl;
+	// 		// mown.signForm()
+	// 	}
+	// 	catch (Bureaucrat::GradeTooHighException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// 	catch (Bureaucrat::GradeTooLowException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// }
 
-			std::cout	<< mown << std::endl;
-			std::cout	<< zarny << std::endl;
-			// mown.signForm()
-		}
-		catch (Bureaucrat::GradeTooHighException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-		catch (Bureaucrat::GradeTooLowException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-	}
+	// 	std::cout << std::endl;
 
-		std::cout << std::endl;
+	// {
+	// 	std::cout	<< "-------- A random vogons made a mistake and is demoted. It ends badly. --------" << std::endl;
 
-	{
-		std::cout	<< "-------- A random vogons made a mistake and is demoted. It ends badly. --------" << std::endl;
+	// 	try
+	// 	{
+	// 		Bureaucrat	guard("Vogon Guard Corps", 150);
 
-		try
-		{
-			Bureaucrat	guard("Vogon Guard Corps", 150);
+	// 		std::cout	<< guard << std::endl;
 
-			std::cout	<< guard << std::endl;
+	// 		guard.demoteBureaucrat();
+	// 	}
+	// 	catch (Bureaucrat::GradeTooHighException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// 	catch (Bureaucrat::GradeTooLowException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// }
 
-			guard.demoteBureaucrat();
-		}
-		catch (Bureaucrat::GradeTooHighException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-		catch (Bureaucrat::GradeTooLowException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-	}
+	// 	std::cout << std::endl;
 
-		std::cout << std::endl;
+	// {
+	// 	std::cout	<< "-------- A random vogons made a mistake and is demoted. They're sad. --------" << std::endl;
 
-	{
-		std::cout	<< "-------- A random vogons made a mistake and is demoted. They're sad. --------" << std::endl;
+	// 	try
+	// 	{
+	// 		Bureaucrat	kwaltz("Prostetnic Kwaltz", 1);
 
-		try
-		{
-			Bureaucrat	kwaltz("Prostetnic Kwaltz", 1);
+	// 		std::cout	<< kwaltz << std::endl;
 
-			std::cout	<< kwaltz << std::endl;
+	// 		kwaltz.demoteBureaucrat();
+	// 	}
+	// 	catch (Bureaucrat::GradeTooHighException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// 	catch (Bureaucrat::GradeTooLowException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// }
 
-			kwaltz.demoteBureaucrat();
-		}
-		catch (Bureaucrat::GradeTooHighException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-		catch (Bureaucrat::GradeTooLowException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-	}
+	// 	std::cout << std::endl;
 
-		std::cout << std::endl;
+	// {
+	// 	std::cout	<< "-------- A random vogon made something kinda okay and is promoted. Already at the top --------" << std::endl;
 
-	{
-		std::cout	<< "-------- A random vogon made something kinda okay and is promoted. Already at the top --------" << std::endl;
+	// 	try
+	// 	{
+	// 		Bureaucrat	kwaltz("Prostetnic Kwaltz", 1);
 
-		try
-		{
-			Bureaucrat	kwaltz("Prostetnic Kwaltz", 1);
+	// 		std::cout	<< kwaltz << std::endl;
 
-			std::cout	<< kwaltz << std::endl;
+	// 		kwaltz.promoteBureaucrat();
+	// 	}
+	// 	catch (Bureaucrat::GradeTooHighException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// 	catch (Bureaucrat::GradeTooLowException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// }
 
-			kwaltz.promoteBureaucrat();
-		}
-		catch (Bureaucrat::GradeTooHighException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-		catch (Bureaucrat::GradeTooLowException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-	}
+	// 	std::cout << std::endl;
 
-		std::cout << std::endl;
+	// {
+	// 	std::cout	<< "-------- A random vogon made something kinda okay and is promoted. They are happy. --------" << std::endl;
 
-	{
-		std::cout	<< "-------- A random vogon made something kinda okay and is promoted. They are happy. --------" << std::endl;
+	// 	try
+	// 	{
+	// 		Bureaucrat	guard("Vogon Guard Corps", 150);
 
-		try
-		{
-			Bureaucrat	guard("Vogon Guard Corps", 150);
+	// 		std::cout	<< guard << std::endl;
 
-			std::cout	<< guard << std::endl;
+	// 		guard.promoteBureaucrat();
+	// 	}
+	// 	catch (Bureaucrat::GradeTooHighException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// 	catch (Bureaucrat::GradeTooLowException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// }
 
-			guard.promoteBureaucrat();
-		}
-		catch (Bureaucrat::GradeTooHighException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-		catch (Bureaucrat::GradeTooLowException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-	}
+	// 	std::cout << std::endl;
 
-		std::cout << std::endl;
+	// {
+	// 	std::cout	<< "-------- A random made nothing, but is too low graded  --------" << std::endl;
 
-	{
-		std::cout	<< "-------- A random made nothing, but is too low graded  --------" << std::endl;
+	// 	try
+	// 	{
+	// 		Bureaucrat	guard("Vogon Guard Corps", 151);
 
-		try
-		{
-			Bureaucrat	guard("Vogon Guard Corps", 151);
+	// 		std::cout	<< guard << std::endl;
+	// 	}
+	// 	catch (Bureaucrat::GradeTooHighException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// 	catch (Bureaucrat::GradeTooLowException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// }
 
-			std::cout	<< guard << std::endl;
-		}
-		catch (Bureaucrat::GradeTooHighException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-		catch (Bureaucrat::GradeTooLowException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-	}
+	// 	std::cout << std::endl;
 
-		std::cout << std::endl;
+	// {
+	// 	std::cout	<< "-------- A random made nothing, but is too high graded  --------" << std::endl;
 
-	{
-		std::cout	<< "-------- A random made nothing, but is too high graded  --------" << std::endl;
+	// 	try
+	// 	{
+	// 		Bureaucrat	kwaltz("Prostetnic Kwaltz", 0);
 
-		try
-		{
-			Bureaucrat	kwaltz("Prostetnic Kwaltz", 0);
-
-			std::cout	<< kwaltz << std::endl;
-		}
-		catch (Bureaucrat::GradeTooHighException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-		catch (Bureaucrat::GradeTooLowException &e)
-		{
-			std::cout	<< e.what() << std::endl;
-		}
-	}
+	// 		std::cout	<< kwaltz << std::endl;
+	// 	}
+	// 	catch (Bureaucrat::GradeTooHighException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// 	catch (Bureaucrat::GradeTooLowException &e)
+	// 	{
+	// 		std::cout	<< e.what() << std::endl;
+	// 	}
+	// }
 
 	return (0);
 }
