@@ -19,14 +19,14 @@ RobotomyRequestForm::RobotomyRequestForm():
 	AForm("drill request", LVL_SIGN_ROB, LVL_EXEC_ROB),
 	_target("a random victim")
 {
-	std::cout << "plugs the drill into the electricity socket" << std::endl;
+	// std::cout << "plugs the drill into the electricity socket" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target):
 	AForm(target, LVL_SIGN_ROB, LVL_EXEC_ROB),
 	_target(target)
 {
-	std::cout << "plugs the drill into the electricity socket" << std::endl;
+	// std::cout << "plugs the drill into the electricity socket" << std::endl;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &rhs)
@@ -49,7 +49,7 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & src):
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout	<< "Drill is cooling off." << std::endl;
+	// std::cout	<< "Drill is cooling off." << std::endl;
 }
 
 std::string		RobotomyRequestForm::getTarget() const

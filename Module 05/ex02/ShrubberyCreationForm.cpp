@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:36:31 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/17 17:05:03 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:17:37 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src):
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout	<< "Ni! (Bye)" << std::endl;
+	// std::cout	<< "Ni! (Bye)" << std::endl;
 }
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const

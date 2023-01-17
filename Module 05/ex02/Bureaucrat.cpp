@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:15:25 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/17 17:01:04 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:18:35 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ Bureaucrat::Bureaucrat():
 	_name("a random Vogon"),
 	_grade(150)
 {
-	std::cout	<< _name << " [" << _grade << "]"
-				<< " glares into the void of their life."
-				<< std::endl;
+	// std::cout	<< _name << " [" << _grade << "]"
+	// 			<< " glares into the void of their life."
+	// 			<< std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade):
@@ -31,12 +31,12 @@ Bureaucrat::Bureaucrat(std::string name, int grade):
 		throw (GradeTooHighException());
 	else if (grade > 150)
 		throw (GradeTooLowException());
-	else
-	{
-		std::cout	<< _name << " [" << _grade << "]"
-					<< " glares into the void of their life."
-					<< std::endl;
-	}
+	// else
+	// {
+		// std::cout	<< _name << " [" << _grade << "]"
+		// 			<< " glares into the void of their life."
+		// 			<< std::endl;
+	// }
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const & src):
@@ -50,9 +50,9 @@ Bureaucrat::Bureaucrat(Bureaucrat const & src):
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout	<< _name << " [" << _grade << "]"
-				<< " sighs and vanishes in their cubicule."
-				<< std::endl;
+	// std::cout	<< _name << " [" << _grade << "]"
+	// 			<< " sighs and vanishes in their cubicule."
+	// 			<< std::endl;
 }
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const & rhs)

@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:47:17 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/17 17:07:02 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:19:06 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ AForm::AForm():
 	_signGrade(3),
 	_execGrade(5)
 {
-	std::cout	<< _name << " needs to be filed." << std::endl;
+	// std::cout	<< _name << " needs to be filed." << std::endl;
 }
 
 AForm::AForm(std::string name, int signGrade, int execGrade):
@@ -32,7 +32,7 @@ AForm::AForm(std::string name, int signGrade, int execGrade):
 	else if ((_signGrade > 150) || (_execGrade > 150))
 		throw (Bureaucrat::GradeTooLowException());
 
-	std::cout	<< _name << " needs to be filed." << std::endl;
+	// std::cout	<< _name << " needs to be filed." << std::endl;
 }
 
 AForm::AForm(AForm const & src):
@@ -53,7 +53,7 @@ AForm &AForm::operator=(AForm const & rhs)
 
 AForm::~AForm()
 {
-	std::cout	<< _name << " has been filed... in the shredder." << std::endl;
+	// std::cout	<< _name << " has been filed... in the shredder." << std::endl;
 }
 
 //////////////////////////////////////////////////////////////////////

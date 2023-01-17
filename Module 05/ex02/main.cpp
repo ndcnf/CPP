@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:29:08 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/17 16:47:33 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:37:29 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int	main()
 {
 	{
-		std::cout	<< "-------- This form can be signed but not executed, but should\'nt --------" << std::endl;
+		std::cout	<< "-------- This form can be signed but not executed, so shouldn\'t --------" << std::endl;
 
 		Bureaucrat				dude("Julien", 145);
+		std::cout	<< dude << std::endl;
+
 		ShrubberyCreationForm	form("garden");
+		std::cout	<< form << std::endl;
 
 		dude.signForm(form);
 		dude.executeForm(form);
@@ -29,10 +33,13 @@ int	main()
 		std::cout << std::endl;
 
 	{
-		std::cout	<< "-------- This form cannot be signed nor executed --------" << std::endl;
+		std::cout	<< "-------- This form cannot be signed, nor executed --------" << std::endl;
 
 		Bureaucrat				dude("Julien", 150);
+		std::cout	<< dude << std::endl;
+
 		ShrubberyCreationForm	form("garden");
+		std::cout	<< form << std::endl;
 
 		dude.signForm(form);
 		dude.executeForm(form);
@@ -42,7 +49,10 @@ int	main()
 		std::cout	<< "-------- This form can be signed and executed. It produces a file with a pine tree --------" << std::endl;
 
 		Bureaucrat				dude("Julien", 1);
+		std::cout	<< dude << std::endl;
+
 		ShrubberyCreationForm	form("garden");
+		std::cout	<< form << std::endl;
 
 		dude.signForm(form);
 		dude.executeForm(form);
@@ -52,7 +62,10 @@ int	main()
 		std::cout	<< "-------- This form can be signed and executed. Robotomy is successful (even number) --------" << std::endl;
 
 		Bureaucrat				dude("Julien", 1);
+		std::cout	<< dude << std::endl;
+
 		RobotomyRequestForm		form("Cyberman");
+		std::cout	<< form << std::endl;
 
 		dude.signForm(form);
 		dude.executeForm(form);
@@ -62,11 +75,81 @@ int	main()
 		std::cout	<< "-------- This form can be signed and executed. Robotomy is a failure (odd number) --------" << std::endl;
 
 		Bureaucrat				dude("Julien", 1);
+		std::cout	<< dude << std::endl;
+
 		RobotomyRequestForm		form("Cyberno");
+		std::cout	<< form << std::endl;
 
 		dude.signForm(form);
 		dude.executeForm(form);
 	}
+		std::cout << std::endl;
+	{
+		std::cout	<< "-------- This form cannot be signed, nor executed --------" << std::endl;
+
+		Bureaucrat				dude("Julien", 100);
+		std::cout	<< dude << std::endl;
+
+		RobotomyRequestForm		form("Cyberno");
+		std::cout	<< form << std::endl;
+
+		dude.signForm(form);
+		dude.executeForm(form);
+	}
+		std::cout << std::endl;
+	{
+		std::cout	<< "-------- This form can be signed but not executed, so shouldn\'t  --------" << std::endl;
+
+		Bureaucrat				dude("Julien", 72);
+		std::cout	<< dude << std::endl;
+
+		RobotomyRequestForm		form("Cyberno");
+		std::cout	<< form << std::endl;
+
+		dude.signForm(form);
+		dude.executeForm(form);
+	}
+		std::cout << std::endl;
+	{
+		std::cout	<< "-------- This form can be signed but not executed, so shouldn\'t --------" << std::endl;
+
+		Bureaucrat				dude("Julien", 25);
+		std::cout	<< dude << std::endl;
+
+		PresidentialPardonForm	form("Arthur");
+		std::cout	<< form << std::endl;
+
+		dude.signForm(form);
+		dude.executeForm(form);
+	}
+		std::cout << std::endl;
+	{
+		std::cout	<< "-------- This form cannot be signed, nor executed --------" << std::endl;
+
+		Bureaucrat				dude("Julien", 150);
+		std::cout	<< dude << std::endl;
+
+		PresidentialPardonForm	form("Arthur");
+		std::cout	<< form << std::endl;
+
+		dude.signForm(form);
+		dude.executeForm(form);
+	}
+		std::cout << std::endl;
+	{
+		std::cout	<< "-------- This form can be signed and executed. Kudos. --------" << std::endl;
+
+		Bureaucrat				dude("Julien", 1);
+		std::cout	<< dude << std::endl;
+
+		PresidentialPardonForm	form("Arthur");
+		std::cout	<< form << std::endl;
+
+		dude.signForm(form);
+		dude.executeForm(form);
+	}
+
+
 	// {
 	// 	std::cout << "copy case" << std::endl;
 
