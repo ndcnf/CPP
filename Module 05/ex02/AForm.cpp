@@ -6,14 +6,11 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:47:17 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/16 15:49:20 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/17 16:12:15 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
-
-//////////////////////////////////////////////////////////////////////
-//TODO La construction ne semble pas se faire correctement. L'exeception de FORM est appellee dans le main sous "-------- This form is eligible, finally --------" avec too low
 
 AForm::AForm():
 	_signed(false),
@@ -64,9 +61,21 @@ AForm::~AForm()
 void	AForm::beSigned(Bureaucrat &b)
 {
 	if (b.getGrade() > this->getSignGrade())
+	{
+		std::cout	<< b.getGrade() << "-"
+					<< this->getSignGrade() << std::endl;
+
+		std::cout	<< "THROW IT" << std::endl;
 		throw (Bureaucrat::GradeTooLowException());
+	}
 	else
+	{
+		std::cout	<< b.getGrade() << "-"
+					<< this->getSignGrade() << std::endl;
+
+		std::cout	<< "NOT THROW" << std::endl;
 		this->_signed = true;
+	}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -92,7 +101,6 @@ int				AForm::getExecGrade() const
 }
 
 //////////////////////////////////////////////////////////////////////
-//TODO Ici non plus, cela n'est pas appele dans le main.
 
 std::ostream	&operator<<(std::ostream & o, AForm const & rhs)
 {
@@ -111,3 +119,7 @@ std::ostream	&operator<<(std::ostream & o, AForm const & rhs)
 	return (o);
 }
 
+const char* AForm::NotSigned::what() const throw()
+{
+	return ("This form isn\'t signed.");
+}

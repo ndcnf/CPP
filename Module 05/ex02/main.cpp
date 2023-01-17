@@ -6,20 +6,67 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:29:08 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/16 16:24:29 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/17 16:47:33 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int	main()
 {
-	ShrubberyCreationForm	form("garden");
-	Bureaucrat				dude("Julien", 1);
+	{
+		std::cout	<< "-------- This form can be signed but not executed, but should\'nt --------" << std::endl;
 
-	form.execute(dude);
+		Bureaucrat				dude("Julien", 145);
+		ShrubberyCreationForm	form("garden");
+
+		dude.signForm(form);
+		dude.executeForm(form);
+	}
+		std::cout << std::endl;
+
+	{
+		std::cout	<< "-------- This form cannot be signed nor executed --------" << std::endl;
+
+		Bureaucrat				dude("Julien", 150);
+		ShrubberyCreationForm	form("garden");
+
+		dude.signForm(form);
+		dude.executeForm(form);
+	}
+		std::cout << std::endl;
+	{
+		std::cout	<< "-------- This form can be signed and executed. It produces a file with a pine tree --------" << std::endl;
+
+		Bureaucrat				dude("Julien", 1);
+		ShrubberyCreationForm	form("garden");
+
+		dude.signForm(form);
+		dude.executeForm(form);
+	}
+		std::cout << std::endl;
+	{
+		std::cout	<< "-------- This form can be signed and executed. Robotomy is successful (even number) --------" << std::endl;
+
+		Bureaucrat				dude("Julien", 1);
+		RobotomyRequestForm		form("Cyberman");
+
+		dude.signForm(form);
+		dude.executeForm(form);
+	}
+		std::cout << std::endl;
+	{
+		std::cout	<< "-------- This form can be signed and executed. Robotomy is a failure (odd number) --------" << std::endl;
+
+		Bureaucrat				dude("Julien", 1);
+		RobotomyRequestForm		form("Cyberno");
+
+		dude.signForm(form);
+		dude.executeForm(form);
+	}
 	// {
 	// 	std::cout << "copy case" << std::endl;
 

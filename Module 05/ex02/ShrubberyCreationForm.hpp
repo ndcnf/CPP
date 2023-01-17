@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:32:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/16 16:33:36 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/17 13:41:03 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 # define LOW "/____\\ \n"
 # define TRK "  ||\n"
 
-# define LVL_SIGN 145
-# define LVL_EXEC 137
+# define LVL_SIGN_SHR 145
+# define LVL_EXEC_SHR 137
 
 class ShrubberyCreationForm: public AForm
 {

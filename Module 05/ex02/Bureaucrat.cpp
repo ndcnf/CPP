@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:15:25 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/16 15:24:07 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:01:04 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	Bureaucrat::demoteBureaucrat()
 
 void	Bureaucrat::signForm(AForm &f)
 {
-	if (this->_grade <= f.getSignGrade())
+	try
 	{
 		f.beSigned(*this);
 		std::cout	<< this->getName()
@@ -114,16 +114,73 @@ void	Bureaucrat::signForm(AForm &f)
 					<< "."
 					<< std::endl;
 	}
-	else
+	catch(Bureaucrat::GradeTooLowException &e)
 	{
 		std::cout	<< this->getName()
-					<< " could\'nt sign "
+					<< " couldn\'t sign "
 					<< f.getName()
-					<< " because their grade is too low."
+					<< ". Reason: "
+					<< e.what()
 					<< std::endl;
 	}
 }
 
+void	Bureaucrat::executeForm(AForm const & f)
+{
+	try
+	{
+		if (!f.getFormSigned())
+			throw(AForm::NotSigned());
+		if (this->_grade > f.getExecGrade())
+			throw(GradeTooLowException());
+		else
+		{
+			std::cout	<< this->getName()
+						<< " executed "
+						<< f.getName()
+						<< "."
+						<< std::endl;
+
+			f.execute(*this);
+		}
+	}
+	catch(std::exception &e)
+	{
+		std::cout	<< this->getName()
+					<< " couldn\'t execute "
+					<< f.getName()
+					<< ". Reason: "
+					<< e.what()
+					<< std::endl;
+	}
+
+
+
+
+
+
+
+
+
+
+	// if (this->_grade <= f.getExecGrade() && f.getFormSigned())
+	// {
+	// 	std::cout	<< this->getName()
+	// 				<< " executed "
+	// 				<< f.getName()
+	// 				<< "."
+	// 				<< std::endl;
+	// 	f.execute(*this);
+	// }
+	// else
+	// {
+	// 	std::cout	<< this->getName()
+	// 				<< " could\'nt execute "
+	// 				<< f.getName()
+	// 				<< " because their grade is too low."
+	// 				<< std::endl;
+	// }
+}
 
 //////////////////////////////////////////////////////////////////////
 

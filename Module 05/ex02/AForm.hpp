@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:45:11 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/16 14:34:01 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/17 14:57:46 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,13 @@ class AForm
 		int				getExecGrade() const;
 
 		//////////////////////////////////////////////
+
+		class NotSigned:
+			public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 
 	private:
 		std::string const	_name;

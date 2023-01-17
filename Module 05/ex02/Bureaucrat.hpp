@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:07:49 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/16 11:02:03 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/16 16:48:27 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class Bureaucrat
 		void	promoteBureaucrat();
 		void	demoteBureaucrat();
 		void	signForm(AForm &f);
+		void	executeForm(AForm const & form);
 
 		//////////////////////////////////////////////
 

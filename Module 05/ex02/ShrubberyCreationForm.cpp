@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:36:31 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/16 16:37:17 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:05:03 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #include "AForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm():
-	AForm("a request by the Knights who say Ni", LVL_SIGN, LVL_EXEC),
+	AForm("a request by the Knights who say Ni", LVL_SIGN_SHR, LVL_EXEC_SHR),
 	_target("Ni")
 {
 
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target):
-	AForm("a request by the Knights who say Ni", LVL_SIGN, LVL_EXEC),
+	AForm("a request by the Knights who say Ni", LVL_SIGN_SHR, LVL_EXEC_SHR),
 	_target(target)
 {
 
@@ -52,31 +52,21 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	try
-	{
-		if (executor.getGrade() > LVL_SIGN || executor.getGrade() > LVL_EXEC)
-			throw(Bureaucrat::GradeTooLowException());
+	std::string		file = _target;
+	std::string		fileContent = TOP;
 
-		std::string		file = _target;
-		std::string		fileContent = TOP;
+	fileContent += MID;
+	fileContent += LOW;
+	fileContent += TRK;
 
-		fileContent += MID;
-		fileContent += LOW;
-		fileContent += TRK;
+	file += "_shrubbery";
 
-		file += "_shrubbery";
+	std::ofstream	ofs(file);
 
-		std::ofstream	ofs(file);
-
-		ofs << fileContent;
-		std::cout	<< "Your file "
-					<< file
-					<< " is ready."
-					<< std::endl;
-		ofs.close();
-	}
-	catch(Bureaucrat::GradeTooLowException &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	ofs << fileContent;
+	std::cout	<< "-> Your file "
+				<< file
+				<< " is ready."
+				<< std::endl;
+	ofs.close();
 }
