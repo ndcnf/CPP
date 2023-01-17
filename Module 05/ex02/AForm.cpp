@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:47:17 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/17 16:12:15 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:07:02 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,21 +61,9 @@ AForm::~AForm()
 void	AForm::beSigned(Bureaucrat &b)
 {
 	if (b.getGrade() > this->getSignGrade())
-	{
-		std::cout	<< b.getGrade() << "-"
-					<< this->getSignGrade() << std::endl;
-
-		std::cout	<< "THROW IT" << std::endl;
 		throw (Bureaucrat::GradeTooLowException());
-	}
 	else
-	{
-		std::cout	<< b.getGrade() << "-"
-					<< this->getSignGrade() << std::endl;
-
-		std::cout	<< "NOT THROW" << std::endl;
 		this->_signed = true;
-	}
 }
 
 //////////////////////////////////////////////////////////////////////
