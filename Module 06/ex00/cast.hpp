@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:02:24 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 13:04:55 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:10:10 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,16 @@ public:
 	cast	&operator=(cast const & rhs);
 
 	void	detection(std::string src);
+	void	exceptions(std::string src);
 	char	toChar(std::string src);
 	int		toInt(std::string src);
 	float	toFloat(std::string src);
 	double	toDouble(std::string src);
+
+	char	getChar(std::string src) const;
+	int		getInt(std::string src) const;
+	float	getFloat(std::string src) const;
+	double	getDouble(std::string src) const;
 
 	~cast();
 

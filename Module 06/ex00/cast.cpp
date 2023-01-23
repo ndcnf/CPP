@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:01:32 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 13:43:36 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:10:03 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,19 @@ cast	&cast::operator=(cast const & rhs)
 	return (*this);
 }
 
+// void	cast::exceptions(std::string src)
+// {
+// 	switch (src)
+// 	{
+// 	case "nanf":
+// 		/* code */
+// 		break;
+
+// 	default:
+// 		break;
+// 	}
+// }
+
 void	cast::detection(std::string src)
 {
 	int				i = 0;
@@ -80,12 +93,12 @@ void	cast::detection(std::string src)
 	{
 		std::cout << "a char" << std::endl;
 	}
+	else if (src == "nan" || src == "inff" || src == "nanf" || src == "inf")
+		exceptions(src);
 	else
 	{
 		std::cout << "Not a valid data here." << std::endl;
 	}
-
-
 
 
 	std::cout << std::endl;
@@ -95,11 +108,13 @@ void	cast::detection(std::string src)
 	std::cout << "F:     " << _hasF << std::endl;
 }
 
-// char	cast::toChar(std::string src)
-// {
-// 	// _char = static_cast<char>(src);
-// 	// return (_char);
-// }
+char	cast::toChar(std::string src)
+{
+	char c = src[0];
+
+	_char = static_cast<char>(c);
+	return (_char);
+}
 
 // int		cast::toInt(std::string src)
 // {
@@ -115,6 +130,26 @@ void	cast::detection(std::string src)
 // {
 
 // }
+
+char	cast::getChar(std::string src) const
+{
+	return (_char);
+}
+
+int		cast::getInt(std::string src) const
+{
+	return (_int);
+}
+
+float	cast::getFloat(std::string src) const
+{
+	return (_float);
+}
+
+double	cast::getDouble(std::string src) const
+{
+	return (_double);
+}
 
 
 cast::cast()
