@@ -6,14 +6,14 @@
 #    By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:01:54 by nchennaf          #+#    #+#              #
-#    Updated: 2023/01/23 11:00:47 by nchennaf         ###   ########.fr        #
+#    Updated: 2023/01/23 18:16:08 by nchennaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC =		c++
 #CC =		g++
 #CFLAGS =	g++-11 -Werror -Wextra -Wall -std=c++98 -pedantic
-CFLAGS =	-Wall -Wextra -Werror -g -std=c++98 -pedantic #-fsanitize=address
+CFLAGS =	-Wall -Wextra -Werror -g3 -std=c++98 -pedantic #-fsanitize=address
 NAME =		cast
 AR =		ar rcs
 SRC =		main.cpp \
@@ -26,10 +26,10 @@ OBJ =		${SRC:.cpp=.o}
 all:		${NAME}
 
 ${OBJ}: %.o : %.cpp ${HEADER} Makefile
-	@${CC} ${CPPFLAGS} -o $@ -c $<
+	${CC} ${CFLAGS} -o $@ -c $<
 
 ${NAME}:	${OBJ}
-			@${CC} ${CFLAGS} ${OBJ} -o ${NAME}
+			${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 			@echo "compiling	OK"
 
 clean:

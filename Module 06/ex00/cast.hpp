@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:02:24 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 17:32:58 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/23 18:21:40 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <cmath>
 # include <string>
+# include <iomanip>
 
 class cast
 {
@@ -33,10 +34,10 @@ public:
 	void	SrcFloat(std::string src);
 	void	SrcDouble(std::string src);
 
-	void	printChar(std::string src);
-	void	printInt(std::string src);
-	void	printFloat(std::string src);
-	void	printDouble(std::string src);
+	void	printChar();
+	void	printInt();
+	void	printFloat();
+	void	printDouble();
 
 	// char	toChar(std::string src);
 	// int		toInt(std::string src);
@@ -52,6 +53,8 @@ public:
 
 private:
 	cast();
+
+	std::string _param;
 
 	char	_char;
 	int		_int;

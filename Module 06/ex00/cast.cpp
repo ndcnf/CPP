@@ -6,17 +6,18 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:01:32 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 17:36:13 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/23 18:26:08 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cast.hpp"
 
 cast::cast(std::string conv):
+		_param(conv),
 		_char('0'),
 		_int(0),
-		_double(0.0),
 		_float(0.0f),
+		_double(0.0),
 		_isChar(false),
 		_isInt(false),
 		_isFloat(false),
@@ -68,7 +69,7 @@ void	cast::detection(std::string src)
 	std::size_t		pos;
 
 	pos = src.find_first_not_of("0123456789-");
-	if (pos)
+	if (pos == std::string::npos)
 	{
 		pos = src.find("-");
 		if (pos != std::string::npos)
@@ -87,7 +88,7 @@ void	cast::detection(std::string src)
 			else
 				_isDouble = true;
 		}
-		else if (src.length() > 1)
+		else if (src.length() >= 1)
 			_isInt = true;
 		else
 		{
@@ -129,7 +130,7 @@ void	cast::selection(std::string src)
 		std::cout << "Invalid data." << std::endl;
 }
 
-void	cast::printChar(std::string src)
+void	cast::printChar()
 {
 	int	i = static_cast<int>(_char);
 
@@ -142,7 +143,7 @@ void	cast::printChar(std::string src)
 		std::cout	<< "not displayable" << std::endl;
 }
 
-void	cast::printInt(std::string src)
+void	cast::printInt()
 {
 	std::cout	<< "int:    ";
 	if (_isNanInf)
@@ -151,14 +152,16 @@ void	cast::printInt(std::string src)
 		std::cout << _int << std::endl;
 }
 
-void	cast::printFloat(std::string src)
+void	cast::printFloat()
 {
-
+	std::cout	<< "float:  ";
+	std::cout << std::fixed << std::setprecision(1) << _float << "f" << std::endl;
 }
 
-void	cast::printDouble(std::string src)
+void	cast::printDouble()
 {
-
+	std::cout	<< "double: ";
+	std::cout << std::fixed << std::setprecision(1) << _double << std::endl;
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:02:06 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 17:37:01 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/23 18:22:34 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,17 @@ int	main(int argc, char *argv[])
 	std::cout	<< "-- CONVERSIONS --" << std::endl;
 
 	// std::cout	<< "char:   ";
-	ca.printChar(argv[1]);
-	ca.printInt(argv[1]);
+	ca.printChar();
+	ca.printInt();
+	ca.printFloat();
+	ca.printDouble();
 
 	// std::cout	<< "char:   " << ca.getChar()	<< std::endl;
 	// std::cout	<< "char:   " << ca.printChar(argv[1])	<< std::endl;
 
 	// std::cout	<< "int:    " << ca.getInt()	<< std::endl;
-	std::cout	<< "float:  " << ca.getFloat()	<< std::endl;
-	std::cout	<< "double: " << ca.getDouble()	<< std::endl;
+	// std::cout	<< "float:  " << ca.getFloat()	<< std::endl;
+	// std::cout	<< "double: " << ca.getDouble()	<< std::endl;
 
 	return (0);
 }
