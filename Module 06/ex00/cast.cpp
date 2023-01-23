@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:01:32 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 17:15:27 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/23 17:36:13 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ cast::cast(std::string conv):
 		_isDouble(false),
 		_hasPoint(false),
 		_hasSign(false),
-		_hasF(false)
+		_hasF(false),
+		_isNanInf(false)
 {
 	// std::cout	<< "Constructor called" << std::endl;
 }
@@ -48,12 +49,14 @@ cast	&cast::operator=(cast const & rhs)
 		_isDouble = rhs._isDouble;
 		_isFloat = rhs._isFloat;
 		_isInt = rhs._isInt;
+		_isNanInf = rhs._isNanInf;
 	}
 	return (*this);
 }
 
 void	cast::exception(std::string src)
 {
+	_isNanInf = true;
 	if (src == "nanf" || src == "-inff" || src == "+inff")
 		_isFloat = true;
 	else
@@ -108,6 +111,7 @@ void	cast::detection(std::string src)
 	std::cout << "isInt:  " << _isInt <<std::endl;
 	std::cout << "ifFlt:  " << _isFloat <<std::endl;
 	std::cout << "isDble: " << _isDouble <<std::endl;
+	std::cout << "isNanIn:" << _isDouble <<std::endl;
 	std::cout << std::endl;
 }
 
@@ -125,21 +129,26 @@ void	cast::selection(std::string src)
 		std::cout << "Invalid data." << std::endl;
 }
 
-
 void	cast::printChar(std::string src)
 {
-	int	i = 0;
+	int	i = static_cast<int>(_char);
 
-	i = static_cast<int>(_char);
+	std::cout	<< "char:   ";
 	if (i < 127 && i >= 32)
 		std::cout	<< "'" << _char << "'" << std::endl;
+	else if (_isNanInf)
+		std::cout << "impossible" << std::endl;
 	else
 		std::cout	<< "not displayable" << std::endl;
 }
 
 void	cast::printInt(std::string src)
 {
-
+	std::cout	<< "int:    ";
+	if (_isNanInf)
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << _int << std::endl;
 }
 
 void	cast::printFloat(std::string src)
@@ -171,23 +180,26 @@ void	cast::SrcInt(std::string src)
 	_int = static_cast<int>(i);
 	_float = static_cast<float>(i);
 	_double = static_cast<double>(i);
-	// return (_int);
 }
 
-float	cast::SrcFloat(std::string src)
+void	cast::SrcFloat(std::string src)
 {
 	float	f = stof(src);
 
+	_char = static_cast<char>(f);
+	_int = static_cast<int>(f);
 	_float = static_cast<float>(f);
-	return (_float);
+	_double = static_cast<double>(f);
 }
 
-double	cast::SrcDouble(std::string src)
+void	cast::SrcDouble(std::string src)
 {
 	double	d = stod(src);
 
+	_char = static_cast<char>(d);
+	_int = static_cast<int>(d);
+	_float = static_cast<float>(d);
 	_double = static_cast<double>(d);
-	return (_double);
 }
 
 

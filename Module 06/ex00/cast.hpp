@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:02:24 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 17:01:30 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/23 17:32:58 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ public:
 
 	void	SrcChar(std::string src);
 	void	SrcInt(std::string src);
-	float	SrcFloat(std::string src);
-	double	SrcDouble(std::string src);
+	void	SrcFloat(std::string src);
+	void	SrcDouble(std::string src);
 
 	void	printChar(std::string src);
 	void	printInt(std::string src);
@@ -66,6 +66,7 @@ private:
 	bool	_hasPoint;
 	bool	_hasSign;
 	bool	_hasF;
+	bool	_isNanInf;
 };
 
 #endif
