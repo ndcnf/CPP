@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:02:24 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 15:18:58 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:34:11 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,18 @@ public:
 	cast	&operator=(cast const & rhs);
 
 	void	detection(std::string src);
-	void	exceptions(std::string src);
-	char	toChar(std::string src);
-	int		toInt(std::string src);
-	float	toFloat(std::string src);
-	double	toDouble(std::string src);
+	void	exception(std::string src);
+	void	selection(std::string src);
+
+	void	SrcChar(std::string src);
+	void	SrcInt(std::string src);
+	float	SrcFloat(std::string src);
+	double	SrcDouble(std::string src);
+
+	// char	toChar(std::string src);
+	// int		toInt(std::string src);
+	// float	toFloat(std::string src);
+	// double	toDouble(std::string src);
 
 	char	getChar() const;
 	int		getInt() const;
@@ -55,9 +62,5 @@ private:
 	bool	_hasSign;
 	bool	_hasF;
 };
-
-
-
-
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:01:32 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 15:37:04 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:34:04 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,27 +52,25 @@ cast	&cast::operator=(cast const & rhs)
 	return (*this);
 }
 
-// void	cast::exceptions(std::string src)
-// {
-// 	switch (src)
-// 	{
-// 	case "nanf":
-// 		/* code */
-// 		break;
-
-// 	default:
-// 		break;
-// 	}
-// }
+void	cast::exception(std::string src)
+{
+	if (src == "nanf" || src == "-inff" || src == "+inff")
+		_isFloat = true;
+	else
+		_isDouble = true;
+}
 
 void	cast::detection(std::string src)
 {
-	int				i = 0;
 	std::size_t		pos;
 
-	pos = src.find_first_not_of("0123456789");
+	pos = src.find_first_not_of("0123456789-");
 	if (pos)
 	{
+		pos = src.find("-");
+		if (pos != std::string::npos)
+			_hasSign = true;
+
 		pos = src.find(".");
 		if (pos != std::string::npos)
 		{
@@ -82,36 +80,24 @@ void	cast::detection(std::string src)
 			{
 				_hasF = true;
 				_isFloat = true;
-				// this->toFloat(src);
 			}
 			else
-			{
 				_isDouble = true;
-				// this->toDouble(src);
-			}
 		}
+		else if (src.length() > 1)
+			_isInt = true;
 		else
 		{
-			_isInt = true;
-			// this->toInt(src);
+			_isChar = true;
+			_hasSign = false;
 		}
-
-		pos = src.find("-");
-		if (pos != std::string::npos)
-			_hasSign = true;
 	}
 	else if (src.length() == 1)
-	{
 		_isChar = true;
-		// this->toChar(src);
-	}
-	// else if (src == "nan" || src == "inff" || src == "nanf" || src == "inf")
-		// exceptions(src);
+	else if (src == "nan" || src == "inff" || src == "nanf" || src == "inf")
+		exception(src);
 	else
-	{
 		std::cout << "Not a valid data here." << std::endl;
-	}
-
 
 	std::cout << std::endl;
 	std::cout << "--- BOOL TESTS ---" << std::endl;
@@ -122,25 +108,45 @@ void	cast::detection(std::string src)
 	std::cout << "isInt:  " << _isInt <<std::endl;
 	std::cout << "ifFlt:  " << _isFloat <<std::endl;
 	std::cout << "isDble: " << _isDouble <<std::endl;
+	std::cout << std::endl;
 }
 
-char	cast::toChar(std::string src)
+void	cast::selection(std::string src)
+{
+	if (_isChar)
+		SrcChar(src);
+	else if (_isInt)
+		SrcInt(src);
+	else if (_isFloat)
+		SrcFloat(src);
+	else if (_isDouble)
+		SrcDouble(src);
+	else
+		std::cout << "Invalid data." << std::endl;
+}
+
+void	cast::SrcChar(std::string src)
 {
 	char c = src[0];
 
 	_char = static_cast<char>(c);
-	return (_char);
+	_int = static_cast<int>(c);
+	_float = static_cast<float>(c);
+	_double = static_cast<double>(c);
 }
 
-int		cast::toInt(std::string src)
+void	cast::SrcInt(std::string src)
 {
 	int	i = stoi(src);
 
+	_char = static_cast<char>(i);
 	_int = static_cast<int>(i);
-	return (_int);
+	_float = static_cast<float>(i);
+	_double = static_cast<double>(i);
+	// return (_int);
 }
 
-float	cast::toFloat(std::string src)
+float	cast::SrcFloat(std::string src)
 {
 	float	f = stof(src);
 
@@ -148,13 +154,52 @@ float	cast::toFloat(std::string src)
 	return (_float);
 }
 
-double	cast::toDouble(std::string src)
+double	cast::SrcDouble(std::string src)
 {
 	double	d = stod(src);
 
 	_double = static_cast<double>(d);
 	return (_double);
 }
+
+
+// char	cast::toChar(std::string src)
+// {
+// 	char c = src[0];
+
+// 	_char = static_cast<char>(c);
+// 	return (_char);
+
+
+
+
+
+
+// }
+
+// int		cast::toInt(std::string src)
+// {
+// 	int	i = stoi(src);
+
+// 	_int = static_cast<int>(i);
+// 	return (_int);
+// }
+
+// float	cast::toFloat(std::string src)
+// {
+// 	float	f = stof(src);
+
+// 	_float = static_cast<float>(f);
+// 	return (_float);
+// }
+
+// double	cast::toDouble(std::string src)
+// {
+// 	double	d = stod(src);
+
+// 	_double = static_cast<double>(d);
+// 	return (_double);
+// }
 
 char	cast::getChar() const
 {
