@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:02:24 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 14:10:10 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:18:58 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <cmath>
+# include <string>
 
 class cast
 {
@@ -30,10 +31,10 @@ public:
 	float	toFloat(std::string src);
 	double	toDouble(std::string src);
 
-	char	getChar(std::string src) const;
-	int		getInt(std::string src) const;
-	float	getFloat(std::string src) const;
-	double	getDouble(std::string src) const;
+	char	getChar() const;
+	int		getInt() const;
+	float	getFloat() const;
+	double	getDouble() const;
 
 	~cast();
 
@@ -44,6 +45,12 @@ private:
 	int		_int;
 	float	_float;
 	double	_double;
+
+	bool	_isChar;
+	bool	_isInt;
+	bool	_isFloat;
+	bool	_isDouble;
+
 	bool	_hasPoint;
 	bool	_hasSign;
 	bool	_hasF;

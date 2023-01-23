@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:01:32 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 14:10:03 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:37:04 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ cast::cast(std::string conv):
 		_int(0),
 		_double(0.0),
 		_float(0.0f),
+		_isChar(false),
+		_isInt(false),
+		_isFloat(false),
+		_isDouble(false),
 		_hasPoint(false),
 		_hasSign(false),
 		_hasF(false)
@@ -40,6 +44,10 @@ cast	&cast::operator=(cast const & rhs)
 		_hasPoint = rhs._hasPoint;
 		_hasSign = rhs._hasSign;
 		_hasF = rhs._hasF;
+		_isChar = rhs._isChar;
+		_isDouble = rhs._isDouble;
+		_isFloat = rhs._isFloat;
+		_isInt = rhs._isInt;
 	}
 	return (*this);
 }
@@ -73,16 +81,19 @@ void	cast::detection(std::string src)
 			if (pos != std::string::npos)
 			{
 				_hasF = true;
-				std::cout << "a float" << std::endl;
+				_isFloat = true;
+				// this->toFloat(src);
 			}
 			else
 			{
-				std::cout << "a double" << std::endl;
+				_isDouble = true;
+				// this->toDouble(src);
 			}
 		}
 		else
 		{
-			std::cout	<< "an int" << std::endl;
+			_isInt = true;
+			// this->toInt(src);
 		}
 
 		pos = src.find("-");
@@ -91,10 +102,11 @@ void	cast::detection(std::string src)
 	}
 	else if (src.length() == 1)
 	{
-		std::cout << "a char" << std::endl;
+		_isChar = true;
+		// this->toChar(src);
 	}
-	else if (src == "nan" || src == "inff" || src == "nanf" || src == "inf")
-		exceptions(src);
+	// else if (src == "nan" || src == "inff" || src == "nanf" || src == "inf")
+		// exceptions(src);
 	else
 	{
 		std::cout << "Not a valid data here." << std::endl;
@@ -103,9 +115,13 @@ void	cast::detection(std::string src)
 
 	std::cout << std::endl;
 	std::cout << "--- BOOL TESTS ---" << std::endl;
-	std::cout << "point: " << _hasPoint << std::endl;
-	std::cout << "sign:  " << _hasSign << std::endl;
-	std::cout << "F:     " << _hasF << std::endl;
+	std::cout << "point:  " << _hasPoint << std::endl;
+	std::cout << "sign:   " << _hasSign << std::endl;
+	std::cout << "f:      " << _hasF << std::endl;
+	std::cout << "isChar: " << _isChar <<std::endl;
+	std::cout << "isInt:  " << _isInt <<std::endl;
+	std::cout << "ifFlt:  " << _isFloat <<std::endl;
+	std::cout << "isDble: " << _isDouble <<std::endl;
 }
 
 char	cast::toChar(std::string src)
@@ -116,37 +132,46 @@ char	cast::toChar(std::string src)
 	return (_char);
 }
 
-// int		cast::toInt(std::string src)
-// {
+int		cast::toInt(std::string src)
+{
+	int	i = stoi(src);
 
-// }
+	_int = static_cast<int>(i);
+	return (_int);
+}
 
-// float	cast::toFloat(std::string src)
-// {
+float	cast::toFloat(std::string src)
+{
+	float	f = stof(src);
 
-// }
+	_float = static_cast<float>(f);
+	return (_float);
+}
 
-// double	cast::toDouble(std::string src)
-// {
+double	cast::toDouble(std::string src)
+{
+	double	d = stod(src);
 
-// }
+	_double = static_cast<double>(d);
+	return (_double);
+}
 
-char	cast::getChar(std::string src) const
+char	cast::getChar() const
 {
 	return (_char);
 }
 
-int		cast::getInt(std::string src) const
+int		cast::getInt() const
 {
 	return (_int);
 }
 
-float	cast::getFloat(std::string src) const
+float	cast::getFloat() const
 {
 	return (_float);
 }
 
-double	cast::getDouble(std::string src) const
+double	cast::getDouble() const
 {
 	return (_double);
 }

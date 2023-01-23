@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:02:06 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 14:06:12 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:25:16 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,18 @@ int	main(int argc, char *argv[])
 
 	cast	ca(argv[1]);
 
-	std::cout	<< "-- CONVERSIONS --" << std::endl;
 	ca.detection(argv[1]);
-	ca.toChar(argv[1]);
 
-	// std::cout	<< "char:   " << static_cast<char>(argv[1])		<< std::endl;
-	// std::cout	<< "int:    " << static_cast<int>(argv[1])		<< std::endl;
-	// std::cout	<< "float:  " << static_cast<float>(argv[1])	<< std::endl;
-	// std::cout	<< "double: " << static_cast<double>(argv[1])	<< std::endl;
+	// ca.toInt(argv[1]);
+	// ca.toDouble(argv[1]);
+	// ca.toChar(argv[1]);
+	// ca.toFloat(argv[1]);
+
+	std::cout	<< "-- CONVERSIONS --" << std::endl;
+	std::cout	<< "char:   " << ca.getChar()	<< std::endl;
+	std::cout	<< "int:    " << ca.getInt()	<< std::endl;
+	std::cout	<< "float:  " << ca.getFloat()	<< std::endl;
+	std::cout	<< "double: " << ca.getDouble()	<< std::endl;
 
 	return (0);
 }
