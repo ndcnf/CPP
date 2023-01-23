@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:02:24 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 16:34:11 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/23 17:01:30 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ public:
 	void	SrcInt(std::string src);
 	float	SrcFloat(std::string src);
 	double	SrcDouble(std::string src);
+
+	void	printChar(std::string src);
+	void	printInt(std::string src);
+	void	printFloat(std::string src);
+	void	printDouble(std::string src);
 
 	// char	toChar(std::string src);
 	// int		toInt(std::string src);

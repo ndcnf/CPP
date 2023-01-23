@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:01:32 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 16:34:04 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/23 17:15:27 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,34 @@ void	cast::selection(std::string src)
 	else
 		std::cout << "Invalid data." << std::endl;
 }
+
+
+void	cast::printChar(std::string src)
+{
+	int	i = 0;
+
+	i = static_cast<int>(_char);
+	if (i < 127 && i >= 32)
+		std::cout	<< "'" << _char << "'" << std::endl;
+	else
+		std::cout	<< "not displayable" << std::endl;
+}
+
+void	cast::printInt(std::string src)
+{
+
+}
+
+void	cast::printFloat(std::string src)
+{
+
+}
+
+void	cast::printDouble(std::string src)
+{
+
+}
+
 
 void	cast::SrcChar(std::string src)
 {
