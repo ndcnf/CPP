@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:01:32 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 18:26:08 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/24 10:36:27 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,12 @@ void	cast::detection(std::string src)
 {
 	std::size_t		pos;
 
-	pos = src.find_first_not_of("0123456789-");
-	if (pos == std::string::npos)
+	// pos = src.find_first_not_of("0123456789-");
+
+	pos = src.find_first_of("0123456789-");
+	// if (src == "nan" || src == "inff" || src == "nanf" || src == "inf")
+	// 	exception(src);
+	if (pos != std::string::npos)
 	{
 		pos = src.find("-");
 		if (pos != std::string::npos)

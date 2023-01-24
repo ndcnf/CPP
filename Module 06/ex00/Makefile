@@ -6,7 +6,7 @@
 #    By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:01:54 by nchennaf          #+#    #+#              #
-#    Updated: 2023/01/23 18:16:08 by nchennaf         ###   ########.fr        #
+#    Updated: 2023/01/24 10:08:58 by nchennaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,10 @@ OBJ =		${SRC:.cpp=.o}
 all:		${NAME}
 
 ${OBJ}: %.o : %.cpp ${HEADER} Makefile
-	${CC} ${CFLAGS} -o $@ -c $<
+	@${CC} ${CFLAGS} -o $@ -c $<
 
 ${NAME}:	${OBJ}
-			${CC} ${CFLAGS} ${OBJ} -o ${NAME}
+			@${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 			@echo "compiling	OK"
 
 clean:
