@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:02:24 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/23 18:21:40 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/24 10:47:38 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,12 @@ public:
 	void	printFloat();
 	void	printDouble();
 
-	// char	toChar(std::string src);
-	// int		toInt(std::string src);
-	// float	toFloat(std::string src);
-	// double	toDouble(std::string src);
-
 	char	getChar() const;
 	int		getInt() const;
 	float	getFloat() const;
 	double	getDouble() const;
+
+	bool	getValid() const;
 
 	~cast();
 
@@ -70,6 +67,7 @@ private:
 	bool	_hasSign;
 	bool	_hasF;
 	bool	_isNanInf;
+	bool	_isValid;
 };
 
 #endif
