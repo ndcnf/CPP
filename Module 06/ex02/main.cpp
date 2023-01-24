@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 15:39:28 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/24 17:30:58 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/24 17:34:59 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ void	identify(Base &p)
 
 	}
 }
-
 
 int	main()
 {
