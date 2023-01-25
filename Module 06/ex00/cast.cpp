@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:01:32 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/24 10:48:25 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/25 09:50:13 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ void	cast::detection(std::string src)
 	std::size_t		pos;
 
 	pos = src.find_first_of("0123456789-");
-	if (pos != std::string::npos)
+
+	if (pos != std::string::npos && src != "-inf" && src != "-inff")
 	{
 		pos = src.find("-");
 		if (pos != std::string::npos)
@@ -100,7 +101,7 @@ void	cast::detection(std::string src)
 	}
 	else if (src.length() == 1)
 		_isChar = true;
-	else if (src == "nan" || src == "inff" || src == "nanf" || src == "inf")
+	else if (src == "nan" || src == "+inff" || src == "-inff" || src == "nanf" || src == "+inf" || src == "-inf")
 		exception(src);
 	else
 	{
