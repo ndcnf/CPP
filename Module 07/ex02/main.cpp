@@ -5,15 +5,39 @@
 int main(int, char**)
 {
 	{
-		// Array<int> numbers;
-		// try
-		// {
-		// 	numbers[0] = 1;
-		// }
-		// catch (const std::exception &e)
-		// {
-		// 	std::cerr << e.what() << std::endl;
-		// }
+		Array<int> numbers;
+		try
+		{
+			std::cout << "-- trying an empty array with no parameter : should be out of range --" << std::endl;
+			numbers[0] = 1;
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+
+	{
+		int		arraySize = 6;
+		Array<int> numbers(6);
+		try
+		{
+			std::cout << "-- trying array, of " << arraySize << " values --" << std::endl;
+			srand(time(NULL));
+			std::cout << "-- values of array, for control --" << std::endl;
+			for (int i = 0; i < 6; i++)
+			{
+				const int value = rand();
+				numbers[i] = value;
+				std::cout << numbers[i] << std::endl;
+			}
+			std::cout << "-- size of this array, via size() --" << std::endl;
+			std::cout << numbers.size() << std::endl;
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
 
 	{
@@ -51,7 +75,7 @@ int main(int, char**)
 		}
 		try
 		{
-			std::cout << "-- trying empty array : should be out of range --" << std::endl;
+			std::cout << "-- trying an empty array : should be out of range --" << std::endl;
 			numbers[MAX_VAL] = 0;
 		}
 		catch(const std::exception& e)
