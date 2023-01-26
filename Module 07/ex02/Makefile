@@ -6,7 +6,7 @@
 #    By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:01:54 by nchennaf          #+#    #+#              #
-#    Updated: 2023/01/25 12:49:46 by nchennaf         ###   ########.fr        #
+#    Updated: 2023/01/26 13:59:08 by nchennaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ CC =		c++
 #CC =		g++
 #CPPFLAGS =	g++-11 -Werror -Wextra -Wall -std=c++98 -pedantic
 CPPFLAGS =	-Wall -Wextra -Werror -g3 -std=c++98 -pedantic #-fsanitize=address
-NAME =		whatever
+NAME =		array
 AR =		ar rcs
 SRC =		main.cpp
 
-HEADER =	whatever.hpp
+HEADER =	Array.hpp
 
 OBJ =		${SRC:.cpp=.o}
 
