@@ -36,12 +36,13 @@ int main(int, char**)
 		{
 			if (mirror[i] != numbers[i])
 			{
-				std::cerr << "didn't save the same value!!" << std::endl;
+				std::cerr << "didn't save the same value!" << std::endl;
 				return 1;
 			}
 		}
 		try
 		{
+			std::cout << "-- trying negative index : should be out of range --" << std::endl;
 			numbers[-2] = 0;
 		}
 		catch(const std::exception& e)
@@ -50,6 +51,7 @@ int main(int, char**)
 		}
 		try
 		{
+			std::cout << "-- trying empty array : should be out of range --" << std::endl;
 			numbers[MAX_VAL] = 0;
 		}
 		catch(const std::exception& e)
@@ -57,9 +59,11 @@ int main(int, char**)
 			std::cerr << e.what() << '\n';
 		}
 
+		std::cout << "-- values of array should be ok --" << std::endl;
 		for (int i = 0; i < MAX_VAL; i++)
 		{
 			numbers[i] = rand();
+			std::cout << numbers[i] << std::endl;
 		}
 		delete [] mirror;
 	}
