@@ -33,3 +33,8 @@
 .DS_Store
 Module 04/.vscode/settings.json
 Module 05/.vscode/settings.json
+Module 08/ex00/easyfind.hpp
+.gitignore
+Module 04/ex02/animal
+Module 04/ex00/animal
+.gitignore
