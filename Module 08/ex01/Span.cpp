@@ -14,7 +14,7 @@
 
 Span::Span(unsigned int n): _n(n)
 {
-	if (n <= 0)
+	if (n <= 1)
 		throw (Span::invalidSize);
 }
 
@@ -60,6 +60,19 @@ unsigned int	Span::longestSpan()
 
 unsigned int	Span::shortestSpan()
 {
+	if (_n < 2)
+		throw (invalidSize);
+	
+	int	lowestDelta = _data[0] - _data[1];
+	std::vector<unsigned int>::iterator it;
+	for (it=_data.begin(); it != _data.end(); it++)
+	{
+		while ((*it + 1) != _data.end())
+		{
+			if (lowestDelta > (*it - *it + 1))
+				lowestDelta = (*it - *it + 1);
+		}
+	}
 
 }
 
