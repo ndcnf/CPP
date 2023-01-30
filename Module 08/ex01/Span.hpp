@@ -15,20 +15,43 @@
 
 # include <iostream>
 # include <algorithm>
+# include <stdexcept>
 # include <vector>
 
 class Span
 {
 	public:
-		Span();
+		Span(unsigned int n);
 		Span(Span const &src);
 		Span &operator=(Span const &rhs);
 		~Span();
 
-		void	addNumber();
+		void			addNumber(unsigned int i);
+		unsigned int	longestSpan();
+		unsigned int	shortestSpan();
 
+		class invalidSize: public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Error: the size is not valid."); 
+				}
+		}
+
+		class invalidData: public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Error: the data is not valid."); 
+				}
+		}
 
 	private:
+		Span();
+		unsigned int				_n;
+		std::vector<unsigned int>	_data;
 };
 
 #endif
