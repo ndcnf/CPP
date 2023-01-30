@@ -33,10 +33,11 @@ Span &operator=(Span const &rhs)
 	return (*this);
 }
 
-~Span()
-{
+Span::Span()
+{}
 
-}
+Span::~Span()
+{}
 
 
 void	Span::addNumber(unsigned int i)
@@ -49,6 +50,8 @@ void	Span::addNumber(unsigned int i)
 
 unsigned int	Span::longestSpan()
 {
+	if (_n < 2)
+		throw (invalidSize);
 	std::vector<unsigned int>::iterator	lowestN;
 	std::vector<unsigned int>::iterator	highestN;
 
@@ -73,6 +76,6 @@ unsigned int	Span::shortestSpan()
 				lowestDelta = (*it - *it + 1);
 		}
 	}
-
+	return (lowestDelta);
 }
 
