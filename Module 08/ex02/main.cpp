@@ -149,13 +149,28 @@ int main()
 			std::cout << *it << std::endl;
 			++it;
 		}
+		std::cout << "- Some additionnal tests -" << std::endl;
 		std::stack<int> s(mstack);
+		std::cout << std::endl;
+		std::cout << "Size of the duplicate stack S (5): " << s.size() << std::endl;
+
+		MutantStack<int> p(mstack);
+		p.push(7);
+		std::cout << "Size of the stack P (6): " << p.size() << std::endl;
+		MutantStack<int>::iterator itp = p.begin();
+		MutantStack<int>::iterator itep = p.end();
+		std::cout << "Stack P from bottom to top: " << std::endl;
+		while (itp != itep)
+		{
+			std::cout << *itp << std::endl;
+			++itp;
+		}
 	}
 
 	std::cout << std::endl;
 
 	{
-		std::cout << "--- SAME BUT WITH LIST (LIGHTER VIEW)---" << std::endl;
+		std::cout << "--- TESTS WITH LIST (LIGHTER VIEW)---" << std::endl;
 
 		std::list<int> mstack;
 
