@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:26:58 by nchennaf          #+#    #+#             */
-/*   Updated: 2023/01/27 14:27:17 by nchennaf         ###   ########.fr       */
+/*   Updated: 2023/01/31 13:56:09 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 Span::Span(unsigned int n): _n(n)
 {
 	if (n <= 1)
-		throw (Span::invalidSize);
+		throw (Span::invalidSize());
+
 }
 
-Span(Span const &src)
+Span::Span(Span const &src)
 {
 	*this = src;
 }
 
-Span &operator=(Span const &rhs)
+Span &Span::operator=(Span const &rhs)
 {
 	if (this != &rhs)
 	{
@@ -33,49 +34,56 @@ Span &operator=(Span const &rhs)
 	return (*this);
 }
 
-Span::Span()
+Span::Span(): _n(0)
 {}
 
 Span::~Span()
 {}
 
-
-void	Span::addNumber(unsigned int i)
+void	Span::addNumber(int i)
 {
-	//verification si correct. Mais verifier avant si le programme s'arrete directement.
 	if (i < 0)
-		throw(Span::invalidData);
+		throw(Span::invalidData());
 	_data.push_back(i);
 }
 
 unsigned int	Span::longestSpan()
 {
 	if (_n < 2)
-		throw (invalidSize);
+		throw (invalidSize());
+
 	std::vector<unsigned int>::iterator	lowestN;
 	std::vector<unsigned int>::iterator	highestN;
 
-	highestN = std::max_element(it.begin(), it.end());
-	lowestN = std::min_element(it.begin(), it.end());
+	highestN = std::max_element(_data.begin(), _data.end());
+	lowestN = std::min_element(_data.begin(), _data.end());
 
-	return (highestN - lowestN);
+	return (*highestN - *lowestN);
 }
 
 unsigned int	Span::shortestSpan()
 {
 	if (_n < 2)
-		throw (invalidSize);
-	
-	int	lowestDelta = _data[0] - _data[1];
+		throw (invalidSize());
+
+	std::sort(_data.begin(), _data.end());
+	unsigned int	lowestDelta = _data[1] - _data[0];
+
 	std::vector<unsigned int>::iterator it;
 	for (it=_data.begin(); it != _data.end(); it++)
 	{
-		while ((*it + 1) != _data.end())
+		if (it + 1 != _data.end())
 		{
-			if (lowestDelta > (*it - *it + 1))
-				lowestDelta = (*it - *it + 1);
+			if (lowestDelta > *(it + 1) - *it)
+				lowestDelta = *(it + 1) - *it;
 		}
 	}
 	return (lowestDelta);
 }
 
+void	Span::generateTab()
+{
+	srand(time(NULL));
+	for (unsigned int i=0; i < _n; i++)
+		_data.push_back(rand());
+}
