@@ -4,6 +4,7 @@
 # include <iostream>
 # include <stack>
 # include <algorithm>
+# include <cctype>
 
 class RPN
 {

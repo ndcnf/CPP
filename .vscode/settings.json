@@ -63,6 +63,7 @@
 		"iomanip": "cpp",
 		"deque": "cpp",
 		"list": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"fstream": "cpp"
 	}
 }
