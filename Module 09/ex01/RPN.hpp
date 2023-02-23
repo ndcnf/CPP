@@ -9,15 +9,18 @@
 class RPN
 {
 	public:
-		RPN(int i);
+		RPN();
 		RPN(RPN const &src);
 		RPN &operator=(RPN const &rhs);
 		~RPN();
 
-	private:
-		int	_input;
+		void	operation(char c);
+		void	printResult();
 
-		RPN();
+	private:
+		std::stack<int>	_stack;
+		int				_operand;
+		bool			_valid;
 };
 
 #endif

@@ -64,6 +64,7 @@
 		"deque": "cpp",
 		"list": "cpp",
 		"stack": "cpp",
-		"fstream": "cpp"
+		"fstream": "cpp",
+		"filesystem": "cpp"
 	}
 }

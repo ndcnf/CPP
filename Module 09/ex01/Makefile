@@ -6,14 +6,14 @@
 #    By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/27 09:34:25 by nchennaf          #+#    #+#              #
-#    Updated: 2023/02/22 16:39:27 by nchennaf         ###   ########.fr        #
+#    Updated: 2023/02/23 15:49:14 by nchennaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC =		c++
 #CC =		g++
 #CPPFLAGS =	g++-11 -Werror -Wextra -Wall -std=c++98 -pedantic
-CPPFLAGS =	-Wall -Wextra -Werror -g3 -std=c++98 -pedantic #-fsanitize=address
+CPPFLAGS =	-Wall -Wextra -Werror -g3 -std=c++98 -pedantic -fsanitize=address
 NAME =		RPN
 AR =		ar rcs
 SRC =		main.cpp \
