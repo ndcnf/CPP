@@ -15,6 +15,8 @@ int	main(int argc, char *argv[])
 			if (!isspace(str[i]))
 				rpn.operation(str[i]);
 		}
+		if (rpn.getCountOperators() != (rpn.getCountDigits() - 1))
+			throw (RPN::impossibleError());
 		rpn.printResult();
 		return (0);
 	}

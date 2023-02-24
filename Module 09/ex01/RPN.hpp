@@ -17,6 +17,8 @@ class RPN
 
 		void	operation(char c);
 		void	printResult();
+		int		getCountDigits() const;
+		int		getCountOperators() const;
 
 		class argsError: public std::exception
 		{
@@ -49,7 +51,8 @@ class RPN
 		std::stack<int>	_stack;
 		int				_operand;
 		bool			_valid;
-		int				_count;
+		int				_countDigits;
+		int				_countOperators;
 };
 
 #endif
