@@ -1,6 +1,6 @@
 #include "RPN.hpp"
 
-RPN::RPN()
+RPN::RPN(): _count(0)
 {
 
 }
@@ -15,6 +15,7 @@ RPN &RPN::operator=(RPN const &rhs)
 	_stack = rhs._stack;
 	_operand = rhs._operand;
 	_valid = rhs._valid;
+	_count = rhs._count;
 	return (*this);
 }
 
@@ -27,15 +28,16 @@ void	RPN::operation(char c)
 {
 	_valid = false;
 
-	// if (isspace(str[i]))
-	// 	i++;
 	if (isdigit(c))
 	{
 		_stack.push((c - '0'));
+		_count++;
 		_valid = true;
 	}
-	if (c == '*' || c == '+' || c == '-' || c == '/')
+	else if (c == '*' || c == '+' || c == '-' || c == '/')
 	{
+		if (_count < 2)
+			throw (impossibleError());
 		_operand = _stack.top();
 		_stack.pop();
 
@@ -47,30 +49,25 @@ void	RPN::operation(char c)
 			_operand = _stack.top() - _operand;
 		if (c == '/')
 		{
-			// if (_operand == 0)
-			// {
-			// 	_valid = false;
-			// 	return ;
-			// }
+			if (_operand == 0)
+			{
+				_valid = false;
+				throw impossibleError();
+			}
 			_operand = _stack.top() / _operand;
 		}
 		_stack.pop();
 		_stack.push(_operand);
 		_valid = true;
-
 	}
-	// std::cout << "STR[I]" << str[i] << std::endl;
-
-	// printResult();
 	if (!_valid)
-	{
-		std::cout << "Error." << std::endl;
-		// return ; //throw
-	}
+		throw invalidDataError();
 }
 
 void	RPN::printResult()
 {
+	if (_stack.size() != 1)
+		throw (impossibleError());
 	while (!_stack.empty())
 	{
 		std::cout << _stack.top() << std::endl;
