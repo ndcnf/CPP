@@ -17,6 +17,16 @@ PmergeMe	&PmergeMe::operator=(PmergeMe const &rhs)
 	return (*this);
 }
 
+void	PmergeMe::duplicateDetector(int argc, char *argv[])
+{
+	std::set<int>	dd;
+
+	for (int i = 1; i < argc; i++)
+		dd.insert(atoi(argv[i]));
+	if (dd.size() != static_cast<unsigned int>(argc - 1))
+		throw(PmergeMe::DuplicateError());
+}
+
 void	PmergeMe::pairUp(int i)
 {
 	(void)i;
@@ -25,6 +35,7 @@ void	PmergeMe::pairUp(int i)
 
 void	PmergeMe::sortWithVector(int argc, char *argv[])
 {
+	// int	num = argc - 1;
 	//TIMER GO
 	for (int i = 1; i < argc; i++)
 	{

@@ -17,7 +17,9 @@ int	main(int argc, char *argv[])
 			}
 		}
 
-		PmergeMe	pm;
+		PmergeMe		pm;
+
+		pm.duplicateDetector(argc, argv);
 
 		std::cout << "Before: " << std::setw(2);
 		for (int i = 1; i < argc; i++)

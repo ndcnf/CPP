@@ -8,6 +8,7 @@
 
 # include <list>
 # include <vector>
+# include <set>
 
 class PmergeMe
 {
@@ -17,6 +18,7 @@ class PmergeMe
 		PmergeMe &operator=(PmergeMe const &rhs);
 		~PmergeMe();
 
+		void	duplicateDetector(int argc, char *argv[]);
 		void	pairUp(int i);
 		// void	startTimer();
 		void	sortWithVector(int argc, char *argv[]);
@@ -47,6 +49,15 @@ class PmergeMe
 				virtual const char* what() const throw()
 				{
 					return ("Invalid characters.");
+				}
+		};
+
+		class DuplicateError: public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Duplicate found.");
 				}
 		};
 
