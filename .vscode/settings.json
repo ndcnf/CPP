@@ -65,6 +65,8 @@
 		"list": "cpp",
 		"stack": "cpp",
 		"fstream": "cpp",
-		"filesystem": "cpp"
+		"filesystem": "cpp",
+		"__tree": "cpp",
+		"set": "cpp"
 	}
 }
