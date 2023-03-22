@@ -6,7 +6,7 @@
 # include <algorithm>
 # include <stdexcept>
 
-# include <set>
+# include <list>
 # include <vector>
 
 class PmergeMe
@@ -17,7 +17,8 @@ class PmergeMe
 		PmergeMe &operator=(PmergeMe const &rhs);
 		~PmergeMe();
 
-		void	pairUp(int left, int right);
+		void	pairUp();
+		void	printResult();
 
 		class argsError: public std::exception
 		{
@@ -47,7 +48,7 @@ class PmergeMe
 		};
 
 	private:
-		std::set<int>		_set;
+		std::list<int>		_list;
 		std::vector<int>	_vector;
 
 
