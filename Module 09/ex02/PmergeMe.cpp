@@ -24,7 +24,11 @@ void	PmergeMe::duplicateDetector(int argc, char *argv[])
 	for (int i = 1; i < argc; i++)
 		dd.insert(atoi(argv[i]));
 	if (dd.size() != static_cast<unsigned int>(argc - 1))
+	{
+		// std::cout << "dd size : " << dd.size() << std::endl;
+		// std::cout << "argc - 1: " << argc-1 << std::endl;
 		throw(PmergeMe::DuplicateError());
+	}
 }
 
 void	PmergeMe::pairUp(int i)
