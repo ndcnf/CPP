@@ -17,14 +17,50 @@ PmergeMe	&PmergeMe::operator=(PmergeMe const &rhs)
 	return (*this);
 }
 
-void	PmergeMe::pairUp()
+void	PmergeMe::pairUp(int i)
 {
-
+	(void)i;
+	// _vector.push_back(i);
 }
 
-void	PmergeMe::printResult()
+void	PmergeMe::sortWithVector(int argc, char *argv[])
 {
+	//TIMER GO
+	for (int i = 1; i < argc; i++)
+	{
+		_vector.push_back(atoi(argv[i]));
+	}
 
+
+
+
+
+	//TIMER STOP
+}
+
+void	PmergeMe::sortWithList(int argc, char *argv[])
+{
+	//TIMER GO
+	for (int i = 1; i < argc; i++)
+	{
+		_list.push_back(atoi(argv[i]));
+	}
+
+
+
+
+
+	//TIMER STOP
+}
+
+
+void	PmergeMe::printResultVector()
+{
+	for (std::vector<int>::iterator it = _vector.begin(); it != _vector.end(); it++)
+	{
+		std::cout << (*it) << " ";
+	}
+	std::cout << std::endl;
 }
 
 PmergeMe::~PmergeMe()

@@ -17,8 +17,11 @@ class PmergeMe
 		PmergeMe &operator=(PmergeMe const &rhs);
 		~PmergeMe();
 
-		void	pairUp();
-		void	printResult();
+		void	pairUp(int i);
+		// void	startTimer();
+		void	sortWithVector(int argc, char *argv[]);
+		void	sortWithList(int argc, char *argv[]);
+		void	printResultVector();
 
 		class argsError: public std::exception
 		{
