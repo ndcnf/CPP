@@ -5,6 +5,7 @@
 # include <iomanip>
 # include <algorithm>
 # include <stdexcept>
+# include <utility>
 
 # include <list>
 # include <vector>
@@ -62,7 +63,8 @@ class PmergeMe
 
 	private:
 		std::list<int>		_list;
-		std::vector<int>	_vector;
+		// std::vector<int>	_vector;
+		std::vector< std::pair<int, int> >	_vector;
 
 
 };
