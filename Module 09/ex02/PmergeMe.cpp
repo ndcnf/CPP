@@ -31,12 +31,6 @@ void	PmergeMe::duplicateDetector(int argc, char *argv[])
 	}
 }
 
-void	PmergeMe::pairUp(int i)
-{
-	(void)i;
-	// _vector.push_back(i);
-}
-
 void	PmergeMe::sortWithVector(int argc, char *argv[])
 {
 	int	num = argc - 1;

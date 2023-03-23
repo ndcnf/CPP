@@ -19,7 +19,6 @@ class PmergeMe
 		~PmergeMe();
 
 		void	duplicateDetector(int argc, char *argv[]);
-		void	pairUp(int i);
 		// void	startTimer();
 		void	sortWithVector(int argc, char *argv[]);
 		void	sortWithList(int argc, char *argv[]);
