@@ -39,7 +39,6 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 	for (int i = 1; i < argc; i++)
 	// for (int i = num - 1; i >= 0; i--)
 	{
-		// _vector.push_back(atoi(argv[i]));
 		if (!(num % 2))
 		{
 			if (i % 2)
@@ -91,47 +90,7 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 			(*it).first = (*it).second;
 			(*it).second = tempura;
 		}
-		// std::cout << (*it).first << " " << (*it).second << " ";
 	}
-	// std::cout << std::endl;
-
-
-
-
-
-	// for (int i = 0; i < num; i++)
-	// {
-	// 	if (i % 2)
-	// 	{
-	// 		if (_vector[i] < _vector[i-1])
-	// 		{
-	// 			tempura = _vector[i];
-	// 			_vector[i] = _vector[i-1];
-	// 			_vector[i-1] = tempura;
-	// 		}
-	// 	}
-	// }
-
-
-
-	// std::pair<int, int>	duo;
-	// for (int i = 0; i < num; i++)
-	// {
-
-	// 	if (i % 2)
-	// 	{
-	// 		if (_vector[i] < _vector[i-1])
-	// 		{
-	// 			tempura = _vector[i];
-	// 			_vector[i] = _vector[i-1];
-	// 			_vector[i-1] = tempura;
-	// 		}
-		// duo = std::make_pair(_vector[i-1], _vector[i]);
-
-	// 	std::cout << "duos: " << duo.first << " & " << duo.second << std::endl;
-	// 	}
-	// }
-
 
 	// if (num % 2)
 	// {
