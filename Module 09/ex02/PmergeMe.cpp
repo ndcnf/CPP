@@ -25,8 +25,8 @@ void	PmergeMe::duplicateDetector(int argc, char *argv[])
 		dd.insert(atoi(argv[i]));
 	if (dd.size() != static_cast<unsigned int>(argc - 1))
 	{
-		// std::cout << "dd size : " << dd.size() << std::endl;
-		// std::cout << "argc - 1: " << argc-1 << std::endl;
+		std::cout << "size of std::set (no duplicate) : " << dd.size() << std::endl;
+		std::cout << "number of integers given        : " << argc-1 << std::endl;
 		throw(PmergeMe::DuplicateError());
 	}
 }
@@ -39,15 +39,26 @@ void	PmergeMe::pairUp(int i)
 
 void	PmergeMe::sortWithVector(int argc, char *argv[])
 {
-	// int	num = argc - 1;
+	int	num = argc - 1;
+	int	tempura;
 	//TIMER GO
 	for (int i = 1; i < argc; i++)
 	{
 		_vector.push_back(atoi(argv[i]));
 	}
 
-
-
+	for (int i = 0; i < num; i++)
+	{
+		if (i % 2)
+		{
+			if (_vector[i] < _vector[i-1])
+			{
+				tempura = _vector[i];
+				_vector[i] = _vector[i-1];
+				_vector[i-1] = tempura;
+			}
+		}
+	}
 
 
 	//TIMER STOP

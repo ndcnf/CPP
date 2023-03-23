@@ -5,8 +5,7 @@
 *  not a valid input here, because no duplicates are allowed and with
 *  3000 numbers between 1 and 1000, it's impossible.
 *  try with `jot -r 3000 1 10000 | tr '\n' ' '`, there are more chances
-*  to have unique numbers.
-*/
+*  to have unique numbers. */
 int	main(int argc, char *argv[])
 {
 	try
