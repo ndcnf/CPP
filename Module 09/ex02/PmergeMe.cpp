@@ -37,7 +37,6 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 	int	tempura;
 	//TIMER GO
 	for (int i = 1; i < argc; i++)
-	// for (int i = num - 1; i >= 0; i--)
 	{
 		if (!(num % 2))
 		{
@@ -55,33 +54,7 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 				else
 					_vector.push_back(std::make_pair(atoi(argv[i]), atoi(argv[i+1])));
 			}
-			// else
-			// {
-
-			// }
 		}
-
-
-
-
-
-		// if (i % 2)
-		// {
-		// 	std::cout << "On passe" << std::endl;
-		// }
-		// else if ((num % 2))
-		// {
-		// 	// _vector.push_back(std::make_pair(-1, atoi(argv[i])));
-		// 	_vector.push_back(std::make_pair(atoi(argv[i-1]), atoi(argv[i])));
-		// 	std::cout << "VRAI" << std::endl;
-		// }
-		// else
-		// {
-		// 	_vector.push_back(std::make_pair(-1, atoi(argv[i])));
-
-		// 	std::cout << "FAUX" << std::endl;
-		// }
-		// std::cout << _vector[i].first << " & " << _vector[i].second << std::endl;
 	}
 
 	for (std::vector< std::pair<int, int> >::iterator it=_vector.begin(); it != _vector.end(); it++)
@@ -93,23 +66,6 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 			(*it).second = tempura;
 		}
 	}
-
-	// if (num % 2)
-	// {
-
-	// }
-	// else
-	// {
-	// 	for (int i = num - 1; i == 0; i--)
-	// 	{
-	// 		if (!(i % 2))
-	// 		{
-	// 			if (_vector[i] > _vector[i+2])
-	// 		}
-	// 	}
-	// }
-
-
 
 
 	//TIMER STOP
