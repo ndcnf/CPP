@@ -48,10 +48,12 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 		}
 		else
 		{
-			std::cout << "UNEVEN" << std::endl;
 			if (i % 2)
 			{
-				_vector.push_back(std::make_pair(atoi(argv[i]), atoi(argv[i+1])));
+				if (i == num)
+					_vector.push_back(std::make_pair(-1, atoi(argv[i])));
+				else
+					_vector.push_back(std::make_pair(atoi(argv[i]), atoi(argv[i+1])));
 			}
 			// else
 			// {
