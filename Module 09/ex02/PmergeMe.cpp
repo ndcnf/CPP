@@ -79,7 +79,6 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 		}
 	}
 
-	// std::sort(_vector.begin(), _vector.end(), customSort);
 	std::sort(_vector.begin(), _vector.end());
 
 	std::vector< std::pair<int, int> >::iterator it=_vector.begin();
@@ -87,7 +86,6 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 	{
 		_vector.insert(_vector.end(), _vector.front());
 		_vector.erase(_vector.begin());
-		// std::swap(_vector.front(), _vector.back());
 	}
 
 
