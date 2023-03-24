@@ -89,39 +89,41 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 		{
 			while ((*it).second < _result[i])
 			{
-				std::cout << "DEB WHILE " << (*it).second << " < " << _result[i]<< std::endl;
+				// std::cout << "DEB WHILE " << (*it).second << " < " << _result[i]<< std::endl;
 				i--;
-				std::cout << "MEANWHILE " << (*it).second << " < " << _result[i]<< std::endl;
-				if (((*it).second > _vector[i].first))
+				// std::cout << "MEANWHILE " << (*it).second << " < " << _result[i]<< std::endl;
+				// if (((*it).second > _vector[i].first))
+				if (((*it).second > _result[i]))
 				{
-					std::cout << "INSERT " << (*it).second << " != " <<  _result[i] << std::endl;
+					// std::cout << "INSERT " << (*it).second << " != " <<  _result[i] << std::endl;
 					_result.insert(_result.begin() + (i + 1), (*it).second);
 					continue;
 				}
-				std::cout << "FIN WHILE " << (*it).second << " < " << _result[i]<< std::endl;
+				// std::cout << "FIN WHILE " << (*it).second << " < " << _result[i]<< std::endl;
 			}
 		}
 		else
 		{
-			std::cout << "ELSE " << (*it).second << std::endl;
+			// std::cout << "ELSE " << (*it).second << std::endl;
 			while ((*it).second > _result[i])
 			{
 				if ((*it).second > _result.back())
 				{
-					std::cout << _result.back() << " back spotted ! " << (*it).second << std::endl;
+					// std::cout << _result.back() << " back spotted ! " << (*it).second << std::endl;
 					_result.insert(_result.end(), (*it).second);
-					break;
-				}
-				std::cout << "ELSE DEB WHILE " << (*it).second << " > " << _result[i]<< std::endl;
-				i++;
-				std::cout << "MEANWHILE " << (*it).second << " > " << _result[i]<< std::endl;
-				if (((*it).second < _vector[i].first))
-				{
-					std::cout << "INSERT " << (*it).second << " != " <<  _result[i] << std::endl;
-					_result.insert(_result.begin() + (i), (*it).second);
 					continue;
 				}
-				std::cout << "FIN WHILE " << (*it).second << " > " << _result[i]<< std::endl;
+				// std::cout << "ELSE DEB WHILE " << (*it).second << " > " << _result[i]<< std::endl;
+				i++;
+				// std::cout << "MEANWHILE " << (*it).second << " > " << _result[i]<< std::endl;
+				// if (((*it).second < _vector[i].first))
+				if (((*it).second < _result[i]))
+				{
+					// std::cout << "INSERT " << (*it).second << " != " <<  _result[i] << std::endl;
+					_result.insert(_result.begin() + i, (*it).second);
+					continue;
+				}
+				// std::cout << "FIN WHILE " << (*it).second << " > " << _result[i]<< std::endl;
 			}
 		}
 	}
@@ -147,12 +149,12 @@ void	PmergeMe::sortWithList(int argc, char *argv[])
 
 void	PmergeMe::printResultVector()
 {
-	std::cout << "_result.size(): " << _result.size() << std::endl;
 	for (std::vector<int>::iterator it=_result.begin(); it != _result.end(); it++)
 	{
 		std::cout << (*it) << " ";
 	}
 	std::cout << std::endl;
+	std::cout << "_result.size(): " << _result.size() << std::endl;
 }
 
 PmergeMe::~PmergeMe()
