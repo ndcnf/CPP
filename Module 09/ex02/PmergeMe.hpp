@@ -20,9 +20,21 @@ class PmergeMe
 		~PmergeMe();
 
 		void	duplicateDetector(int argc, char *argv[]);
+
 		// void	startTimer();
 		void	sortWithVector(int argc, char *argv[]);
 		void	sortWithList(int argc, char *argv[]);
+
+		void	pairingVector(int argc, char *argv[]);
+		void	swapPairVector();
+		void	copyVector();
+		void	sortBinarySearchVector();
+
+		void	pairingList(int argc, char *argv[]);
+		void	swapPairList();
+		void	copyList();
+		void	sortBinarySearchList();
+
 		void	printResultVector();
 
 		class argsError: public std::exception
@@ -63,8 +75,9 @@ class PmergeMe
 
 	private:
 		std::list<int>						_list;
+		std::list< std::pair<int, int> >	_sortedList;
 		std::vector< std::pair<int, int> >	_vector;
-		std::vector<int>					_result;
+		std::vector<int>					_sortedVector;
 
 
 };
