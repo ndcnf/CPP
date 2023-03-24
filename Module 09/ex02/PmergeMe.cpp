@@ -67,6 +67,14 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 		}
 	}
 
+	std::sort(_vector.begin(), _vector.end());
+
+	std::vector< std::pair<int, int> >::iterator it=_vector.begin();
+	if ((*it).first == -1)
+	{
+		std::swap(_vector.front(), _vector.back());
+	}
+
 
 	//TIMER STOP
 }
