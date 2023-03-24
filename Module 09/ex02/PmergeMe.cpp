@@ -31,6 +31,18 @@ void	PmergeMe::duplicateDetector(int argc, char *argv[])
 	}
 }
 
+// bool	PmergeMe::customSort()
+// {
+// 	std::vector< std::pair<int, int> >::iterator it=_vector.begin();
+// 	if ((*it).first == -1)
+// 	{
+// 		std::cout << "hello custom" << std::endl;
+// 		std::swap(_vector.front(), _vector.back());
+// 	}
+// 	return ();
+// }
+
+
 void	PmergeMe::sortWithVector(int argc, char *argv[])
 {
 	int	num = argc - 1;
@@ -67,12 +79,15 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 		}
 	}
 
+	// std::sort(_vector.begin(), _vector.end(), customSort);
 	std::sort(_vector.begin(), _vector.end());
 
 	std::vector< std::pair<int, int> >::iterator it=_vector.begin();
 	if ((*it).first == -1)
 	{
-		std::swap(_vector.front(), _vector.back());
+		_vector.insert(_vector.end(), _vector.front());
+		_vector.erase(_vector.begin());
+		// std::swap(_vector.front(), _vector.back());
 	}
 
 
