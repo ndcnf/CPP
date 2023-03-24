@@ -25,12 +25,12 @@ class PmergeMe
 		void	sortWithVector(int argc, char *argv[]);
 		void	sortWithList(int argc, char *argv[]);
 
-		void	pairingVector(int argc, char *argv[]);
+		void	pairingVector(int num, char *argv[]);
 		void	swapPairVector();
 		void	copyVector();
 		void	sortBinarySearchVector();
 
-		void	pairingList(int argc, char *argv[]);
+		void	pairingList(int num, char *argv[]);
 		void	swapPairList();
 		void	copyList();
 		void	sortBinarySearchList();
@@ -74,8 +74,8 @@ class PmergeMe
 		};
 
 	private:
-		std::list<int>						_list;
-		std::list< std::pair<int, int> >	_sortedList;
+		std::list< std::pair<int, int> >	_list;
+		std::list<int>						_sortedList;
 		std::vector< std::pair<int, int> >	_vector;
 		std::vector<int>					_sortedVector;
 

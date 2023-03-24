@@ -139,13 +139,123 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 	//TIMER STOP
 }
 
+void	PmergeMe::pairingList(int num, char *argv[])
+{
+	for (int i = 1; i < (num +1); i++)
+	{
+		if (!(num % 2))
+		{
+			if (i % 2)
+				_list.push_back(std::make_pair(atoi(argv[i]), atoi(argv[i+1])));
+		}
+		else
+		{
+			if (i % 2)
+			{
+				if (i == num)
+					_list.push_back(std::make_pair(-1, atoi(argv[i])));
+				else
+					_list.push_back(std::make_pair(atoi(argv[i]), atoi(argv[i+1])));
+			}
+		}
+	}
+}
+
+void	PmergeMe::swapPairList()
+{
+	int	tempura;
+
+	for (std::list< std::pair<int, int> >::iterator it=_list.begin(); it != _list.end(); it++)
+	{
+		if ((*it).first > (*it).second)
+		{
+			tempura = (*it).first;
+			(*it).first = (*it).second;
+			(*it).second = tempura;
+		}
+	}
+}
+
+void	PmergeMe::copyList()
+{
+	for (std::list< std::pair<int, int> >::iterator it=_list.begin(); it != _list.end(); it++)
+	{
+		if ((*it).first == -1)
+			continue;
+		_sortedList.push_back((*it).first);
+	}
+
+	////////////////////////////////////////////////////////////////////////////
+	// Afficher la liste pour DEBUG
+	////////////////////////////////////////////////////////////////////////////
+	std::cout << "DEBUG [";
+	for (std::list< std::pair<int, int> >::iterator it=_list.begin(); it != _list.end(); it++)
+	{
+		std::cout << (*it).first << " " << (*it).second << " ";
+	}
+	std::cout << "]" << std::endl;
+}
+
+// void	PmergeMe::sortBinarySearchList()
+// {
+
+	////////////////////////////////////////////////////////////////////////////
+	// Une liste n'est pas parcourable via [] semble-t-il. Il faudra naviguer
+	// autrement
+	////////////////////////////////////////////////////////////////////////////
+
+	// for (std::list< std::pair<int, int> >::iterator it=_list.begin(); it != _list.end(); it++)
+	// {
+	// 	int	i = _sortedList.size()/2;
+	// 	if ((*it).second < _sortedList[i])
+	// 	{
+	// 		while ((*it).second < _sortedList[i])
+	// 		{
+	// 			i--;
+	// 			if (((*it).second > _sortedList[i]))
+	// 			{
+	// 				_sortedList.insert(_sortedList.begin() + (i + 1), (*it).second);
+	// 				continue;
+	// 			}
+	// 		}
+	// 	}
+	// 	else
+	// 	{
+	// 		while ((*it).second > _sortedList[i])
+	// 		{
+	// 			if ((*it).second > _sortedList.back())
+	// 			{
+	// 				_sortedList.insert(_sortedList.end(), (*it).second);
+	// 				continue;
+	// 			}
+	// 			i++;
+	// 			if (((*it).second < _sortedList[i]))
+	// 			{
+	// 				_sortedList.insert(_sortedList.begin() + i, (*it).second);
+	// 				continue;
+	// 			}
+	// 		}
+	// 	}
+	// }
+// }
+
+
 void	PmergeMe::sortWithList(int argc, char *argv[])
 {
 	//TIMER GO
-	for (int i = 1; i < argc; i++)
+	pairingList(argc -1, argv);
+	swapPairList();
+
+	// std::sort(_list.begin(), _list.end()); // ------------------------------------------------ LIGNE PROBLEMATIQUE
+	std::list< std::pair<int, int> >::iterator it=_list.begin();
+	if ((*it).first == -1)
 	{
-		_list.push_back(atoi(argv[i]));
+		_list.insert(_list.end(), _list.front());
+		_list.erase(_list.begin());
 	}
+
+	copyList();
+	// sortBinarySearchList();
 
 
 
@@ -162,6 +272,15 @@ void	PmergeMe::printResultVector()
 		std::cout << (*it) << " ";
 	}
 	std::cout << std::endl;
+
+	////////////////////////////////////////////////////////////////////////////
+	// Afficher la liste pour DEBUG
+	////////////////////////////////////////////////////////////////////////////
+	// for (std::list<int>::iterator it=_sortedList.begin(); it != _sortedList.end(); it++)
+	// {
+	// 	std::cout << (*it) << " ";
+	// }
+	// std::cout << std::endl;
 }
 
 PmergeMe::~PmergeMe()

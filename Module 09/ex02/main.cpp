@@ -33,7 +33,7 @@ int	main(int argc, char *argv[])
 		std::cout << std::endl;
 
 		pm.sortWithVector(argc, argv);
-		// pm.sortWithList(argc, argv);
+		pm.sortWithList(argc, argv);
 
 
 		std::cout << "After: " << std::setw(3);
