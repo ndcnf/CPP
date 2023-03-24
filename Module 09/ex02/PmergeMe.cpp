@@ -45,17 +45,17 @@ void	PmergeMe::duplicateDetector(int argc, char *argv[])
 
 void	PmergeMe::sortWithVector(int argc, char *argv[])
 {
-	int	num = argc - 1;
-	int	tempura;
+	int					num = argc - 1;
+	int					tempura;
+	std::vector<int>	result;
+
 	//TIMER GO
 	for (int i = 1; i < argc; i++)
 	{
 		if (!(num % 2))
 		{
 			if (i % 2)
-			{
 				_vector.push_back(std::make_pair(atoi(argv[i]), atoi(argv[i+1])));
-			}
 		}
 		else
 		{
@@ -87,6 +87,67 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 		_vector.insert(_vector.end(), _vector.front());
 		_vector.erase(_vector.begin());
 	}
+
+	for (std::vector< std::pair<int, int> >::iterator it=_vector.begin(); it != _vector.end(); it++)
+	{
+		if ((*it).first == -1)
+			continue;
+		result.push_back((*it).first);
+	}
+
+	for (std::vector< std::pair<int, int> >::iterator it=_vector.begin(); it != _vector.end(); it++)
+	{
+		int	i = result.size()/2;
+		if ((*it).second < result[i])
+		{
+			while ((*it).second < result[i])
+			{
+				std::cout << "DEB WHILE " << (*it).second << " < " << result[i]<< std::endl;
+				i--;
+				std::cout << "MEANWHILE " << (*it).second << " < " << result[i]<< std::endl;
+				if (((*it).second > _vector[i].first))
+				{
+					std::cout << "INSERT " << (*it).second << " != " <<  result[i] << std::endl;
+					result.insert(result.begin() + (i + 1), (*it).second);
+					continue;
+				}
+				std::cout << "FIN WHILE " << (*it).second << " < " << result[i]<< std::endl;
+			}
+		}
+		else
+		{
+			std::cout << "ELSE " << (*it).second << std::endl;
+			while ((*it).second > result[i])
+			{
+				if ((*it).second > result.back())
+				{
+					std::cout << result.back() << " back spotted ! " << (*it).second << std::endl;
+					result.insert(result.end(), (*it).second);
+					break;
+				}
+				std::cout << "ELSE DEB WHILE " << (*it).second << " > " << result[i]<< std::endl;
+				i++;
+				std::cout << "MEANWHILE " << (*it).second << " > " << result[i]<< std::endl;
+				if (((*it).second < _vector[i].first))
+				{
+					std::cout << "INSERT " << (*it).second << " != " <<  result[i] << std::endl;
+					result.insert(result.begin() + (i), (*it).second);
+					continue;
+				}
+				std::cout << "FIN WHILE " << (*it).second << " > " << result[i]<< std::endl;
+			}
+		}
+	}
+
+	///////////////////////////////////////////////////////////////////////////
+	// Print DEBUG ONLY
+	///////////////////////////////////////////////////////////////////////////
+	for (std::vector<int>::iterator it=result.begin(); it != result.end(); it++)
+	{
+		std::cout << (*it) << " | ";
+	}
+	std::cout << std::endl;
+	///////////////////////////////////////////////////////////////////////////
 
 
 	//TIMER STOP
