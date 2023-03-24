@@ -64,6 +64,7 @@ class PmergeMe
 	private:
 		std::list<int>						_list;
 		std::vector< std::pair<int, int> >	_vector;
+		std::vector<int>					_result;
 
 
 };

@@ -31,23 +31,10 @@ void	PmergeMe::duplicateDetector(int argc, char *argv[])
 	}
 }
 
-// bool	PmergeMe::customSort()
-// {
-// 	std::vector< std::pair<int, int> >::iterator it=_vector.begin();
-// 	if ((*it).first == -1)
-// 	{
-// 		std::cout << "hello custom" << std::endl;
-// 		std::swap(_vector.front(), _vector.back());
-// 	}
-// 	return ();
-// }
-
-
 void	PmergeMe::sortWithVector(int argc, char *argv[])
 {
 	int					num = argc - 1;
 	int					tempura;
-	std::vector<int>	result;
 
 	//TIMER GO
 	for (int i = 1; i < argc; i++)
@@ -92,63 +79,52 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 	{
 		if ((*it).first == -1)
 			continue;
-		result.push_back((*it).first);
+		_result.push_back((*it).first);
 	}
 
 	for (std::vector< std::pair<int, int> >::iterator it=_vector.begin(); it != _vector.end(); it++)
 	{
-		int	i = result.size()/2;
-		if ((*it).second < result[i])
+		int	i = _result.size()/2;
+		if ((*it).second < _result[i])
 		{
-			while ((*it).second < result[i])
+			while ((*it).second < _result[i])
 			{
-				std::cout << "DEB WHILE " << (*it).second << " < " << result[i]<< std::endl;
+				std::cout << "DEB WHILE " << (*it).second << " < " << _result[i]<< std::endl;
 				i--;
-				std::cout << "MEANWHILE " << (*it).second << " < " << result[i]<< std::endl;
+				std::cout << "MEANWHILE " << (*it).second << " < " << _result[i]<< std::endl;
 				if (((*it).second > _vector[i].first))
 				{
-					std::cout << "INSERT " << (*it).second << " != " <<  result[i] << std::endl;
-					result.insert(result.begin() + (i + 1), (*it).second);
+					std::cout << "INSERT " << (*it).second << " != " <<  _result[i] << std::endl;
+					_result.insert(_result.begin() + (i + 1), (*it).second);
 					continue;
 				}
-				std::cout << "FIN WHILE " << (*it).second << " < " << result[i]<< std::endl;
+				std::cout << "FIN WHILE " << (*it).second << " < " << _result[i]<< std::endl;
 			}
 		}
 		else
 		{
 			std::cout << "ELSE " << (*it).second << std::endl;
-			while ((*it).second > result[i])
+			while ((*it).second > _result[i])
 			{
-				if ((*it).second > result.back())
+				if ((*it).second > _result.back())
 				{
-					std::cout << result.back() << " back spotted ! " << (*it).second << std::endl;
-					result.insert(result.end(), (*it).second);
+					std::cout << _result.back() << " back spotted ! " << (*it).second << std::endl;
+					_result.insert(_result.end(), (*it).second);
 					break;
 				}
-				std::cout << "ELSE DEB WHILE " << (*it).second << " > " << result[i]<< std::endl;
+				std::cout << "ELSE DEB WHILE " << (*it).second << " > " << _result[i]<< std::endl;
 				i++;
-				std::cout << "MEANWHILE " << (*it).second << " > " << result[i]<< std::endl;
+				std::cout << "MEANWHILE " << (*it).second << " > " << _result[i]<< std::endl;
 				if (((*it).second < _vector[i].first))
 				{
-					std::cout << "INSERT " << (*it).second << " != " <<  result[i] << std::endl;
-					result.insert(result.begin() + (i), (*it).second);
+					std::cout << "INSERT " << (*it).second << " != " <<  _result[i] << std::endl;
+					_result.insert(_result.begin() + (i), (*it).second);
 					continue;
 				}
-				std::cout << "FIN WHILE " << (*it).second << " > " << result[i]<< std::endl;
+				std::cout << "FIN WHILE " << (*it).second << " > " << _result[i]<< std::endl;
 			}
 		}
 	}
-
-	///////////////////////////////////////////////////////////////////////////
-	// Print DEBUG ONLY
-	///////////////////////////////////////////////////////////////////////////
-	for (std::vector<int>::iterator it=result.begin(); it != result.end(); it++)
-	{
-		std::cout << (*it) << " | ";
-	}
-	std::cout << std::endl;
-	///////////////////////////////////////////////////////////////////////////
-
 
 	//TIMER STOP
 }
@@ -171,9 +147,10 @@ void	PmergeMe::sortWithList(int argc, char *argv[])
 
 void	PmergeMe::printResultVector()
 {
-	for (std::vector< std::pair<int, int> >::iterator it=_vector.begin(); it != _vector.end(); it++)
+	std::cout << "_result.size(): " << _result.size() << std::endl;
+	for (std::vector<int>::iterator it=_result.begin(); it != _result.end(); it++)
 	{
-		std::cout << (*it).first << " " << (*it).second << " ";
+		std::cout << (*it) << " ";
 	}
 	std::cout << std::endl;
 }
