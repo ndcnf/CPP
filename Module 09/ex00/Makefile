@@ -14,11 +14,12 @@ CC =		c++
 #CC =		g++
 #CPPFLAGS =	g++-11 -Werror -Wextra -Wall -std=c++98 -pedantic
 CPPFLAGS =	-Wall -Wextra -Werror -g3 -std=c++98 -pedantic #-fsanitize=address
-NAME =		easyfind
+NAME =		btc
 AR =		ar rcs
-SRC =		main.cpp
+SRC =		main.cpp \
+			BitcoinExchange.cpp
 
-HEADER =	easyfind.hpp
+HEADER =	BitcoinExchange.hpp
 
 OBJ =		${SRC:.cpp=.o}
 
