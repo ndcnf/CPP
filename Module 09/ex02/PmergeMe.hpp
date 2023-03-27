@@ -36,6 +36,7 @@ class PmergeMe
 		void	sortBinarySearchList();
 
 		void	printResultVector();
+		void	printResultList();
 
 		class argsError: public std::exception
 		{

@@ -32,12 +32,18 @@ int	main(int argc, char *argv[])
 			std::cout << argv[i] << " ";
 		std::cout << std::endl;
 
-		// pm.sortWithVector(argc, argv);
+		pm.sortWithVector(argc, argv);
 		pm.sortWithList(argc, argv);
-
 
 		std::cout << "After: " << std::setw(3);
 		pm.printResultVector();
+
+		////////////////////////////////////////////////////////////////////////
+		// If you prefer to see the results via list, instead of vector
+		////////////////////////////////////////////////////////////////////////
+		std::cout << "After: " << std::setw(3);
+		pm.printResultList();
+		////////////////////////////////////////////////////////////////////////
 
 		std::cout	<< "Time to process a range of " << std::setw(4) << argc - 1
 					<< " elements with std::vector: ";

@@ -188,18 +188,12 @@ void	PmergeMe::copyList()
 
 void	PmergeMe::sortBinarySearchList()
 {
-
-	//////////////////////////////////////////////////////////////////////////
-	// Une liste n'est pas parcourable via [] semble-t-il. Il faudra naviguer
-	// autrement
-	//////////////////////////////////////////////////////////////////////////
-
 	for (std::list< std::pair<int, int> >::iterator it=_list.begin(); it != _list.end(); it++)
 	{
 		int							i = _sortedList.size()/2;
 		int							j = 0;
-
 		std::list<int>::iterator	itl;
+
 		for (itl=_sortedList.begin(); itl != _sortedList.end(); itl++)
 		{
 			j++;
@@ -272,15 +266,15 @@ void	PmergeMe::sortWithList(int argc, char *argv[])
 
 void	PmergeMe::printResultVector()
 {
-	// for (std::vector<int>::iterator it=_sortedVector.begin(); it != _sortedVector.end(); it++)
-	// {
-	// 	std::cout << (*it) << " ";
-	// }
-	// std::cout << std::endl;
+	for (std::vector<int>::iterator it=_sortedVector.begin(); it != _sortedVector.end(); it++)
+	{
+		std::cout << (*it) << " ";
+	}
+	std::cout << std::endl;
+}
 
-	//////////////////////////////////////////////////////////////////////////
-	// Afficher la liste pour DEBUG
-	//////////////////////////////////////////////////////////////////////////
+void	PmergeMe::printResultList()
+{
 	for (std::list<int>::iterator it=_sortedList.begin(); it != _sortedList.end(); it++)
 	{
 		std::cout << (*it) << " ";
