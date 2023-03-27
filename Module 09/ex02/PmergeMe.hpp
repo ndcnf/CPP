@@ -6,6 +6,7 @@
 # include <algorithm>
 # include <stdexcept>
 # include <utility>
+# include <ctime>
 
 # include <list>
 # include <vector>
@@ -37,6 +38,9 @@ class PmergeMe
 
 		void	printResultVector();
 		void	printResultList();
+
+		clock_t	getTimeVector();
+		clock_t	getTimeList();
 
 		class argsError: public std::exception
 		{
@@ -79,8 +83,8 @@ class PmergeMe
 		std::list<int>						_sortedList;
 		std::vector< std::pair<int, int> >	_vector;
 		std::vector<int>					_sortedVector;
-
-
+		clock_t								_timeVector;
+		clock_t								_timeList;
 };
 
 #endif

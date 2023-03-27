@@ -16,8 +16,21 @@ PmergeMe	&PmergeMe::operator=(PmergeMe const &rhs)
 	_vector = rhs._vector;
 	_sortedList = rhs._sortedList;
 	_sortedVector = rhs._sortedVector;
+	_timeVector = rhs._timeVector;
+	_timeList = rhs._timeList;
 
 	return (*this);
+}
+
+clock_t	PmergeMe::getTimeVector()
+{
+	return (static_cast<float>(_timeVector * 1000000/CLOCKS_PER_SEC));
+	// return (_timeVector);
+}
+
+clock_t	PmergeMe::getTimeList()
+{
+	return (static_cast<float>(_timeList * 1000000/CLOCKS_PER_SEC));
 }
 
 void	PmergeMe::duplicateDetector(int argc, char *argv[])
@@ -122,6 +135,11 @@ void	PmergeMe::sortBinarySearchVector()
 void	PmergeMe::sortWithVector(int argc, char *argv[])
 {
 	//TIMER GO
+	// std::time_t	start(std::time(0));
+	// clock_t		time;
+
+	_timeVector = clock();
+
 	pairingVector(argc -1, argv);
 	swapPairVector();
 
@@ -136,6 +154,9 @@ void	PmergeMe::sortWithVector(int argc, char *argv[])
 	copyVector();
 	sortBinarySearchVector();
 
+	// std::time_t	stop(std::time(0));
+	_timeVector = clock() - _timeVector;
+	// std::cout << "STOP VECTOR " << static_cast<float>(_timeVector * 1000000/CLOCKS_PER_SEC) << std::endl;
 	//TIMER STOP
 }
 
@@ -242,6 +263,12 @@ void	PmergeMe::sortBinarySearchList()
 void	PmergeMe::sortWithList(int argc, char *argv[])
 {
 	//TIMER GO
+	// clock_t		time;
+
+	// time = clock();
+	_timeList = clock();
+
+
 	pairingList(argc -1, argv);
 	swapPairList();
 
@@ -259,7 +286,11 @@ void	PmergeMe::sortWithList(int argc, char *argv[])
 
 
 
+	_timeList = clock() - _timeList;
+	// std::cout << "STOP LIST " << static_cast<float>(_timeList * 1000000/CLOCKS_PER_SEC)<< std::endl;
 
+	// time = clock() - time;
+	// std::cout << "STOP LIST " << static_cast<float>(time * 1000000/CLOCKS_PER_SEC)<< std::endl;
 	//TIMER STOP
 }
 

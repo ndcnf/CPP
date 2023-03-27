@@ -41,18 +41,26 @@ int	main(int argc, char *argv[])
 		////////////////////////////////////////////////////////////////////////
 		// If you prefer to see the results via list, instead of vector
 		////////////////////////////////////////////////////////////////////////
-		std::cout << "After: " << std::setw(3);
-		pm.printResultList();
+		// std::cout << "After: " << std::setw(3);
+		// pm.printResultList();
 		////////////////////////////////////////////////////////////////////////
 
 		std::cout	<< "Time to process a range of " << std::setw(4) << argc - 1
 					<< " elements with std::vector: ";
-		std::cout	<< std::setw(3) << "[TIME HERE]";//time a rajouter
+		std::cout	<< std::setw(3) //time a rajouter
+					// << static_cast<float>(_timeVector * 1000000/CLOCKS_PER_SEC)
+					// << static_cast<float>(pm.getTimeVector() * 1000000/CLOCKS_PER_SEC)
+					<< pm.getTimeVector()
+					<< " us";
 		std::cout	<< std::endl;
 
 		std::cout	<< "Time to process a range of " << std::setw(4) << argc - 1
 					<< " elements with std::list: ";
-		std::cout	<< std::setw(3) << "[TIME HERE]";//time a rajouter
+		std::cout	<< std::setw(3) //time a rajouter
+					// << static_cast<float>(_timeList * 1000000/CLOCKS_PER_SEC)
+					<< pm.getTimeList()
+					<< " us";
+		// std::cout	<< std::setw(3) << "[TIME HERE]";//time a rajouter
 		std::cout	<< std::endl;
 
 		return (0);
