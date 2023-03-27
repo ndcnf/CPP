@@ -32,7 +32,7 @@ int	main(int argc, char *argv[])
 			std::cout << argv[i] << " ";
 		std::cout << std::endl;
 
-		pm.sortWithVector(argc, argv);
+		// pm.sortWithVector(argc, argv);
 		pm.sortWithList(argc, argv);
 
 
