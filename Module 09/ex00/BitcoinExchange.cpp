@@ -66,6 +66,7 @@ bool	BitcoinExchange::getFileContentDB(std::string file)
 			std::getline(ifs, content);
 			if (ifs.eof())
 				return (true);
+
 			if (first)
 			{
 				titleOK = checkTitle(content, file);
@@ -76,7 +77,7 @@ bool	BitcoinExchange::getFileContentDB(std::string file)
 
 			if (dateOK && titleOK)
 			{
-				// _priceDB[file.substr(0, 10)] = 1;
+				_priceDB[content.substr(0, 10)] = _value;
 				// _priceDB.insert(std::pair<std::string,float>(file.substr(0, 4), _value));
 			}
 		}
@@ -85,12 +86,6 @@ bool	BitcoinExchange::getFileContentDB(std::string file)
 		throw (fileError());
 
 	ifs.close();
-
-	// for (std::map<std::string, float>::iterator it = _priceDB.begin(); it != _priceDB.end(); it++)
-	// {
-	// 	std::cout << "dbmap " << it->first << " " << it->second << std::endl;
-	// }
-	
 
 	// if (dateOK && titleOK)
 	// 	return (true);
@@ -153,7 +148,7 @@ bool	BitcoinExchange::checkValidityDB(std::string line)
 	_year = atoi(line.substr(0, 4).c_str());
 	_month = atoi(line.substr(5, 2).c_str());
 	_day = atoi(line.substr(8, 2).c_str());
-	// _value = atof(line.substr(10).c_str());
+	_value = atof(line.substr(11).c_str());
 
 	// std::cout << _value << std::endl;
 	if (line[4] == '-' && line[7] == '-')
@@ -172,7 +167,7 @@ bool	BitcoinExchange::checkValidityDB(std::string line)
 				}
 				else
 				{
-					std::cout << "Error: bad imput => " << _year << "-" << _month << "-" << _day << std::endl;
+					std::cout << "Error: bad input => " << _year << "-" << _month << "-" << _day << std::endl;
 					return (false);
 				}
 			}
@@ -203,15 +198,17 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 			{
 				if (_day <= (*it).second)
 				{
+					// std::cout << (*it).first << " => " << (*it).second << " = " << std::endl;
+					// IMPRIMER LE RESULTAT ICI
 					return (true);
 				}
 				else
 				{
-					std::cout << "Error: bad imput => " << _year << "-" << _month << "-" << _day << std::endl;
+					std::cout << "Error: bad input => " << _year << "-" << _month << "-" << _day << std::endl;
 					return (false);
 				}
 			}
-		}	
+		}
 	// + verifier jours (bonus: bisextiles)
 	}
 	return (false);
@@ -225,5 +222,8 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 
 void	BitcoinExchange::printResult()
 {
-
+	for (std::map<std::string, float>::iterator it = _priceDB.begin(); it != _priceDB.end(); it++)
+	{
+		std::cout << "_priceDB[" << it->first << "] = " << it->second << std::endl;
+	}
 }

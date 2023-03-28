@@ -8,16 +8,16 @@ int	main(int argc, char *argv[])
 			throw (BitcoinExchange::argsError());
 
 		std::string			file = argv[1];
-		std::string			data = "data.cs";
+		std::string			data = "data.csv";
 		BitcoinExchange		btc;
 
-		std::cout << "Checking db" << std::endl;
 		if (!btc.getFileContentDB(data))
 			throw (BitcoinExchange::fileError());
 
-		std::cout << "checking input" << std::endl;
 		if (!btc.getFileContentInput(file))
 			throw (BitcoinExchange::fileError());
+
+		// btc.printResult();
 
 		// for (int i = 1; i < argc; i++)
 		// {
