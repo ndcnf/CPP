@@ -34,55 +34,64 @@ BitcoinExchange::~BitcoinExchange()
 
 }
 
-// std::string	BitcoinExchange::getFileContent(std::string file)
-void	BitcoinExchange::getFileContent(std::string file)
+bool	BitcoinExchange::getFileContent(std::string file)
 {
 	std::ifstream	ifs(file);
 	std::string		content;
-	bool			dateOK;
-	bool			titleOK;
+	bool			dateOK = false;
+	bool			titleOK = false;
+	bool			first = true;
 
 	if (ifs.is_open())
 	{
 		while (ifs.good())
 		{
 			std::getline(ifs, content);
-			// if (file != "data.csv")
-			titleOK = checkTitle(content, file);
-			dateOK = checkDateValidity(content);
-			std::cout << titleOK << std::endl;
-			if (dateOK)
-				std::cout << "YES!" << std::endl;
-			// std::cout << content << std::endl;
+			if (first)
+			{
+				titleOK = checkTitle(content, file);
+				first = false;
+			}
+			else
+				dateOK = checkDateValidity(content);
 		}
 	}
 	else
 		throw (fileError());
 
 	ifs.close();
-	// return (content);
+
+	if (dateOK && titleOK)
+		return (true);
+	return (false);
 }
 bool	BitcoinExchange::checkTitle(std::string line, std::string fileName)
 {
-	std::cout << "[" << line << "]" << std::endl;
 	if (fileName != "data.csv")
 	{
 		if (!line.find("date | value"))
 			return (true);
 	}
-
-	if (!line.find("date,exchange_rate"))
+	else if (!line.find("date,exchange_rate"))
 		return (true);
-
 	return (false);
 }
 
 bool	BitcoinExchange::checkDateValidity(std::string line)
 {
-	if (line[4] == '-' && line[7] == '-' && line[11] == '|')
-		std::cout << "OK" << std::endl;
+	int	year = atoi(line.substr(0, 4).c_str());
 
+	if (line[4] == '-' && line[7] == '-')
+	{
+		if (year >= 1000 && year <= 3000)
+			std::cout << year << " OK" << std::endl;
+	// + verifier annee
 
+	// + verfier mois
+
+	// + verifier jours (bonus: bisextiles)
+		return (true);
+	}
 
 	return (false);
 
@@ -94,5 +103,5 @@ bool	BitcoinExchange::checkDateValidity(std::string line)
 
 void	BitcoinExchange::printResult()
 {
-	
+
 }

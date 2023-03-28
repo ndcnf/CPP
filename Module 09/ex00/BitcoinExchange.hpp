@@ -22,7 +22,7 @@ class	BitcoinExchange
 
 
 		// std::string	getFileContent(std::string file);
-		void	getFileContent(std::string file);
+		bool	getFileContent(std::string file);
 		bool	checkDateValidity(std::string line);
 		bool	checkTitle(std::string line, std::string fileName);
 

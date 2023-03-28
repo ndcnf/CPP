@@ -7,19 +7,14 @@ int	main(int argc, char *argv[])
 		if (argc != 2)
 			throw (BitcoinExchange::argsError());
 
-		// std::string		fileContent;
-		std::string		file = argv[1];
-		std::string		data = "data.csv";
-
+		std::string			file = argv[1];
+		std::string			data = "data.csv";
 		BitcoinExchange		btc;
 
-		btc.getFileContent(data);
-		btc.getFileContent(file);
-
-		// fileContent = btc.getFileContent(data);
-		// fileContent = btc.getFileContent(file);
-
-		// btc.checkDateValidity();
+		if (!btc.getFileContent(data))
+			throw (BitcoinExchange::fileError());
+		if (!btc.getFileContent(file))
+			throw (BitcoinExchange::fileError());
 
 		// for (int i = 1; i < argc; i++)
 		// {
