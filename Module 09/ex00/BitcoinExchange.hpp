@@ -22,8 +22,10 @@ class	BitcoinExchange
 
 
 		// std::string	getFileContent(std::string file);
-		bool	getFileContent(std::string file);
-		bool	checkDateValidity(std::string line);
+		bool	getFileContentDB(std::string file);
+		bool	getFileContentInput(std::string file);
+		bool	checkValidityDB(std::string line);
+		bool	checkValidityInput(std::string line);
 		bool	checkTitle(std::string line, std::string fileName);
 
 
@@ -88,6 +90,7 @@ class	BitcoinExchange
 		int								_year;
 		int								_month;
 		int								_day;
+		float							_value;
 
 
 
