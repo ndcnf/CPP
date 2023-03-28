@@ -54,12 +54,12 @@ class	BitcoinExchange
 				}
 		};
 
-		class impossibleError: public std::exception
+		class dateError: public std::exception
 		{
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Operation impossible.");
+					return ("Error: bad input.");
 				}
 		};
 
@@ -83,7 +83,11 @@ class	BitcoinExchange
 
 	private:
 		std::map<std::string, float>	_priceDB; //type a verifier
-		std::map<std::string, int>		_maxDaysPerMonth;
+		// std::map<std::string, int>		_maxDaysPerMonth;
+		std::map<int, int>				_maxDaysPerMonth;
+		int								_year;
+		int								_month;
+		int								_day;
 
 
 
