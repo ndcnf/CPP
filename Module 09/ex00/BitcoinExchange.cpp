@@ -34,12 +34,52 @@ BitcoinExchange::~BitcoinExchange()
 
 }
 
-
-
-void	BitcoinExchange::checkDateValidity()
+std::string	BitcoinExchange::getFileContent(std::string file)
 {
-	for (std::map<std::string, int>::iterator it=_maxDaysPerMonth.begin(); it != _maxDaysPerMonth.end(); it++)
+	std::ifstream	ifs(file);
+	std::string		content;
+	bool			dateOK;
+
+	if (ifs.is_open())
 	{
-		std::cout << (*it).first << " - " << (*it).second << std::endl;
+		while (ifs.good())
+		{
+			std::getline(ifs, content);
+			dateOK = checkDateValidity(content);
+			if (dateOK)
+				std::cout << "YES!" << std::endl;
+			// std::cout << content << std::endl;
+		// char c = ifs.get();
+		// while (ifs.good())
+		// {
+		// 	content += c;
+		// 	c = ifs.get();
+		}
 	}
+	else
+	{
+		std::cout	<< "Error: Opening file impossible"
+					<< std::endl;
+	}
+	ifs.close();
+	return (content);
+}
+
+bool	BitcoinExchange::checkDateValidity(std::string line)
+{
+	std::cout << "[" << line << "]" << std::endl;
+	if (!line.rfind("date"))
+	{
+		return (true);
+	}
+	return (false);
+
+
+	
+
+
+	// for (std::map<std::string, int>::iterator it=_maxDaysPerMonth.begin(); it != _maxDaysPerMonth.end(); it++)
+	// {
+	// 	std::cout << (*it).first << " - " << (*it).second << std::endl;
+	// }
 }

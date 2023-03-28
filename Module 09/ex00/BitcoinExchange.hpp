@@ -17,9 +17,27 @@ class	BitcoinExchange
 		BitcoinExchange &operator=(BitcoinExchange const &rhs);
 		~BitcoinExchange();
 
-		void	checkDateValidity();
+		std::string	getFileContent(std::string file);
+		bool		checkDateValidity(std::string line);
 
 
+		class fileError: public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Error: Opening file impossible.");
+				}
+		};
+
+		class maxIntError: public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Error: Number too big.");
+				}
+		};
 
 		class argsError: public std::exception
 		{

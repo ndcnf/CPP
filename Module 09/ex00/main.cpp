@@ -8,9 +8,13 @@ int	main(int argc, char *argv[])
 		if (argc != 2)
 			throw (BitcoinExchange::argsError());
 
-		BitcoinExchange		btc;
+		std::string		fileContent;
+		std::string		file = argv[1];
 
-		btc.checkDateValidity();
+		BitcoinExchange		btc;
+		fileContent = btc.getFileContent(argv[1]);
+
+		// btc.checkDateValidity();
 
 		// for (int i = 1; i < argc; i++)
 		// {
