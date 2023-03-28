@@ -14,11 +14,17 @@ class	BitcoinExchange
 	public:
 		BitcoinExchange();
 		BitcoinExchange(BitcoinExchange const &src);
-		BitcoinExchange &operator=(BitcoinExchange const &rhs);
+		BitcoinExchange	&operator=(BitcoinExchange const &rhs);
 		~BitcoinExchange();
 
-		std::string	getFileContent(std::string file);
-		bool		checkDateValidity(std::string line);
+		void	setPriceDB(std::string date, float value);
+		void	printResult();
+
+
+		// std::string	getFileContent(std::string file);
+		void	getFileContent(std::string file);
+		bool	checkDateValidity(std::string line);
+		bool	checkTitle(std::string line, std::string fileName);
 
 
 		class fileError: public std::exception
@@ -76,8 +82,8 @@ class	BitcoinExchange
 		};
 
 	private:
-		std::map<std::string, int>	_priceDB; //type a verifier
-		std::map<std::string, int>			_maxDaysPerMonth;
+		std::map<std::string, float>	_priceDB; //type a verifier
+		std::map<std::string, int>		_maxDaysPerMonth;
 
 
 

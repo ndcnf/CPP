@@ -67,6 +67,8 @@
 		"fstream": "cpp",
 		"filesystem": "cpp",
 		"__tree": "cpp",
-		"set": "cpp"
+		"set": "cpp",
+		"clocale": "cpp",
+		"map": "cpp"
 	}
 }

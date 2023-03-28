@@ -4,15 +4,20 @@ int	main(int argc, char *argv[])
 {
 	try
 	{
-		(void)argv;
 		if (argc != 2)
 			throw (BitcoinExchange::argsError());
 
-		std::string		fileContent;
+		// std::string		fileContent;
 		std::string		file = argv[1];
+		std::string		data = "data.csv";
 
 		BitcoinExchange		btc;
-		fileContent = btc.getFileContent(argv[1]);
+
+		btc.getFileContent(data);
+		btc.getFileContent(file);
+
+		// fileContent = btc.getFileContent(data);
+		// fileContent = btc.getFileContent(file);
 
 		// btc.checkDateValidity();
 
