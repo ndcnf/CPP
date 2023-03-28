@@ -79,14 +79,26 @@ bool	BitcoinExchange::checkTitle(std::string line, std::string fileName)
 
 bool	BitcoinExchange::checkDateValidity(std::string line)
 {
-	int	year = atoi(line.substr(0, 4).c_str());
+	int			year = atoi(line.substr(0, 4).c_str());
+	std::string	month;
+	std::string	day;
+	std::size_t	pos = line.find('-');
 
 	if (line[4] == '-' && line[7] == '-')
 	{
 		if (year >= 1000 && year <= 3000)
 			std::cout << year << " OK" << std::endl;
-	// + verifier annee
 
+		month = line.substr(pos+1, 2);
+		// month = line.substr(line[4], 6);
+		std::cout << month << std::endl;
+
+		pos = pos+3;
+		day = line.substr(pos+1, 2);
+		std::cout << day << std::endl;
+
+	
+		// _maxDaysPerMonth.find()
 	// + verfier mois
 
 	// + verifier jours (bonus: bisextiles)
