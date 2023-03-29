@@ -85,7 +85,7 @@ class	BitcoinExchange
 
 	private:
 		std::map<std::string, float>	_priceDB; //type a verifier
-		// std::map<std::string, int>		_maxDaysPerMonth;
+		std::map<std::string, float>	_priceInput;
 		std::map<int, int>				_maxDaysPerMonth;
 		int								_year;
 		int								_month;

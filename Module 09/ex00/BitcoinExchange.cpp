@@ -52,7 +52,10 @@ bool	BitcoinExchange::getFileContentDB(std::string file)
 		{
 			std::getline(ifs, content);
 			if (ifs.eof())
+			{
+				ifs.close();
 				return (true);
+			}
 
 			if (first)
 			{
@@ -65,17 +68,14 @@ bool	BitcoinExchange::getFileContentDB(std::string file)
 			if (dateOK && titleOK)
 			{
 				_priceDB[content.substr(0, 10)] = _value;
-				// _priceDB.insert(std::pair<std::string,float>(file.substr(0, 4), _value));
+				std::cout << "{DB VALUE} = " << _value << std::endl;
 			}
 		}
 	}
-	else
-		throw (fileError());
+	// else
+	// 	return (false);
+		// throw (fileError());
 
-	ifs.close();
-
-	// if (dateOK && titleOK)
-	// 	return (true);
 	return (false);
 }
 
@@ -93,7 +93,10 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 		{
 			std::getline(ifs, content);
 			if (ifs.eof())
+			{
+				ifs.close();
 				return (true);
+			}
 
 			if (first)
 			{
@@ -102,15 +105,18 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 			}
 			else
 				dateOK = checkValidityInput(content);
+
+			if (dateOK && titleOK)
+			{
+				_priceInput[content.substr(0, 10)] = _value;
+				// _value
+				std::cout << "{INPUT VALUE} = " << _value << std::endl;
+			}
 		}
 	}
-	else
-		return (false);
+	// else
+	// 	return (false);
 
-	ifs.close();
-
-	if (dateOK && titleOK)
-		return (true);
 	return (false);
 }
 
@@ -128,16 +134,17 @@ bool	BitcoinExchange::checkTitle(std::string line, std::string fileName)
 
 bool	BitcoinExchange::checkValidityDB(std::string line)
 {
-	// int	year = atoi(line.substr(0, 4).c_str());
-	// int	month = atoi(line.substr(5, 2).c_str());
-	// int	day = atoi(line.substr(8, 2).c_str());
+	if (line[10] != ',')
+	{
+		std::cout << "Error: bad input" << std::endl;
+		return (false);
+	}
 
 	_year = atoi(line.substr(0, 4).c_str());
 	_month = atoi(line.substr(5, 2).c_str());
 	_day = atoi(line.substr(8, 2).c_str());
 	_value = atof(line.substr(11).c_str());
 
-	// std::cout << _value << std::endl;
 	if (line[4] == '-' && line[7] == '-')
 	{
 		if (_year < 1000 || _year > 3000)
@@ -148,31 +155,27 @@ bool	BitcoinExchange::checkValidityDB(std::string line)
 			if (_month == (*it).first)
 			{
 				if (_day <= (*it).second)
-				{
-
 					return (true);
-				}
-				else
-				{
-					std::cout << "Error: bad input => " << _year << "-" << _month << "-" << _day << std::endl;
-					return (false);
-				}
 			}
 		}
 	// + verifier jours (bonus: bisextiles)
 	}
+	std::cout << "Error: bad data input => " << _year << "-" << _month << "-" << _day << std::endl;
 	return (false);
 }
 
 bool	BitcoinExchange::checkValidityInput(std::string line)
 {
-	// int	year = atoi(line.substr(0, 4).c_str());
-	// int	month = atoi(line.substr(5, 2).c_str());
-	// int	day = atoi(line.substr(8, 2).c_str());
+	if (line[11] != '|')
+	{
+		std::cout << "Error: bad input" << std::endl;
+		return (false);
+	}
 
 	_year = atoi(line.substr(0, 4).c_str());
 	_month = atoi(line.substr(5, 2).c_str());
 	_day = atoi(line.substr(8, 2).c_str());
+	_value = atof(line.substr(13).c_str());
 
 	if (line[4] == '-' && line[7] == '-')
 	{
@@ -184,26 +187,13 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 			if (_month == (*it).first)
 			{
 				if (_day <= (*it).second)
-				{
-					// std::cout << (*it).first << " => " << (*it).second << " = JUSTE DATE OK" << std::endl;
-					// IMPRIMER LE RESULTAT ICI
 					return (true);
-				}
-				else
-				{
-					std::cout << "Error: bad input => " << _year << "-" << _month << "-" << _day << std::endl;
-					return (false);
-				}
 			}
 		}
 	// + verifier jours (bonus: bisextiles)
+		// std::cout << "Error: bad input => " << _year << "-" << _month << "-" << _day << std::endl;
 	}
 	return (false);
-
-	// for (std::map<std::string, int>::iterator it=_maxDaysPerMonth.begin(); it != _maxDaysPerMonth.end(); it++)
-	// {
-	// 	std::cout << (*it).first << " - " << (*it).second << std::endl;
-	// }
 }
 
 
