@@ -2,31 +2,18 @@
 
 BitcoinExchange::BitcoinExchange()
 {
-	// _maxDaysPerMonth.insert(std::pair<std::string,int>("01", 31));
-	// _maxDaysPerMonth.insert(std::pair<std::string,int>("02", 29));
-	// _maxDaysPerMonth.insert(std::pair<std::string,int>("03", 31));
-	// _maxDaysPerMonth.insert(std::pair<std::string,int>("04", 30));
-	// _maxDaysPerMonth.insert(std::pair<std::string,int>("05", 31));
-	// _maxDaysPerMonth.insert(std::pair<std::string,int>("06", 30));
-	// _maxDaysPerMonth.insert(std::pair<std::string,int>("07", 31));
-	// _maxDaysPerMonth.insert(std::pair<std::string,int>("08", 31));
-	// _maxDaysPerMonth.insert(std::pair<std::string,int>("09", 30));
-	// _maxDaysPerMonth.insert(std::pair<std::string,int>("10", 31));
-	// _maxDaysPerMonth.insert(std::pair<std::string,int>("11", 30));
-	// _maxDaysPerMonth.insert(std::pair<std::string,int>("12", 31));
-
-	_maxDaysPerMonth.insert(std::pair<int,int>(1, 31));
-	_maxDaysPerMonth.insert(std::pair<int,int>(2, 29));
-	_maxDaysPerMonth.insert(std::pair<int,int>(3, 31));
-	_maxDaysPerMonth.insert(std::pair<int,int>(4, 30));
-	_maxDaysPerMonth.insert(std::pair<int,int>(5, 31));
-	_maxDaysPerMonth.insert(std::pair<int,int>(6, 30));
-	_maxDaysPerMonth.insert(std::pair<int,int>(7, 31));
-	_maxDaysPerMonth.insert(std::pair<int,int>(8, 31));
-	_maxDaysPerMonth.insert(std::pair<int,int>(9, 30));
-	_maxDaysPerMonth.insert(std::pair<int,int>(10, 31));
-	_maxDaysPerMonth.insert(std::pair<int,int>(11, 30));
-	_maxDaysPerMonth.insert(std::pair<int,int>(12, 31));
+	_maxDaysPerMonth[1] = 31;
+	_maxDaysPerMonth[2] = 29;
+	_maxDaysPerMonth[3] = 31;
+	_maxDaysPerMonth[4] = 30;
+	_maxDaysPerMonth[5] = 31;
+	_maxDaysPerMonth[6] = 30;
+	_maxDaysPerMonth[7] = 31;
+	_maxDaysPerMonth[8] = 31;
+	_maxDaysPerMonth[9] = 30;
+	_maxDaysPerMonth[10] = 31;
+	_maxDaysPerMonth[11] = 30;
+	_maxDaysPerMonth[12] = 31;
 }
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange const &src)
@@ -198,7 +185,7 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 			{
 				if (_day <= (*it).second)
 				{
-					// std::cout << (*it).first << " => " << (*it).second << " = " << std::endl;
+					// std::cout << (*it).first << " => " << (*it).second << " = JUSTE DATE OK" << std::endl;
 					// IMPRIMER LE RESULTAT ICI
 					return (true);
 				}
