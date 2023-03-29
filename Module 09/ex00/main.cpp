@@ -4,6 +4,10 @@ int	main(int argc, char *argv[])
 {
 	try
 	{
+		std::cout	<< "//////////////////////////////////" << std::endl
+					<< "// WELCOME TO BITCOIN SIMULATOR //" << std::endl
+					<< "//////////////////////////////////" << std::endl;
+
 		if (argc != 2)
 			throw (BitcoinExchange::argsError());
 
@@ -17,7 +21,7 @@ int	main(int argc, char *argv[])
 		if (!btc.getFileContentInput(file))
 			throw (BitcoinExchange::fileError());
 
-		// btc.printResult();
+		btc.printResult();
 
 		// for (int i = 1; i < argc; i++)
 		// {
@@ -30,14 +34,6 @@ int	main(int argc, char *argv[])
 		// }
 
 	}
-	// catch (BitcoinExchange::argsError &e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
-	// catch (BitcoinExchange::fileError &e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
