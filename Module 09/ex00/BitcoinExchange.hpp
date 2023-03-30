@@ -6,6 +6,7 @@
 # include <algorithm>
 # include <stdexcept>
 # include <fstream>
+# include <limits>
 
 # include <map>
 

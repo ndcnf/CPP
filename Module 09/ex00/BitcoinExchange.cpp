@@ -108,12 +108,6 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 			{
 				dateInput = content.substr(0, 10);
 				_priceInput[dateInput] = _value;
-				// std::map<std::string, float>::iterator	it;
-
-				// for (std::map<std::string, float>::iterator	it = _priceDB.begin(); it != _priceDB.end(); it++)
-				// {
-					// std::cout << (*it).first << " {...} " << (*it).second << std::endl;
-				// }
 
 				std::map<std::string, float>::iterator	it = _priceDB.lower_bound(dateInput);
 				if ((*it).first > dateInput)
@@ -126,8 +120,6 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 			}
 		}
 	}
-	// else
-	// 	return (false);
 
 	return (false);
 }
@@ -170,7 +162,6 @@ bool	BitcoinExchange::checkValidityDB(std::string line)
 					return (true);
 			}
 		}
-	// + verifier jours (bonus: bisextiles)
 	}
 	std::cout << "[Warning: bad date in database => " << _year << "-" << _month << "-" << _day << "]" << std::endl;
 	return (false);
@@ -187,6 +178,13 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 	_year = atoi(line.substr(0, 4).c_str());
 	_month = atoi(line.substr(5, 2).c_str());
 	_day = atoi(line.substr(8, 2).c_str());
+
+	if (!isdigit(line[13]))
+	{
+		std::cout << "Error: not a valid number." << std::endl;
+		return (false);
+	}
+
 	_value = atof(line.substr(13).c_str());
 
 	if (line[4] == '-' && line[7] == '-')
@@ -202,9 +200,21 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 					return (true);
 			}
 		}
-	// + verifier jours (bonus: bisextiles)
-		// if (_value < 0 && _value)
-
+		// if (_value < 0)
+		// {
+		// 	std::cout << "Error: not a positive number." << std::endl;
+		// 	return (false);
+		// }
+		if (_value > 1000 || _value >= std::numeric_limits<int>::max())
+		{
+			std::cout << "Error: too large a number." << std::endl;
+			return (false);
+		}
+		// if (_value >= std::numeric_limits<int>::max())
+		// {
+		// 	std::cout << "Error: too large a number." << std::endl;
+		// 	return (false);
+		// }
 
 
 
@@ -214,19 +224,19 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 }
 
 
-void	BitcoinExchange::printResult()
-{
-	std::cout << "-- DB --" << std::endl;
+// void	BitcoinExchange::printResult()
+// {
+// 	std::cout << "-- DB --" << std::endl;
 
-	for (std::map<std::string, float>::iterator it = _priceDB.begin(); it != _priceDB.end(); it++)
-	{
-		std::cout << "_priceDB[" << it->first << "] = " << it->second << std::endl;
-	}
+// 	for (std::map<std::string, float>::iterator it = _priceDB.begin(); it != _priceDB.end(); it++)
+// 	{
+// 		std::cout << "_priceDB[" << it->first << "] = " << it->second << std::endl;
+// 	}
 
-	std::cout << "-- INPUT --" << std::endl;
+// 	std::cout << "-- INPUT --" << std::endl;
 
-	for (std::map<std::string, float>::iterator it = _priceInput.begin(); it != _priceInput.end(); it++)
-	{
-		std::cout << "_priceInput[" << it->first << "] = " << it->second << std::endl;
-	}
-}
+// 	for (std::map<std::string, float>::iterator it = _priceInput.begin(); it != _priceInput.end(); it++)
+// 	{
+// 		std::cout << "_priceInput[" << it->first << "] = " << it->second << std::endl;
+// 	}
+// }
