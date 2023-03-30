@@ -14,6 +14,7 @@
 # define ERR_BAD_DATE_IN "bad date input."
 # define ERR_NUM_TOO_LRG "too large a number."
 # define ERR_INVALID_NUM "not a valid number."
+# define ERR_NEGATIVE_NUM "not a positive number."
 # define ERR_BAD_IN "bad input."
 # define ERR_TOO_EARLY "Bitcoin wasn't even invented yet."
 # define ERR_BAD_IN_DB "bad input in database. ]"
@@ -61,10 +62,6 @@ class	BitcoinExchange
 		int								_month;
 		int								_day;
 		float							_value;
-
-
-
-
 };
 
 #endif

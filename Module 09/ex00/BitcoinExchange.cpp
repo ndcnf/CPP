@@ -86,6 +86,7 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 	{
 		while (ifs.good())
 		{
+			content.clear();
 			std::getline(ifs, content);
 			if (ifs.eof())
 			{
@@ -111,10 +112,10 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 					if ((it) != _priceDB.begin())
 					{
 						it--;
-						std::cout	<< (*it).first << " ==> "
-									<< _value << " = "
-									<< ((*it).second * _value)
-									<< " (" << dateInput << " not found)"
+						std::cout	<< dateInput << " ==> "
+									<< std::setw(10) << std::left << _value << " = "
+									<< std::setw(15) << std::right << ((*it).second * _value)
+									<< std::setw(15) << " (based on " << (*it).first << ")"
 									<< std::endl;
 					}
 					else
@@ -122,8 +123,8 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 				}
 				else
 					std::cout	<< (*it).first << " ==> "
-								<< _value << " = "
-								<< ((*it).second * _value)
+								<< std::setw(10) << std::left << _value << " = "
+								<< std::setw(15) << std::right << ((*it).second * _value)
 								<< std::endl;
 			}
 		}
@@ -179,7 +180,7 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 {
 	if (line[11] != '|')
 	{
-		std::cout << ERROR ERR_BAD_IN << std::endl;
+		std::cout << ERROR ERR_BAD_IN "( ==> " << line << ")" << std::endl;
 		return (false);
 	}
 
@@ -189,7 +190,12 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 
 	if (!isdigit(line[13]))
 	{
-		std::cout << ERROR ERR_INVALID_NUM << std::endl;
+		std::cout << "LINE! " << line << std::endl;
+		if (line[13] == '-')
+			std::cout << ERROR ERR_NEGATIVE_NUM << std::endl;
+		else
+			std::cout << ERROR ERR_INVALID_NUM << std::endl;
+
 		return (false);
 	}
 
@@ -200,6 +206,8 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 		std::cout << ERROR ERR_NUM_TOO_LRG << std::endl;
 		return (false);
 	}
+
+	std::cout << _year << "." << _month << "." << _day << "." << _value << std::endl;
 
 	if (line[4] == '-' && line[7] == '-')
 	{
