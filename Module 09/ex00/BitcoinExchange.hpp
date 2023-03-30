@@ -17,6 +17,7 @@
 # define ERR_BAD_IN "bad input."
 # define ERR_TOO_EARLY "Bitcoin wasn't even invented yet."
 # define ERR_BAD_IN_DB "bad input in database. ]"
+# define ERR_BAD_DATE_DB "bad date in database. ]"
 # define DB_FILE "data.csv"
 # define DB_HEADER "date,exchange_rate"
 # define IN_HEADER "date | value"

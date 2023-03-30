@@ -118,7 +118,7 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 									<< std::endl;
 					}
 					else
-						std::cout << "Error: Bitcoin wasn't even invented yet." << std::endl;
+						std::cout << ERROR ERR_TOO_EARLY << std::endl;
 				}
 				else
 					std::cout	<< (*it).first << " ==> "
@@ -134,12 +134,12 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 
 bool	BitcoinExchange::checkTitle(std::string line, std::string fileName)
 {
-	if (fileName != "data.csv")
+	if (fileName != DB_FILE)
 	{
-		if (!line.find("date | value"))
+		if (!line.find(IN_HEADER))
 			return (true);
 	}
-	else if (!line.find("date,exchange_rate"))
+	else if (!line.find(DB_HEADER))
 		return (true);
 	return (false);
 }
@@ -148,7 +148,7 @@ bool	BitcoinExchange::checkValidityDB(std::string line)
 {
 	if (line[10] != ',')
 	{
-		std::cout << "[Warning: bad input in database]" << std::endl;
+		std::cout << WARNING ERR_BAD_IN_DB << std::endl;
 		return (false);
 	}
 
@@ -171,7 +171,7 @@ bool	BitcoinExchange::checkValidityDB(std::string line)
 			}
 		}
 	}
-	std::cout << "[Warning: bad date in database => " << _year << "-" << _month << "-" << _day << "]" << std::endl;
+	std::cout << WARNING ERR_BAD_DATE_DB " => " << _year << "-" << _month << "-" << _day << "]" << std::endl;
 	return (false);
 }
 
@@ -179,7 +179,7 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 {
 	if (line[11] != '|')
 	{
-		std::cout << "Error: bad input" << std::endl;
+		std::cout << ERROR ERR_BAD_IN << std::endl;
 		return (false);
 	}
 
@@ -189,7 +189,7 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 
 	if (!isdigit(line[13]))
 	{
-		std::cout << "Error: not a valid number." << std::endl;
+		std::cout << ERROR ERR_INVALID_NUM << std::endl;
 		return (false);
 	}
 
@@ -197,7 +197,7 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 
 	if (_value > 1000)
 	{
-		std::cout << "Error: too large a number." << std::endl;
+		std::cout << ERROR ERR_NUM_TOO_LRG << std::endl;
 		return (false);
 	}
 
@@ -214,7 +214,7 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 					return (true);
 			}
 		}
-		std::cout << "Error: bad date input => " << _year << "-" << _month << "-" << _day << std::endl;
+		std::cout << ERROR ERR_BAD_DATE_IN " => " << _year << "-" << _month << "-" << _day << std::endl;
 	}
 	return (false);
 }
