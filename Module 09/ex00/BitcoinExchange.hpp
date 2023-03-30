@@ -20,8 +20,6 @@ class	BitcoinExchange
 		void	setPriceDB(std::string date, float value);
 		void	printResult();
 
-
-		// std::string	getFileContent(std::string file);
 		bool	getFileContentDB(std::string file);
 		bool	getFileContentInput(std::string file);
 		bool	checkValidityDB(std::string line);

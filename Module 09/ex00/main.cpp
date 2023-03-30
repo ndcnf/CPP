@@ -21,7 +21,7 @@ int	main(int argc, char *argv[])
 		if (!btc.getFileContentInput(file))
 			throw (BitcoinExchange::fileError());
 
-		btc.printResult();
+		// btc.printResult();
 
 		// for (int i = 1; i < argc; i++)
 		// {

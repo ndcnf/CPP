@@ -108,24 +108,21 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 			{
 				dateInput = content.substr(0, 10);
 				_priceInput[dateInput] = _value;
-				std::map<std::string, float>::iterator	it;
-				// std::pair<std::map<std::string, float>::iterator, std::map<std::string, float>::iterator>	ret;
+				// std::map<std::string, float>::iterator	it;
 
-				// it = std::lower_bound(_priceDB.begin(), _priceDB.end());
-				it = _priceDB.lower_bound(dateInput);
-				// it = _priceInput.equal_range(dateInput);
-				// ret = _priceInput.equal_range(dateInput);
-				_priceInput.find(dateInput);
-				std::cout << dateInput << "[" << it->first << "] : ";
-				// std::cout << ret.first->first << " / " << ret.first->second << std::endl;
-				// std::cout << ret.second->first << " | " << ret.second->second << std::endl;
-				std::cout << std::endl;
-				// for (std::map<std::string, float>::iterator it = _priceInput.begin(); it != _priceInput.end(); it++)
+				// for (std::map<std::string, float>::iterator	it = _priceDB.begin(); it != _priceDB.end(); it++)
 				// {
-				// 	// dateInput
+					// std::cout << (*it).first << " {...} " << (*it).second << std::endl;
 				// }
-				// std::cout << "{INPUT VALUE} = " << _value << std::endl;
 
+				std::map<std::string, float>::iterator	it = _priceDB.lower_bound(dateInput);
+				if ((*it).first > dateInput)
+				{
+					it--;
+					std::cout << (*it).first << " ==> " << _value << " = " << (*it).second * _value << " (" << dateInput << " not found)" << std::endl;
+				}
+				else
+					std::cout << (*it).first << " ==> " << _value << " = " << (*it).second * _value << std::endl;
 			}
 		}
 	}
@@ -151,7 +148,7 @@ bool	BitcoinExchange::checkValidityDB(std::string line)
 {
 	if (line[10] != ',')
 	{
-		std::cout << "Error: bad input in database" << std::endl;
+		std::cout << "[Warning: bad input in database]" << std::endl;
 		return (false);
 	}
 
@@ -175,7 +172,7 @@ bool	BitcoinExchange::checkValidityDB(std::string line)
 		}
 	// + verifier jours (bonus: bisextiles)
 	}
-	std::cout << "Error: bad date in database => " << _year << "-" << _month << "-" << _day << std::endl;
+	std::cout << "[Warning: bad date in database => " << _year << "-" << _month << "-" << _day << "]" << std::endl;
 	return (false);
 }
 
