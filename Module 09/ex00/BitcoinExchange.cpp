@@ -112,13 +112,20 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 				std::map<std::string, float>::iterator	it = _priceDB.lower_bound(dateInput);
 				if ((*it).first > dateInput)
 				{
-					it--;
-					std::cout	<< (*it).first << " ==> "
-								<< _value << " = ";
-					// std::cout.precision(4);
-					std::cout	<< ((*it).second * _value)
-								<< " (" << dateInput << " not found)"
-								<< std::endl;
+					if ((it) != _priceDB.begin())
+					{
+						it--;
+						std::cout	<< (*it).first << " ==> "
+									<< _value << " = ";
+						// std::cout.precision(4);
+						std::cout	<< ((*it).second * _value)
+									<< " (" << dateInput << " not found)"
+									<< std::endl;
+					}
+					else
+					{
+						std::cout << "Error: Bitcoin wasn't even invented yet (it was the good times)." << std::endl;
+					}
 				}
 				else
 					std::cout	<< (*it).first << " ==> "
@@ -195,6 +202,12 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 
 	_value = atof(line.substr(13).c_str());
 
+	if (_value > 1000)
+	{
+		std::cout << "Error: too large a number." << std::endl;
+		return (false);
+	}
+
 	if (line[4] == '-' && line[7] == '-')
 	{
 		if (_year < 1000 || _year > 3000)
@@ -213,11 +226,11 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 		// 	std::cout << "Error: not a positive number." << std::endl;
 		// 	return (false);
 		// }
-		if (_value > 1000 || _value >= std::numeric_limits<int>::max())
-		{
-			std::cout << "Error: too large a number." << std::endl;
-			return (false);
-		}
+		// if (_value > 1000)
+		// {
+		// 	std::cout << "Error: too large a number." << std::endl;
+		// 	return (false);
+		// }
 		// if (_value >= std::numeric_limits<int>::max())
 		// {
 		// 	std::cout << "Error: too large a number." << std::endl;
