@@ -20,19 +20,6 @@ int	main(int argc, char *argv[])
 
 		if (!btc.getFileContentInput(file))
 			throw (BitcoinExchange::fileError());
-
-		// btc.printResult();
-
-		// for (int i = 1; i < argc; i++)
-		// {
-		// 	std::string str(argv[i]);
-		// 	for (unsigned int j = 0; j < str.length(); j++)
-		// 	{
-		// 		if (!isdigit(argv[i][j]))
-		// 			throw(BitcoinExchange::invalidDataError());
-		// 	}
-		// }
-
 	}
 	catch (std::exception &e)
 	{

@@ -69,9 +69,6 @@ bool	BitcoinExchange::getFileContentDB(std::string file)
 				_priceDB[content.substr(0, 10)] = _value;
 		}
 	}
-	// else
-	// 	return (false);
-		// throw (fileError());
 
 	return (false);
 }
@@ -107,7 +104,6 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 			if (dateOK && titleOK)
 			{
 				dateInput = content.substr(0, 10);
-				_priceInput[dateInput] = _value;
 
 				std::map<std::string, float>::iterator	it = _priceDB.lower_bound(dateInput);
 				if ((*it).first > dateInput)
@@ -116,16 +112,13 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 					{
 						it--;
 						std::cout	<< (*it).first << " ==> "
-									<< _value << " = ";
-						// std::cout.precision(4);
-						std::cout	<< ((*it).second * _value)
+									<< _value << " = "
+									<< ((*it).second * _value)
 									<< " (" << dateInput << " not found)"
 									<< std::endl;
 					}
 					else
-					{
-						std::cout << "Error: Bitcoin wasn't even invented yet (it was the good times)." << std::endl;
-					}
+						std::cout << "Error: Bitcoin wasn't even invented yet." << std::endl;
 				}
 				else
 					std::cout	<< (*it).first << " ==> "
@@ -221,43 +214,7 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 					return (true);
 			}
 		}
-		// if (_value < 0)
-		// {
-		// 	std::cout << "Error: not a positive number." << std::endl;
-		// 	return (false);
-		// }
-		// if (_value > 1000)
-		// {
-		// 	std::cout << "Error: too large a number." << std::endl;
-		// 	return (false);
-		// }
-		// if (_value >= std::numeric_limits<int>::max())
-		// {
-		// 	std::cout << "Error: too large a number." << std::endl;
-		// 	return (false);
-		// }
-
-
-
 		std::cout << "Error: bad date input => " << _year << "-" << _month << "-" << _day << std::endl;
 	}
 	return (false);
 }
-
-
-// void	BitcoinExchange::printResult()
-// {
-// 	std::cout << "-- DB --" << std::endl;
-
-// 	for (std::map<std::string, float>::iterator it = _priceDB.begin(); it != _priceDB.end(); it++)
-// 	{
-// 		std::cout << "_priceDB[" << it->first << "] = " << it->second << std::endl;
-// 	}
-
-// 	std::cout << "-- INPUT --" << std::endl;
-
-// 	for (std::map<std::string, float>::iterator it = _priceInput.begin(); it != _priceInput.end(); it++)
-// 	{
-// 		std::cout << "_priceInput[" << it->first << "] = " << it->second << std::endl;
-// 	}
-// }

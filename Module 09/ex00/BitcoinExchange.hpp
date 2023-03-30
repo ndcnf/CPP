@@ -7,8 +7,19 @@
 # include <stdexcept>
 # include <fstream>
 # include <limits>
-
 # include <map>
+
+# define ERROR "Error: "
+# define WARNING "[ Warning: "
+# define ERR_BAD_DATE_IN "bad date input."
+# define ERR_NUM_TOO_LRG "too large a number."
+# define ERR_INVALID_NUM "not a valid number."
+# define ERR_BAD_IN "bad input."
+# define ERR_TOO_EARLY "Bitcoin wasn't even invented yet."
+# define ERR_BAD_IN_DB "bad input in database. ]"
+# define DB_FILE "data.csv"
+# define DB_HEADER "date,exchange_rate"
+# define IN_HEADER "date | value"
 
 class	BitcoinExchange
 {
@@ -18,15 +29,11 @@ class	BitcoinExchange
 		BitcoinExchange	&operator=(BitcoinExchange const &rhs);
 		~BitcoinExchange();
 
-		void	setPriceDB(std::string date, float value);
-		void	printResult();
-
 		bool	getFileContentDB(std::string file);
 		bool	getFileContentInput(std::string file);
 		bool	checkValidityDB(std::string line);
 		bool	checkValidityInput(std::string line);
 		bool	checkTitle(std::string line, std::string fileName);
-
 
 		class fileError: public std::exception
 		{
@@ -34,15 +41,6 @@ class	BitcoinExchange
 				virtual const char* what() const throw()
 				{
 					return ("Error: Opening file impossible.");
-				}
-		};
-
-		class maxIntError: public std::exception
-		{
-			public:
-				virtual const char* what() const throw()
-				{
-					return ("Error: Number too big.");
 				}
 		};
 
@@ -55,36 +53,8 @@ class	BitcoinExchange
 				}
 		};
 
-		class dateError: public std::exception
-		{
-			public:
-				virtual const char* what() const throw()
-				{
-					return ("Error: bad input.");
-				}
-		};
-
-		class invalidDataError: public std::exception
-		{
-			public:
-				virtual const char* what() const throw()
-				{
-					return ("Invalid characters.");
-				}
-		};
-
-		class DuplicateError: public std::exception
-		{
-			public:
-				virtual const char* what() const throw()
-				{
-					return ("Duplicate found.");
-				}
-		};
-
 	private:
-		std::map<std::string, float>	_priceDB; //type a verifier
-		std::map<std::string, float>	_priceInput;
+		std::map<std::string, float>	_priceDB;
 		std::map<int, int>				_maxDaysPerMonth;
 		int								_year;
 		int								_month;
