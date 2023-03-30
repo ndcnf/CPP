@@ -113,10 +113,18 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 				if ((*it).first > dateInput)
 				{
 					it--;
-					std::cout << (*it).first << " ==> " << _value << " = " << (*it).second * _value << " (" << dateInput << " not found)" << std::endl;
+					std::cout	<< (*it).first << " ==> "
+								<< _value << " = ";
+					// std::cout.precision(4);
+					std::cout	<< ((*it).second * _value)
+								<< " (" << dateInput << " not found)"
+								<< std::endl;
 				}
 				else
-					std::cout << (*it).first << " ==> " << _value << " = " << (*it).second * _value << std::endl;
+					std::cout	<< (*it).first << " ==> "
+								<< _value << " = "
+								<< ((*it).second * _value)
+								<< std::endl;
 			}
 		}
 	}
