@@ -20,9 +20,9 @@
 # define ERR_BAD_IN_DB "bad input in database. ]"
 # define ERR_BAD_DATE_DB "bad date in database. ]"
 
-// # define DB_FILE "data.csv"
+# define DB_FILE "data.csv"
 // # define DB_FILE "data_bad_title.csv"
-# define DB_FILE "data_with_err.csv"
+// # define DB_FILE "data_with_err.csv"
 
 # define DB_HEADER "date,exchange_rate"
 # define IN_HEADER "date | value"
@@ -40,8 +40,6 @@ class	BitcoinExchange
 		bool	checkValidityDB(std::string line);
 		bool	checkValidityInput(std::string line);
 		bool	checkTitle(std::string line, std::string fileName);
-
-		void	print();
 
 		class fileError: public std::exception
 		{
@@ -73,9 +71,6 @@ class	BitcoinExchange
 	private:
 		std::map<std::string, float>	_priceDB;
 		std::map<int, int>				_maxDaysPerMonth;
-		// int								_year;
-		// int								_month;
-		// int								_day;
 		float							_value;
 };
 

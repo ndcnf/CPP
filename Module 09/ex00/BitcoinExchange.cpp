@@ -234,11 +234,3 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 	}
 	return (false);
 }
-
-void	BitcoinExchange::print()
-{
-	for (std::map<std::string, float>::iterator it=_priceDB.begin(); it != _priceDB.end(); it++)
-	{
-		std::cout << (*it).first << " # " << (*it).second << std::endl;
-	}
-}

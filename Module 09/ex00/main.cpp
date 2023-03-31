@@ -20,8 +20,6 @@ int	main(int argc, char *argv[])
 
 		if (!btc.getFileContentInput(file))
 			throw (BitcoinExchange::fileError());
-
-		// btc.print();
 	}
 	catch (std::exception &e)
 	{
