@@ -130,7 +130,6 @@ void	PmergeMe::sortBinarySearchVector()
 	}
 }
 
-
 void	PmergeMe::sortWithVector(int argc, char *argv[])
 {
 	_timeVector = clock();
@@ -250,7 +249,6 @@ void	PmergeMe::sortBinarySearchList()
 		}
 	}
 }
-
 
 void	PmergeMe::sortWithList(int argc, char *argv[])
 {

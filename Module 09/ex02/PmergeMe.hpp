@@ -7,6 +7,7 @@
 # include <stdexcept>
 # include <utility>
 # include <ctime>
+# include <limits>
 
 # include <list>
 # include <vector>
@@ -41,21 +42,21 @@ class PmergeMe
 		clock_t	getTimeVector();
 		clock_t	getTimeList();
 
+		class maxIntError: public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Error: Numbers must be integers only.");
+				}
+		};
+
 		class argsError: public std::exception
 		{
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Arguments error.");
-				}
-		};
-
-		class impossibleError: public std::exception
-		{
-			public:
-				virtual const char* what() const throw()
-				{
-					return ("Operation impossible.");
+					return ("Error: Arguments error.");
 				}
 		};
 
@@ -64,7 +65,7 @@ class PmergeMe
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Invalid characters.");
+					return ("Error: Invalid characters.");
 				}
 		};
 
@@ -73,7 +74,7 @@ class PmergeMe
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Duplicate found.");
+					return ("Error: Duplicate found. They are not allowed.");
 				}
 		};
 

@@ -14,6 +14,9 @@ int	main(int argc, char *argv[])
 
 		for (int i = 1; i < argc; i++)
 		{
+			if (atol(argv[i]) > std::numeric_limits<int>::max())
+				throw(PmergeMe::maxIntError());
+
 			std::string str(argv[i]);
 			for (unsigned int j = 0; j < str.length(); j++)
 			{
