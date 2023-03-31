@@ -12,7 +12,7 @@ int	main(int argc, char *argv[])
 			throw (BitcoinExchange::argsError());
 
 		std::string			file = argv[1];
-		std::string			data = "data.csv";
+		std::string			data = DB_FILE;
 		BitcoinExchange		btc;
 
 		if (!btc.getFileContentDB(data))
@@ -20,6 +20,8 @@ int	main(int argc, char *argv[])
 
 		if (!btc.getFileContentInput(file))
 			throw (BitcoinExchange::fileError());
+
+		// btc.print();
 	}
 	catch (std::exception &e)
 	{

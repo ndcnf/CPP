@@ -19,7 +19,11 @@
 # define ERR_TOO_EARLY "Bitcoin wasn't even invented yet."
 # define ERR_BAD_IN_DB "bad input in database. ]"
 # define ERR_BAD_DATE_DB "bad date in database. ]"
-# define DB_FILE "data.csv"
+
+// # define DB_FILE "data.csv"
+// # define DB_FILE "data_bad_title.csv"
+# define DB_FILE "data_with_err.csv"
+
 # define DB_HEADER "date,exchange_rate"
 # define IN_HEADER "date | value"
 
@@ -37,6 +41,8 @@ class	BitcoinExchange
 		bool	checkValidityInput(std::string line);
 		bool	checkTitle(std::string line, std::string fileName);
 
+		void	print();
+
 		class fileError: public std::exception
 		{
 			public:
@@ -46,12 +52,21 @@ class	BitcoinExchange
 				}
 		};
 
+		class formatError: public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("Error: File format invalid.");
+				}
+		};
+
 		class argsError: public std::exception
 		{
 			public:
 				virtual const char* what() const throw()
 				{
-					return ("Arguments error.");
+					return ("Error: Bad arguments.");
 				}
 		};
 
