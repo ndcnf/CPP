@@ -98,9 +98,10 @@ void	PmergeMe::sortBinarySearchVector()
 	for (std::vector< std::pair<int, int> >::iterator it=_vector.begin(); it != _vector.end(); it++)
 	{
 		int	i = _sortedVector.size()/2;
+
 		if ((*it).second < _sortedVector[i])
 		{
-			while ((*it).second < _sortedVector[i])
+			while ((*it).second < _sortedVector[i] && i != 0)
 			{
 				i--;
 				if (((*it).second > _sortedVector[i]))
@@ -109,6 +110,8 @@ void	PmergeMe::sortBinarySearchVector()
 					continue;
 				}
 			}
+			if (i == 0)
+				_sortedVector.insert(_sortedVector.begin(), (*it).second);
 		}
 		else
 		{
@@ -218,7 +221,7 @@ void	PmergeMe::sortBinarySearchList()
 
 		if ((*it).second < (*itl))
 		{
-			while ((*it).second < (*itl))
+			while ((*it).second < (*itl) && itl != _sortedList.begin())
 			{
 				itl--;
 				if ((*it).second > (*itl))
@@ -229,6 +232,8 @@ void	PmergeMe::sortBinarySearchList()
 					continue;
 				}
 			}
+			if (itl == _sortedList.begin())
+				_sortedList.insert(_sortedList.begin(), (*it).second);
 		}
 		else
 		{
