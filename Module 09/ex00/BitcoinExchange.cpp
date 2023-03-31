@@ -43,6 +43,10 @@ bool	BitcoinExchange::getFileContentDB(std::string file)
 	bool			titleOK = false;
 	bool			first = true;
 	std::string		dateDB;
+	size_t	found = file.find(".csv");
+
+	if (found == std::string::npos)
+		throw (formatError());
 
 	if (ifs.is_open())
 	{

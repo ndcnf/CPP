@@ -21,6 +21,7 @@
 # define ERR_BAD_DATE_DB "bad date in database. ]"
 
 # define DB_FILE "data.csv"
+// # define DB_FILE "data.txt"
 // # define DB_FILE "data_bad_title.csv"
 // # define DB_FILE "data_with_err.csv"
 
