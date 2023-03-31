@@ -58,9 +58,9 @@ class	BitcoinExchange
 	private:
 		std::map<std::string, float>	_priceDB;
 		std::map<int, int>				_maxDaysPerMonth;
-		int								_year;
-		int								_month;
-		int								_day;
+		// int								_year;
+		// int								_month;
+		// int								_day;
 		float							_value;
 };
 

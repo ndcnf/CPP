@@ -25,9 +25,9 @@ BitcoinExchange	&BitcoinExchange::operator=(BitcoinExchange const &rhs)
 {
 	_priceDB = rhs._priceDB;
 	_maxDaysPerMonth = rhs._maxDaysPerMonth;
-	_year = rhs._year;
-	_month = rhs._month;
-	_day = rhs._day;
+	// _year = rhs._year;
+	// _month = rhs._month;
+	// _day = rhs._day;
 	_value = rhs._value;
 
 	return (*this);
@@ -100,14 +100,18 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 				first = false;
 			}
 			else
+			{
+				std::cout << "CONTENT: " << content << std::endl;
 				dateOK = checkValidityInput(content);
+				std::cout << dateOK << std::endl;
+			}
 
 			if (dateOK && titleOK)
 			{
 				dateInput = content.substr(0, 10);
-
 				std::map<std::string, float>::iterator	it = _priceDB.lower_bound(dateInput);
-				if ((*it).first > dateInput)
+
+				if ((*it).first > dateInput || (it) == _priceDB.end())
 				{
 					if ((it) != _priceDB.begin())
 					{
@@ -122,7 +126,7 @@ bool	BitcoinExchange::getFileContentInput(std::string file)
 						std::cout << ERROR ERR_TOO_EARLY << std::endl;
 				}
 				else
-					std::cout	<< (*it).first << " ==> "
+					std::cout	<< dateInput << " ==> "
 								<< std::setw(10) << std::left << _value << " = "
 								<< std::setw(15) << std::right << ((*it).second * _value)
 								<< std::endl;
@@ -153,40 +157,41 @@ bool	BitcoinExchange::checkValidityDB(std::string line)
 		return (false);
 	}
 
-	_year = atoi(line.substr(0, 4).c_str());
-	_month = atoi(line.substr(5, 2).c_str());
-	_day = atoi(line.substr(8, 2).c_str());
+	int	year = atoi(line.substr(0, 4).c_str());
+	int	month = atoi(line.substr(5, 2).c_str());
+	int	day = atoi(line.substr(8, 2).c_str());
 	_value = atof(line.substr(11).c_str());
 
 	if (line[4] == '-' && line[7] == '-')
 	{
-		if (_year < 1000 || _year > 3000)
+		if (year < 1000 || year > 3000)
 			return (false);
 
 		for (std::map<int, int>::iterator it=_maxDaysPerMonth.begin(); it !=_maxDaysPerMonth.end(); it++)
 		{
-			if (_month == (*it).first)
+			if (month == (*it).first)
 			{
-				if (_day <= (*it).second)
+				if (day <= (*it).second)
 					return (true);
 			}
 		}
 	}
-	std::cout << WARNING ERR_BAD_DATE_DB " => " << _year << "-" << _month << "-" << _day << "]" << std::endl;
+	std::cout << WARNING ERR_BAD_DATE_DB " => " << year << "-" << month << "-" << day << "]" << std::endl;
 	return (false);
 }
 
 bool	BitcoinExchange::checkValidityInput(std::string line)
 {
+	std::cout << line[11] << std::endl;
 	if (line[11] != '|')
 	{
 		std::cout << ERROR ERR_BAD_IN "( ==> " << line << ")" << std::endl;
 		return (false);
 	}
 
-	_year = atoi(line.substr(0, 4).c_str());
-	_month = atoi(line.substr(5, 2).c_str());
-	_day = atoi(line.substr(8, 2).c_str());
+	int	year = atoi(line.substr(0, 4).c_str());
+	int	month = atoi(line.substr(5, 2).c_str());
+	int	day = atoi(line.substr(8, 2).c_str());
 
 	if (!isdigit(line[13]))
 	{
@@ -198,8 +203,14 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 
 		return (false);
 	}
+	std::cout	<< "atof: " << atof(line.substr(13).c_str())
+				<< "_value : [" << _value;
+				// << std::endl;
 
 	_value = atof(line.substr(13).c_str());
+
+	std::cout	<< " > " << _value << "]"
+				<< std::endl;
 
 	if (_value > 1000)
 	{
@@ -207,22 +218,22 @@ bool	BitcoinExchange::checkValidityInput(std::string line)
 		return (false);
 	}
 
-	std::cout << _year << "." << _month << "." << _day << "." << _value << std::endl;
+	std::cout << line[4] << "." << line[7] << "..." << _value << std::endl;
 
 	if (line[4] == '-' && line[7] == '-')
 	{
-		if (_year < 1000 || _year > 3000)
+		if (year < 1000 || year > 3000)
 			return (false);
 
 		for (std::map<int, int>::iterator it=_maxDaysPerMonth.begin(); it !=_maxDaysPerMonth.end(); it++)
 		{
-			if (_month == (*it).first)
+			if (month == (*it).first)
 			{
-				if (_day <= (*it).second)
+				if (day <= (*it).second)
 					return (true);
 			}
 		}
-		std::cout << ERROR ERR_BAD_DATE_IN " => " << _year << "-" << _month << "-" << _day << std::endl;
+		std::cout << ERROR ERR_BAD_DATE_IN " => " << year << "-" << month << "-" << day << std::endl;
 	}
 	return (false);
 }
