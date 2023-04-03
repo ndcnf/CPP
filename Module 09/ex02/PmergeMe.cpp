@@ -97,7 +97,7 @@ void	PmergeMe::sortBinarySearchVector()
 {
 	for (std::vector< std::pair<int, int> >::iterator it=_vector.begin(); it != _vector.end(); it++)
 	{
-		if (_vector.size() == 1)
+		if (_vector.size() == 1 && it !=_vector.begin())
 		{
 			_sortedVector.insert(_sortedVector.begin(), (*it).second);
 			continue;
@@ -211,7 +211,7 @@ void	PmergeMe::sortBinarySearchList()
 {
 	for (std::list< std::pair<int, int> >::iterator it=_list.begin(); it != _list.end(); it++)
 	{
-		if (_list.size() == 1)
+		if (_list.size() == 1 && it != _list.begin())
 		{
 			_sortedList.insert(_sortedList.begin(), (*it).second);
 			continue;
